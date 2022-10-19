@@ -1,6 +1,36 @@
 version: '3.3'
 services:
-  web:
-    image: tubes-1:latest
+  app.wbd1:
+    container_name: app-tubes-1-wbd
+    build:
+      context: ./src/app
+      dockerfile: ../../app.Dockerfile
+    image: app-tubes-1-wbd:latest
+    volumes:
+      - ./src/app:/usr/src
     ports:
-      - 8008:80
+      - 8001:8001
+
+  database.wbd1:
+    container_name: database-tubes-1-wbd
+    build:
+      context: ./src/database
+      dockerfile: ../../database.Dockerfile
+    image: database-tubes-1-wbd:latest
+    environment:
+      MYSQL_USER: tubes
+      MYSQL_PASSWORD: tubes
+      MARIADB_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tubes_wbd
+    ports:
+      - 3312:3312
+
+  adminer:
+    container_name: adminer
+    image: adminer:4.8.1
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+    restart: always
+    ports:
+      - 8080:8080
+    

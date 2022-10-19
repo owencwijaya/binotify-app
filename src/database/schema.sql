@@ -27,7 +27,11 @@ CREATE TABLE `USER` (
   `email` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `Username` varchar(256) NOT NULL,
+<<<<<<< HEAD
   `isadmin` tinyint(1) DEFAULT false,
+=======
+  `isadmin` tinyint(1) NOT NULL,
+>>>>>>> 7e89d61 (chore: configure docker compose)
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
