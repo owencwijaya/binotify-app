@@ -1,0 +1,23 @@
+/* CSS for general usage */
+
+/* Montserrat font (src: https://fonts.google.com/specimen/Montserrat?query=montserrat#styles) */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+html {
+    height: 100vh;
+    padding: 0px;
+}
+  
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-weight: normal;
+}
+
+a {
+    font-weight: bold;
+    color: #ededed;
+}
