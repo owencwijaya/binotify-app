@@ -75,7 +75,7 @@ body, html {
     border-radius: 10px;
 }
 
-.error-message{
+#register-error-message{
     color: #d6483e;
     font-size: 20px;
     font-weight: bold;

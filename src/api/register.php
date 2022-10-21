@@ -1,49 +1,48 @@
 <?php
     include("connect.php");
 
-
-    function runAlert($message) {
-        echo "<script type = 'text/javascript'>
-            alert('$message');
-        </script>";
-        // header("Location: ../register.php");
-    }
-
-
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $confirm_password = $_POST["confirm-password"];
 
-    // check if the confirmed password matches inputted password
-    if ($password != $confirm_password) {
-        runAlert ("Passwords do not match!");
-        exit;
-    }
     // check if data with corresponding username / email has existed previously
-    $query = "SELECT * FROM USER WHERE `Username` = '$username' OR email = '$email';";    
+    $query = "SELECT * FROM user WHERE username = '$username' OR email = '$email';";    
     $data = $conn->query($query);
 
     // if data has existed previously, update the message inside `error-message` component
     if ($data->num_rows > 0) {
-        // output data of each row
-        runAlert("This username/email has been registered!");
-        exit;
+        http_response_code(400);
+        exit(json_encode(
+            [
+                "status" => 400,
+                "message" => "The username / e-mail has been registered! ",
+                "data" => ""
+            ]
+        ));
     }
 
     // test if inputting data succeed or not
     $hashed_password = hash('ripemd160', $password);
 
-    
-    $query = "INSERT INTO USER (`Username`, email, `password`) VALUES ('$username', '$email', '$hashed_password');";
-
+    $query = "INSERT INTO user (username, email, `password`) VALUES ('$username', '$email', '$hashed_password');";
 
     if (!($conn->query($query))) {
-        runAlert("Registering data failed, please try again later :(");
-        exit;
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Error in registering user, please try again later!",
+                "data" => ""
+            ]
+        ));
     }
 
-    // redirect to main here
-    echo("<script>alert('Data registered successfully!');</script>");
-    header("Location: ../login.");
+    http_response_code(200);
+    exit(json_encode(
+        [
+            "status" => 200,
+            "message" => "User registered successfully!",
+            "data" => ""
+        ]
+    ));
 ?>

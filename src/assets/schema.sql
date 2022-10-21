@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `USER`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `USER`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `USER` (
+CREATE TABLE `user` (
   `user_id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
-  `Username` varchar(256) NOT NULL,
+  `username` varchar(256) NOT NULL,
   `isadmin` tinyint(1) DEFAULT false,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `USER`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `USER` WRITE;
-/*!40000 ALTER TABLE `USER` DISABLE KEYS */;
-/*!40000 ALTER TABLE `USER` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -50,12 +50,12 @@ DROP TABLE IF EXISTS `album`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `album` (
   `album_id` int NOT NULL AUTO_INCREMENT,
-  `Judul` varchar(64) NOT NULL,
-  `Penyanyi` varchar(128) DEFAULT NULL,
-  `Total_duration` int NOT NULL,
-  `Image_path` varchar(256) NOT NULL,
-  `Tanggal_terbit` date NOT NULL,
-  `Genre` varchar(64) DEFAULT NULL,
+  `judul` varchar(64) NOT NULL,
+  `penyanyi` varchar(128) DEFAULT NULL,
+  `total_duration` int NOT NULL,
+  `image_path` varchar(256) NOT NULL,
+  `tanggal_terbit` date NOT NULL,
+  `genre` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`album_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -78,13 +78,13 @@ DROP TABLE IF EXISTS `song`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `song` (
   `song_id` int NOT NULL AUTO_INCREMENT,
-  `Judul` varchar(64) NOT NULL,
-  `Penyanyi` varchar(128) DEFAULT NULL,
-  `Tanggal_terbit` date NOT NULL,
-  `Genre` varchar(64) DEFAULT NULL,
-  `Duration` int NOT NULL,
-  `Audio_path` varchar(256) NOT NULL,
-  `Image_path` varchar(256) DEFAULT NULL,
+  `judul` varchar(64) NOT NULL,
+  `penyanyi` varchar(128) DEFAULT NULL,
+  `tanggal_terbit` date NOT NULL,
+  `genre` varchar(64) DEFAULT NULL,
+  `duration` int NOT NULL,
+  `audio_path` varchar(256) NOT NULL,
+  `image_path` varchar(256) DEFAULT NULL,
   `album_id` int DEFAULT NULL,
   PRIMARY KEY (`song_id`),
   KEY `fk_album_id` (`album_id`),
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 
 -- Dump completed on 2022-10-19 13:10:43
 
-INSERT INTO `USER` VALUES (0, 'admin@Binotify.com', 'admin', 'admin', true);
+INSERT INTO `user` VALUES (0, 'admin@binotify.com', 'admin', 'admin', true);
