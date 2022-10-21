@@ -3,19 +3,19 @@ services:
   app.wbd1:
     container_name: app-tubes-1-wbd
     build:
-      context: ./src/app
-      dockerfile: ../../app.Dockerfile
+      context: ./src
+      dockerfile: ../app.Dockerfile
     image: app-tubes-1-wbd:latest
     volumes:
-      - ./src/app:/usr/src
+      - ./src:/usr/src
     ports:
       - 8001:8001
 
   database.wbd1:
     container_name: database-tubes-1-wbd
     build:
-      context: ./src/database
-      dockerfile: ../../database.Dockerfile
+      context: ./src
+      dockerfile: ../database.Dockerfile
     image: database-tubes-1-wbd:latest
     environment:
       MYSQL_USER: tubes
