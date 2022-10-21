@@ -6,7 +6,7 @@ const registerCallback = (data) => {
     if (res["status"] === 200) {
         window.location = "/login.html"
     } else {
-        document.getElementById("register-error-message").innerHTML = message;
+        document.getElementById("register-error-message").innerHTML = res["message"];
     }
 
     return;
@@ -17,7 +17,6 @@ const register = (event) => {
     event.preventDefault();
 
     document.getElementById("register-error-message").innerHTML = ""
-
 
     email = document.getElementById("email").value
     password = document.getElementById("password").value;
@@ -33,9 +32,8 @@ const register = (event) => {
     try {
         const formData = new FormData(event.target);
         request("POST", "/api/auth/register.php", formData, registerCallback);
-        return;
+        return; 
     } catch (err) {
         alert(err);
     }
-
 }
