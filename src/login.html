@@ -16,7 +16,7 @@
         <div class = "centered-box">
             <h1>Login</h1>
 
-            <form>
+            <form onSubmit = "login(event)">
                 <div class = "form-element">
                     <label for = "username">Username / Email</label>
                     <input type = "text" name = "username" id = "username" placeholder = "Insert your username here..." required>
@@ -29,9 +29,12 @@
                 <button type = "submit" id = "login-selection-button" class = "inline-button">LOGIN</button>
             </form> 
 
-            <p class = "error-message"></p>
+            <p id = "login-error-message"></p>
 
             <p>Don't have an account? <a href = "register.html">Register</a></p> 
         </div>
     </body>
+
+    <script type = "text/javascript" src = "scripts/request.js"></script>
+    <script type = "text/javascript" src = "scripts/pages/login.js"></script>
 </html>
