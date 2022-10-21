@@ -6,7 +6,7 @@ const loginCallback = (data) => {
     if (res["status"] === 200) {
         window.location = "/main.html"
     } else {
-        document.getElementById("login-error-message").innerHTML = message;
+        document.getElementById("login-error-message").innerHTML = res["message"];
     }
 
     return;
@@ -23,7 +23,7 @@ const login = (event) => {
 
     try {
         const formData = new FormData(event.target);
-        request("POST", "/api/login.php", formData, loginCallback);
+        request("POST", "/api/auth/login.php", formData, loginCallback);
         return;
     } catch (err) {
         alert(err);

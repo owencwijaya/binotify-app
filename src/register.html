@@ -16,13 +16,23 @@
 
             <form onSubmit = "register(event)">
                 <div class = "form-element">
+                    <label for = "name">Name</label>
+                    <input type = "text" name = "name" id = "name" 
+                    placeholder = "Insert your name here..." required>
+                </div>
+
+                <div class = "form-element">
                     <label for = "username">Username</label>
-                    <input type = "text" name = "username" id = "username" placeholder = "Insert your username here..." required>
+                    <input type = "text" name = "username" id = "username" 
+                    placeholder = "Insert your username here..." onblur = "checkUnique(event, 'username')" required>
+                    <p id = "username-error-message"></p>
                 </div>
 
                 <div class = "form-element">
                     <label for = "email">E-mail</label>
-                    <input type = "text" name = "email" id = "email" placeholder = "Insert your e-mail here..." required>
+                    <input type = "text" name = "email" id = "email" 
+                    placeholder = "Insert your e-mail here..." onblur = "checkUnique(event, 'email')" required>
+                    <p id = "email-error-message"></p>
                 </div>
 
                 <div class = "form-element">
@@ -45,5 +55,7 @@
     </body>
 
     <script type = "text/javascript" src = "scripts/request.js"></script>
-    <script type = "text/javascript" src = "scripts/pages/register.js"></script>
+    <script type = "text/javascript" src = "scripts/pages/register/utils.js"></script>
+    <script type = "text/javascript" src = "scripts/pages/register/register.js"></script>
+    <script type = "text/javascript" src = "scripts/pages/register/check_unique.js"></script>
 </html>

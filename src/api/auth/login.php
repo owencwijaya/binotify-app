@@ -1,12 +1,12 @@
 <?php
-    include("connect.php");
+    include("../connect.php");
 
     $username = $_POST["username"];
     $password = $_POST["password"];
     $hashed_password = hash('ripemd160', $password);
 
     // check if data with corresponding username / email has existed previously
-    $query = "SELECT * FROM user WHERE (username = '$username' OR email = '$username') AND `password` = '$hashed_password';";    
+    $query = "SELECT * FROM user WHERE (username = '$username' OR email = '$username');";    
     $data = $conn->query($query);
 
     // if data has existed previously, update the message inside `error-message` component
@@ -27,6 +27,19 @@
             [
                 "status" => 500,
                 "message" => "Duplicate data detected!",
+                "data" => ""
+            ]
+        ));
+    }
+
+    $user_data = $data->fetch_array(MYSQLI_ASSOC);
+
+    if ($user_data["password"] != $hashed_password){
+        http_response_code(400);
+        exit(json_encode(
+            [
+                "status" => 400,
+                "message" => "Wrong username / password",
                 "data" => ""
             ]
         ));

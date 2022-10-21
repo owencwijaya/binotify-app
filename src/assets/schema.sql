@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `user_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
   `username` varchar(256) NOT NULL,
@@ -112,4 +113,5 @@ UNLOCK TABLES;
 
 -- Dump completed on 2022-10-19 13:10:43
 
-INSERT INTO `user` VALUES (0, 'admin@binotify.com', 'admin', 'admin', true);
+INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) 
+VALUES ('Admin', 'admin@binotify.com', 'admin', 'admin', true);

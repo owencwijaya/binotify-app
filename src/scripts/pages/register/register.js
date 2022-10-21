@@ -1,10 +1,3 @@
-const validateEmail = (email) => {
-    return email.match(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
-
-
 const registerCallback = (data) => {
     const res = JSON.parse(data)
 
@@ -37,16 +30,9 @@ const register = (event) => {
         return;
     }
 
-    // check email
-    if (!validateEmail(email)) {
-        alert("Invalid email; please input a valid email format!");
-        document.getElementById("register-error-message").innerHTML = "E-mail invalid";
-        return;
-    }
-
     try {
         const formData = new FormData(event.target);
-        request("POST", "/api/register.php", formData, registerCallback);
+        request("POST", "/api/auth/register.php", formData, registerCallback);
         return;
     } catch (err) {
         alert(err);
