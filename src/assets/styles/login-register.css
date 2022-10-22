@@ -7,7 +7,7 @@ body, html {
  
 .bg-image {
     background-image: url("../images/login-register-bg.jpg");
-    filter: blur(8px);
+    filter: blur(12px);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,39 +20,15 @@ body, html {
     background-color: rgba(0, 0, 0, 0.4);
     font-weight: bold;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30%;
-    padding: 2vw;
     text-align: center;
     border-radius: 10px;
 }
 
 .inline-button {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
     display: inline;
-    width: 60%;
-    margin: 1vh 1vw;
-    padding: 2vh 2vw;
-    border-radius: 10px;
-    border: 0px solid black;
-    font-family: 'Montserrat';
+    width: 90%;
     font-size: 20px;
     letter-spacing: .2rem;
-}
-
-.inline-button:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-    font-weight: bold;
-    transition-duration: 0.2s;
-}
-
-.inline-button:active{
-    background-color: rgba(255, 255, 255);
-    color: rgba(0, 0, 0);
-    transition-duration: 0.2s;
 }
 
 .form-element {

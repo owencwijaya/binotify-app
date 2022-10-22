@@ -48,6 +48,7 @@
     session_start();
     $session_id = session_id();
     $_SESSION["username"] = $username;
+    $_SESSION["isadmin"] = $user_data["isadmin"];
 
     http_response_code(200);
     exit(json_encode(
@@ -57,9 +58,9 @@
             "data" => json_encode(
                 [
                     "username" => $username,
-                    "session_id" => $session_id
+                    "session_id" => $session_id,
+                    "isadmin" => $user_data["isadmin"]
                 ]
-                
             )
         ]
     ));

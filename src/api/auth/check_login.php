@@ -16,7 +16,12 @@
         [
             "status" => 200,
             "message" => "You are logged in!",
-            "data" => $_SESSION["username"]
+            "data" => json_encode(
+                [
+                    "username" => $_SESSION["username"],
+                    "isadmin" => $_SESSION["isadmin"]
+                ]
+            )
         ]
     ));
 ?>
