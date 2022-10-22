@@ -45,12 +45,22 @@
         ));
     }
 
+    session_start();
+    $session_id = session_id();
+    $_SESSION["username"] = $username;
+
     http_response_code(200);
     exit(json_encode(
         [
             "status" => 200,
             "message" => "User logged in successfully!",
-            "data" => ""
+            "data" => json_encode(
+                [
+                    "username" => $username,
+                    "session_id" => $session_id
+                ]
+                
+            )
         ]
     ));
 ?>

@@ -114,4 +114,4 @@ UNLOCK TABLES;
 -- Dump completed on 2022-10-19 13:10:43
 
 INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) 
-VALUES ('Admin', 'admin@binotify.com', 'admin', 'admin', true);
+VALUES ('Admin', 'admin@binotify.com', '7dd12f3a9afa0282a575b8ef99dea2a0c1becb51', 'admin', true);
