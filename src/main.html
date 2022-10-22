@@ -13,7 +13,7 @@
       <div class="logo">
         <img src="assets/images/spotify-logo.png" alt="Binotify" class="logo-img"/>
       </div>
-      <div class="menu flex flex-col">
+      <div id="menu" class="menu flex flex-col">
         <a href="#" class="menu-item flex flex-row items-center">
             <img src="assets/icons/home.png" alt="Home" class="menu-item-icon"/>
           <span class="menu-text">Home</span>
@@ -22,84 +22,128 @@
             <img src="assets/icons/search.png" alt="Search" class="menu-item-icon"/>
           <span class="menu-text">Search</span>
         </a>
-        <a href="#" class="menu-item flex flex-row items-center">
-            <img src="assets/icons/library.png" alt="Library" class="menu-item-icon"/>
-          <span class="menu-text">Library</span>
+        <a href="/src/login.html" onclick="logout()" class="menu-item flex flex-row items-center">
+            <img src="assets/icons/logout.png" alt="Logout" class="menu-item-icon"/>
+          <span class="menu-text">Log Out</span>
         </a>
       </div>
 
-      <a href="#" class="create-playlist menu-item flex flex-row items-center">
+      <!-- <a href="#" class="create-playlist menu-item flex flex-row items-center">
         <img src="assets/icons/add.png" alt="Create Playlist" class="menu-item-icon"/>
         <span class="">Create Playlist</span>
-      </a>
+      </a> -->
 
-      <a href="#" class="liked-songs menu-item flex flex-row items-center">
+      <!-- <a href="#" class="liked-songs menu-item flex flex-row items-center">
         <img src="assets/icons/like.png" alt="Liked Songs" class="menu-item-icon"/>
         <span class="">Liked Songs</span>
-      </a>
-      <div class="line"></div>
-      <div class="playlist">
+      </a> -->
+      <!-- <div class="line"></div> -->
+      <!-- <div class="playlist">
         <a href="#" class="playlist-item">My Playlist #1</a>
-      </div>
+      </div> -->
     </nav>
 
-    <div class="content">
+    <div id="content" class="content">
         <div class="content-header flex flex-row justify-end">
-            <button onclick="logout()">Logout</button>
+          <div class="searchbar">
+            <input type="text" class="searchbar-input" placeholder="Search"/>
+            <img src="assets/icons/searchbar.png" alt="Search" class="searchbar-icon"/>
+          </div>
+          <div class="user flex flex-row items-center">
+            <p id="username" class="username">Username</p>
+            <img src="assets/icons/user.png" alt="user" class="user-img"/>
+          </div>
         </div>
 
         <div class="container">
             <div class="container-header">
-                <h2 class="container-title font-bold">Trending Now</h2>
+                <h2 class="container-title font-bold">Songs</h2>
                 <a href="#" class="font-normal">SEE ALL</a>
             </div>
             <div class="cards flex flex-row">
-                <div class="card">
+                <a href="#" class="card">
                     <img src="assets/images/album_manusia.jpg" alt="Album 1" class="card-img"/>
-                    <h3 class="card-title">Manusia</h3>
-                    <p class="card-description">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card">
+                    <h4 class="card-title">Hati-Hati di Jalan</h4>
+                    <div class="card-desc">
+                      <p class="card-artist">Tulus</p>
+                      <div class="flex flex-row justify-between">
+                        <p class="card-genre">Pop</p>
+                        <p class="card-year">2022</p>
+                      </div>
+                    </div>
+                </a>
+                <a href="#" class="card">
                     <img src="assets/images/album_gajah.jpg" alt="Album 1" class="card-img"/>
-                    <h3 class="card-title">Gajah</h3>
-                    <p class="card-description">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card">
+                    <h4 class="card-title">Jangan Cintai Aku Apa Adanya</h4>
+                    <div class="card-desc">
+                      <p class="card-artist">Tulus</p>
+                      <div class="flex flex-row justify-between">
+                        <p class="card-genre">Pop</p>
+                        <p class="card-year">2014</p>
+                      </div>
+                    </div>
+                </a>
+                <a href="#" class="card">
                     <img src="assets/images/album_tulus.jpg" alt="Album 1" class="card-img"/>
-                    <h3 class="card-title">Gajah</h3>
-                    <p class="card-description">Lorem ipsum dolor sit amet.</p>
-                </div>
+                    <h4 class="card-title">Sewindu</h4>
+                    <div class="card-desc">
+                      <p class="card-artist">Tulus</p>
+                      <div class="flex flex-row justify-between">
+                        <p class="card-genre">Pop</p>
+                        <p class="card-year">2011</p>
+                      </div>
+                    </div>
+                </a>
             </div>
         </div>
 
         <div class="container">
             <div class="container-header">
-                <h2 class="container-title font-bold">New Coming</h2>
+                <h2 class="container-title font-bold">Albums</h2>
                 <a href="#" class="font-normal">SEE ALL</a>
             </div>
             <div class="cards flex flex-row">
-                <div class="card">
-                    <img src="assets/images/album_manusia.jpg" alt="Album 1" class="card-img"/>
-                    <h3 class="card-title">Manusia</h3>
-                    <p class="card-description">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card">
+                <a href="#" class="card">
                     <img src="assets/images/album_gajah.jpg" alt="Album 1" class="card-img"/>
-                    <h3 class="card-title">Gajah</h3>
-                    <p class="card-description">Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card">
+                    <h4 class="card-title">Gajah</h4>
+                    <div class="card-desc">
+                      <p class="card-artist">Tulus</p>
+                      <div class="flex flex-row justify-between">
+                        <p class="card-genre">Pop</p>
+                        <p class="card-year">2014</p>
+                      </div>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <img src="assets/images/album_manusia.jpg" alt="Album 1" class="card-img"/>
+                    <h4 class="card-title">Manusia</h4>
+                    <div class="card-desc">
+                      <p class="card-artist">Tulus</p>
+                      <div class="flex flex-row justify-between">
+                        <p class="card-genre">Pop</p>
+                        <p class="card-year">2022</p>
+                      </div>
+                    </div>
+                </a>
+                <a href="#" class="card">
                     <img src="assets/images/album_tulus.jpg" alt="Album 1" class="card-img"/>
-                    <h3 class="card-title">Gajah</h3>
-                    <p class="card-description">Lorem ipsum dolor sit amet.</p>
-                </div>
+                    <h4 class="card-title">Tulus</h4>
+                    <div class="card-desc">
+                      <p class="card-artist">Tulus</p>
+                      <div class="flex flex-row justify-between">
+                        <p class="card-genre">Pop</p>
+                        <p class="card-year">2011</p>
+                      </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
   </body>
-
+  
+  <script type="module" src="scripts/pages/check_login.js"></script>
+  <!-- <script type="module" src="scripts/pages/home/fetch_song.js"></script> -->
   <script type="text/javascript" src="scripts/request.js"></script>
   <script type="text/javascript" src="scripts/cookies.js"></script>
-  <script type="module" src="scripts/pages/check_login.js"></script>
   <script type="text/javascript" src="scripts/logout.js"></script>
 </html>
