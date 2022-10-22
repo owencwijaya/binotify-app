@@ -115,3 +115,25 @@ UNLOCK TABLES;
 
 INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) 
 VALUES ('Admin', 'admin@binotify.com', '7dd12f3a9afa0282a575b8ef99dea2a0c1becb51', 'admin', true);
+
+INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) VALUES
+('User 01', 'user01@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user01', false),
+('User 02', 'user02@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user02', false),
+('User 03', 'user03@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user03', false),
+('User 04', 'user04@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user04', false),
+('User 05', 'user05@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user05', false),
+('User 06', 'user06@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user06', false),
+('User 07', 'user07@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user07', false),
+('User 08', 'user08@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user08', false),
+('User 09', 'user09@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user09', false),
+('User 10', 'user10@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user10', false),
+('User 11', 'user11@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user11', false),
+('User 12', 'user12@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user12', false),
+('User 13', 'user13@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user13', false),
+('User 14', 'user14@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user14', false),
+('User 15', 'user15@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user15', false),
+('User 16', 'user16@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user16', false),
+('User 17', 'user17@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user17', false),
+('User 18', 'user18@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user18', false),
+('User 19', 'user19@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user19', false),
+('User 20', 'user20@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user20', false);

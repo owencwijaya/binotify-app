@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     if (!(isset($_SESSION["username"]))) {
         http_response_code(401);
         exit(json_encode(
@@ -10,7 +12,7 @@
         ));
     }
 
-    if (($_SESSION["username"]) != "admin") {
+    if (!($_SESSION["isadmin"])) {
         http_response_code(403);
         exit(json_encode(
             [

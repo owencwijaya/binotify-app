@@ -2,24 +2,34 @@ const checkAdminCallback = (data) => {
     const res = JSON.parse(data)
 
     if (res["status"] !== 200) {
-        return false
+        if (res["status"] === 401){
+            location.href = "/index.html"
+        }
+        if (res["status"] === 403){
+            location.href = "/main.html"
+        }
     }
+
+
     return true;
 }
 
 
+const checkAdmin = () => {
+    try {
+        var session_id = getCookie('session_id') || getCookie('PHPSESSID')
 
-try {
-    var session_id = getCookie('session_id')
+        if (session_id){
+            const formData = new FormData();
+            formData.append('session_id', session_id);
+            request("POST", "/api/auth/check_admin.php", formData, checkAdminCallback);
+        }
 
-
-    if (session_id){
-        const formData = new FormData();
-        formData.append('session_id', getCookie("session_id"));
-        request("POST", "/api/auth/check_admin.php", formData, checkLoginCallback);
+    } catch (err) {
+        alert(err);
     }
-
-} catch (err) {
-    alert(err);
 }
+
+
+window.onload = checkAdmin;
 

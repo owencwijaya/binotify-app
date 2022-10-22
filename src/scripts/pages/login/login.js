@@ -3,8 +3,15 @@ const loginCallback = (data) => {
     const sentData = JSON.parse(res["data"]);
     
     if (res["status"] === 200) {
-        window.location = "/main.html"
+        alert(sentData["isadmin"])
         document.cookie = `${sentData["session_id"]};}`
+        alert(document.cookie)
+        if (sentData["isadmin"] == 1){
+            window.location = "/admin/user_list.html"
+            return;
+        }
+
+        window.location = "/main.html"
     } else {
         alert(res)
     }
