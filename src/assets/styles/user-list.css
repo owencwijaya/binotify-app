@@ -1,14 +1,14 @@
 body {
-    background: rgb(0,201,132);
-    background: linear-gradient(36deg, rgba(0,201,132,1) 0%, rgba(0,12,55,1) 49%, rgba(0,99,158,1) 100%);
+    background: #212121;
 }
+
 .pagination-table {
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
     font-weight: bold;
     position: absolute;
-    top: 55%;
-    left: 50%;
+    top: 50%;
+    left: 58%;
     width: 70%;
 }
 
