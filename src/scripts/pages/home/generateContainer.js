@@ -19,7 +19,7 @@ const generateContainer = (items, isAlbum) => {
         <div class="cards flex flex-row flex-wrap">
     `;
     items.forEach((item) => {
-      content += createCards(item);
+      content += createCards(item, isAlbum);
     });
 
     content += `</div>`;

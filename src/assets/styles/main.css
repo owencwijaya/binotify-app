@@ -24,13 +24,6 @@ a {
   text-decoration: none;
 }
 
-.sidebar {
-  position: fixed;
-  width: 200px;
-  height: 100%;
-  padding: 25px;
-}
-
 .logo {
   display: flex;
   align-items: center;
@@ -50,15 +43,6 @@ a {
 
 .menu-item-icon {
   margin-right: 20px;
-}
-
-.create-playlist {
-  margin-top: 45px;
-}
-
-.line {
-  margin: 10px 0;
-  border-bottom: 1px solid #fff;
 }
 
 .content {
@@ -121,7 +105,7 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 160px;
+  width: 180px;
   height: 280px;
   padding: 10px;
   background-color: #303030;
