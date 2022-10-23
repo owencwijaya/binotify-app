@@ -11,7 +11,7 @@
   <body>
     <div id="navigation-container"></div>
 
-    <div id="content" class="content">
+    <div class="content">
       <div class="content-header flex flex-row justify-end">
         <div class="searchbar">
           <input type="text" class="searchbar-input" placeholder="Search" />
@@ -26,114 +26,7 @@
           <img src="assets/icons/user.png" alt="user" class="user-img" />
         </div>
       </div>
-
-      <div class="container">
-        <div class="container-header">
-          <h2 class="container-title font-bold">Songs</h2>
-          <a href="#" class="font-normal">SEE ALL</a>
-        </div>
-        <div class="cards flex flex-row">
-          <a href="#" class="card">
-            <img
-              src="assets/images/album_manusia.jpg"
-              alt="Album 1"
-              class="card-img"
-            />
-            <h4 class="card-title">Hati-Hati di Jalan</h4>
-            <div class="card-desc">
-              <p class="card-artist">Tulus</p>
-              <div class="flex flex-row justify-between">
-                <p class="card-genre">Pop</p>
-                <p class="card-year">2022</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="card">
-            <img
-              src="assets/images/album_gajah.jpg"
-              alt="Album 1"
-              class="card-img"
-            />
-            <h4 class="card-title">Jangan Cintai Aku Apa Adanya</h4>
-            <div class="card-desc">
-              <p class="card-artist">Tulus</p>
-              <div class="flex flex-row justify-between">
-                <p class="card-genre">Pop</p>
-                <p class="card-year">2014</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="card">
-            <img
-              src="assets/images/album_tulus.jpg"
-              alt="Album 1"
-              class="card-img"
-            />
-            <h4 class="card-title">Sewindu</h4>
-            <div class="card-desc">
-              <p class="card-artist">Tulus</p>
-              <div class="flex flex-row justify-between">
-                <p class="card-genre">Pop</p>
-                <p class="card-year">2011</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="container-header">
-          <h2 class="container-title font-bold">Albums</h2>
-          <a href="#" class="font-normal">SEE ALL</a>
-        </div>
-        <div class="cards flex flex-row">
-          <a href="#" class="card">
-            <img
-              src="assets/images/album_gajah.jpg"
-              alt="Album 1"
-              class="card-img"
-            />
-            <h4 class="card-title">Gajah</h4>
-            <div class="card-desc">
-              <p class="card-artist">Tulus</p>
-              <div class="flex flex-row justify-between">
-                <p class="card-genre">Pop</p>
-                <p class="card-year">2014</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="card">
-            <img
-              src="assets/images/album_manusia.jpg"
-              alt="Album 1"
-              class="card-img"
-            />
-            <h4 class="card-title">Manusia</h4>
-            <div class="card-desc">
-              <p class="card-artist">Tulus</p>
-              <div class="flex flex-row justify-between">
-                <p class="card-genre">Pop</p>
-                <p class="card-year">2022</p>
-              </div>
-            </div>
-          </a>
-          <a href="#" class="card">
-            <img
-              src="assets/images/album_tulus.jpg"
-              alt="Album 1"
-              class="card-img"
-            />
-            <h4 class="card-title">Tulus</h4>
-            <div class="card-desc">
-              <p class="card-artist">Tulus</p>
-              <div class="flex flex-row justify-between">
-                <p class="card-genre">Pop</p>
-                <p class="card-year">2011</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+      <div id="container-songs" class="container-songs"></div>
     </div>
     <footer class="footer-container"></footer>
   </body>
@@ -144,4 +37,13 @@
   <script type="text/javascript" src="scripts/logout.js"></script>
   <script type="module" src="scripts/utils/navbar.js"></script>
   <script type="module" src="scripts/pages/home/getUsername.js"></script>
+  <script
+    type="text/javascript"
+    src="scripts/pages/home/createCards.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="scripts/pages/home/generateSongs.js"
+  ></script>
+  <script type="module" src="scripts/pages/home/getSongs.js"></script>
 </html>
