@@ -1,0 +1,86 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+.logo-img {
+  position: relative;
+  width: 70%;
+}
+
+.menu-item {
+  margin: 10px 0 10px 20px;
+}
+
+.menu-item-icon {
+  margin-right: 20px;
+}
+
+.create-playlist {
+  margin-top: 45px;
+}
+
+.line {
+  margin: 10px 0;
+  border-bottom: 1px solid #fff;
+}
+
+.content {
+  position: relative;
+  margin-left: 250px;
+  padding: 25px 25px 50px 25px;
+  min-height: 100vh;
+  background-color: #212121;
+}
+
+.song {
+  margin-top: 50px;
+}
+
+.song-left {
+  width: 50vw;
+}
+
+.song-img {
+  width: 60%;
+  max-width: 350px;
+}
+
+.song-right p {
+  font-size: 14px;
+}
+
+.song-album {
+  margin: 0;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.open-icon {
+  width: 12px;
+}
+
+.btn-play {
+  margin: 20px 0;
+  background-color: #1db954;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100px;
+  height: 36px;
+}
+
+.btn-play-text {
+  margin-right: 10px;
+}
+
+.btn-play-img {
+  width: 16px;
+}
+
+.hidden {
+  display: none;
+}

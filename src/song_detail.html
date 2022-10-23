@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binotify | Song</title>
+    <link rel="stylesheet" href="assets/styles/base.css" />
+    <link rel="stylesheet" href="assets/styles/song_details.css" />
+  </head>
+
+  <body>
+    <div id="navigation-container"></div>
+    <div id="content" class="content">
+      <div class="content-header">
+        <h2 class="content-title font-bold">Song Details</h2>
+      </div>
+      <div id="song-detail" class="song flex flex-row"></div>
+    </div>
+
+    <footer
+      id="footer-container"
+      class="footer hidden flex flex-row justify-between items-center"
+    >
+      <div id="footer-left" class="footer-left flex flex-row">
+        <img src="" alt="song" class="footer-song-img" />
+        <div class="flex flex-col justify-center">
+          <h3 class="font-bold"></h3>
+          <h5 class="font-normal"></h5>
+        </div>
+      </div>
+      <div id="footer-main" class="footer-main">
+        <audio id="player"></audio>
+        <span id="current-time">00:00</span>
+        <input type="range" id="seek-bar" value="0" max="100" />
+        <span id="duration"></span>
+      </div>
+      <div class="footer-right flex flex-row">
+        <button id="footer-btn-play" onclick="play_and_pause()">
+          <img src="assets/icons/play.png" alt="play" />
+        </button>
+        <!-- mute -->
+        <div class="flex flex-row items-center justify-center">
+          <input type="range" id="volume-bar" value="100" max="100" />
+          <button id="mute" onclick="mute()">
+            <img src="assets/icons/sound.png" alt="unmute" />
+          </button>
+        </div>
+        <button id="loop" onclick="loop()">
+          <img src="assets/icons/repeat.png" alt="loop" />
+        </button>
+      </div>
+    </footer>
+
+    <script type="module" src="scripts/pages/check_login.js"></script>
+    <script type="text/javascript" src="scripts/request.js"></script>
+    <script type="text/javascript" src="scripts/cookies.js"></script>
+    <script type="text/javascript" src="scripts/logout.js"></script>
+    <script type="module" src="scripts/utils/navbar.js"></script>
+    <script
+      type="text/javascript"
+      src="scripts/pages/song_details/set_song_details.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="scripts/pages/song_details/song.js"
+    ></script>
+  </body>
+</html>
