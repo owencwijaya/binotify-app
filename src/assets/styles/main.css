@@ -32,11 +32,11 @@ a {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 25px;
 }
 
 .logo-img {
@@ -45,20 +45,20 @@ a {
 }
 
 .menu-item {
-    margin: 10px 0 10px 20px;
+  margin: 10px 0 10px 20px;
 }
 
 .menu-item-icon {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .create-playlist {
-    margin-top: 45px;
+  margin-top: 45px;
 }
 
 .line {
-    margin: 10px 0;
-    border-bottom: 1px solid #fff;
+  margin: 10px 0;
+  border-bottom: 1px solid #fff;
 }
 
 .content {
@@ -70,7 +70,7 @@ a {
 }
 
 .content-header {
-    padding: 20px 10px;
+  padding: 20px 10px;
 }
 
 .searchbar {
@@ -106,39 +106,39 @@ a {
 }
 
 .container {
-    height: 360px;
-    padding: 10px;
+  height: 360px;
+  padding: 10px;
 }
 
 .container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 160px;
-    height: 280px;
-    padding: 10px;
-    background-color: #303030;
-    border-radius: 10px;
-    margin: 0 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  height: 280px;
+  padding: 10px;
+  background-color: #303030;
+  border-radius: 10px;
+  margin: 0 10px 20px 10px;
 }
 
 .card-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 5px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
 }
 
 .card-title {
-    font-weight: bold;
-    margin: 20px 0 10px 0;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
 }
 
 .card p {
