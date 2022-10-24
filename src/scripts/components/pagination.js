@@ -1,20 +1,8 @@
-const createPagination = (title, headers) => {
+const createPagination = (title) => {
     document.getElementById("pagination-container").innerHTML =
     `
         <h1>| ${title}</h1>
-        <table id="user-list-table">
-            <thead>
-                <tr>
-                ${headers.map((item) => {
-                    return `<th>${item}</th>`
-                }).join(' ')}
-                </tr>
-            </thead>
-
-            <tbody>
-
-            </tbody>
-        </table>
+        <div id = "pagination-content"></div>
 
         <div class="pagination-buttons">
             <button id="pagination-prev-button">Previous</button>

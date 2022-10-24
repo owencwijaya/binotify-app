@@ -13,30 +13,35 @@ const createNavbar = (data) => {
         />
       </div>
       <div id="menu" class="menu flex flex-col">
-        <a href="#" class="menu-item flex flex-row items-center">
+        <a href="index.html" class="menu-item flex flex-row items-center 
+        ${location.href.includes("index.html") && `sidebar-selected`}">
             <img src="assets/icons/home.png" alt="Home" class="menu-item-icon" />
             <span class="menu-text">Home</span >
         </a>
         ${
           isAdmin
             ? `
-            <a href="#" class="menu-item flex flex-row items-center">
+            <a href="add_songs.html" class="menu-item flex flex-row items-center
+            ${location.href.includes("add_songs.html") && `sidebar-selected`}">
                 <img src="assets/icons/add.png" alt="Add" class="menu-item-icon" />
                 <span class="menu-text">Add Songs</span>
             </a>
-            <a href="#" class="menu-item flex flex-row items-center">
+            <a href="add_albums.html" class="menu-item flex flex-row items-center
+            ${location.href.includes("add_albums.html") && `sidebar-selected`}">
                 <img src="assets/icons/add.png" alt="Add" class="menu-item-icon" />
                 <span class="menu-text">Add Albums</span>
             </a>
         `
             : `
-            <a href="#" class="menu-item flex flex-row items-center">
+            <a href="search.html?query=" class="menu-item flex flex-row items-center
+            ${location.href.includes("search.html") && `sidebar-selected`}">
                 <img src="assets/icons/search.png" alt="Search" class="menu-item-icon" />
                 <span class="menu-text">Search</span>
             </a>
         `
         }
-        <a href="#" class="menu-item flex flex-row items-center">
+        <a href="list_albums.html" class="menu-item flex flex-row items-center
+        ${location.href.includes("list_albums.html") && `sidebar-selected`}">
             <img src="assets/icons/library.png" alt="Albums" class="menu-item-icon" />
             <span class="menu-text">List Albums</span>
         </a>

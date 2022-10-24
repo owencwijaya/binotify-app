@@ -1,28 +1,20 @@
-const getUserListCallback = (data) => {
+const getSearchCallback = (data) => {
     const res = JSON.parse(data)
-    const sentData = JSON.parse(res["data"]);
+
+    let sentData;
+
+    if (res["status"] === 200){
+        sentData = JSON.parse(res["data"]);
+    }
 
     if (res["status"] === 200) {
-        
         var paginationContent = document.getElementById('pagination-content');
-        paginationContent.innerHTML = `
-            <table id="list-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-
-            <tbody>
-            ${sentData["rows"]}
-            </tbody>
-            </table>
-        `
-        // var listTable = document.getElementById('list-table');
-        // var tbody = listTable.getElementsByTagName('tbody')[0];
-        // tbody.innerHTML = sentData["rows"];
+        
+        paginationContent.innerHTML = "";
+        
+        sentData["rows"].forEach((item) =>{
+          paginationContent.innerHTML += createInfoRow(item);
+        })
 
         var pageNumber = parseInt(sentData["page_number"]);
         var pageTotal = parseInt(sentData["page_total"]);
@@ -37,14 +29,14 @@ const getUserListCallback = (data) => {
             prevButton.disabled = true;
         } else {
             prevButton.disabled = false;
-            prevButton.onclick = () => getUserList(pageNumber - 1)
+            prevButton.onclick = () => getSongsList(pageNumber - 1)
         }
 
         if (pageNumber === pageTotal){
             nextButton.disabled = true;
         } else {
             nextButton.disabled = false;
-            nextButton.onclick = () => getUserList(pageNumber + 1)
+            nextButton.onclick = () => getSongsList(pageNumber + 1)
         }
     } else {
         alert(res["message"])
@@ -54,15 +46,19 @@ const getUserListCallback = (data) => {
 }
 
 
-const getUserList = (pageNumber = 1) => {
+const getSongsList = (pageNumber = 1) => {
     try {
+        const params = new URLSearchParams(window.location.search)
         const formData = new FormData();
         formData.append("page_number", pageNumber);
-        request("POST", "/api/admin/user_list.php", formData, getUserListCallback);
+        formData.append("query", params.get('query'));
+        formData.append("sort_by", params.get('sort_by'));
+        formData.append("filter_by", params.get('filter_by'));
+        request("POST", "/api/songs/search.php", formData, getSearchCallback);
         return;
     } catch (err) {
         alert(err);
     }
 }
 
-window.onload = getUserList(1);
+window.onload = getSongsList(1);

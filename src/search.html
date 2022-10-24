@@ -6,7 +6,7 @@
     <title>Binotify</title>
     <link rel="stylesheet" href="assets/styles/base.css" />
     <link rel="stylesheet" href="assets/styles/index.css" />
-
+    <link rel="stylesheet" href="assets/styles/pagination.css" />
   </head>
 
   <body>
@@ -20,12 +20,13 @@
           <img src="assets/icons/user.png" alt="user" class="user-img" />
         </div>
       </div>
-      <div id="container-songs"></div>
-      <div id="container-albums"></div>
+      <div id = "search-list">
+        <div id = "pagination-container" class="pagination-table search-pg"></div>
+      </div>
+
     </div>
     <footer class="footer-container"></footer>
 
-    <script type="module" src="scripts/pages/check_login.js"></script>
     <script type="module" src="scripts/pages/home/getUsername.js"></script>
   </body>
 
@@ -34,10 +35,13 @@
   <script type="text/javascript" src="scripts/logout.js"></script>
   <script type="module" src="scripts/components/navbar.js"></script>
 
+  <script type="text/javascript" src="scripts/components/pagination.js"></script>
+  <script type="text/javascript" src="scripts/components/infoRow.js"></script>
+  <script type="text/javascript" src="scripts/components/searchBar.js"></script>
+  <script type="module" src="scripts/pages/search/search.js"></script>
 
-  <script type="text/javascript" src="scripts/pages/home/createCards.js"></script>
-  <script type="text/javascript" src="scripts/pages/home/generateContainer.js"></script>
-  <script type="module" src="scripts/components/searchBar.js"></script>
-  <script type="module" src="scripts/pages/home/getSongs.js"></script>
-  <script type="module" src="scripts/pages/home/getAlbums.js"></script>
+    <script>
+        window.onload = createPagination("Song List", ['Title', 'Singer', 'Year Released', 'Genre']);
+        window.onload = createSearchBar()
+   </script>
 </html>
