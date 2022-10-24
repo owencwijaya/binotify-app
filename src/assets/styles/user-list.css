@@ -16,11 +16,11 @@ body {
     text-align: left;
     margin-left: 5vw;
 }
-.pagination-container {
+.pagination-buttons {
     margin: 2vh 2vw;
 }
 
-.pagination-container > button, p{
+.pagination-buttons > button, p{
     display: inline;
     margin: 20px;
 }

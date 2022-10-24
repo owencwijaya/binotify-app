@@ -12,36 +12,20 @@
     <body>
         <div id="navigation-container"></div>
 
-        <div class="centered-div pagination-table">
-            <h1>| User List</h1>
-            <table id="user-list-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
+        <div id = "pagination-container" class="centered-div pagination-table">
 
-                <tbody>
-
-                </tbody>
-            </table>
-
-            <div class="pagination-container">
-                <button id="pagination-prev-button">Previous</button>
-                <p id="page-info"></p>
-                <button id="pagination-next-button">Next</button>
-            </div>
         </div>
 
         <script type="module" src="scripts/pages/check_admin.js"></script>
         <script type="module" src="scripts/pages/admin/user_list/get.js"></script>
-        <button onclick="logout()">Logout</button>
     </body>
 
     <script type="text/javascript" src="scripts/request.js"></script>
     <script type="text/javascript" src="scripts/cookies.js"></script>
     <script type="text/javascript" src="scripts/logout.js"></script>
-    <script type="module" src="scripts/utils/navbar.js"></script>
+    <script type="text/javascript" src="scripts/components/pagination.js"></script>
+    <script type="module" src="scripts/components/navbar.js"></script>
+    <script>
+        window.onload = createPagination("User List", ['Name', 'Username', 'Email']);
+    </script>
 </html>
