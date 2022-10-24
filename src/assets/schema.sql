@@ -140,23 +140,25 @@ INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) VALUES
 
 
 INSERT INTO `album` (`judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`) VALUES
-('Gajah', 'Tulus', 1500, 'assets/images/album_gajah.jpg', '2014-02-19', 'Pop'),
-('Manusia', 'Tulus', 1500, 'assets/images/album_manusia.jpg', '2022-03-03', 'Pop'),
-('Monokrom', 'Tulus', 1500, 'assets/images/album_monokrom.jpg', '2016-08-03', 'Pop');
+('Gajah',	'Tulus',	1892,	'assets/images/album_gajah.jpg',	'2014-02-19',	'Pop'),
+('Manusia',	'Tulus',	2317,	'assets/images/album_manusia.jpg',	'2022-03-03',	'Pop'),
+('Monokrom',	'Tulus',	2137,	'assets/images/album_monokrom.jpg',	'2016-08-03',	'Pop'),
+('Tulus',	'Tulus',	1760,	'assets/images/album_tulus.jpg',	'2011-12-20',	'Pop');
 
 INSERT INTO `song` (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
-('Baru', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
-('Sepatu', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
-('Tanggal Merah', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
-('Gajah', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
-('Jangan Cintai Aku Apa Adanya', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
-('Tujuh Belas', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
-('Diri', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
-('Hati-Hati di Jalan', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
-('Manusia', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
-('Satu Kali', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
-('Manusia Kuat', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
-('Ruang Sendiri', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
-('Tergila-gila', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
-('Pamit', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
-('Monokrom', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3);
+('Baru',	'Tulus',	'2014-04-22',	'Pop',	178,	'assets/songs/Baru.mp3',	'assets/images/album_gajah.jpg',	1),
+('Sepatu',	'Tulus',	'2013-08-22',	'Pop',	219,	'assets/songs/Sepatu.mp3',	'assets/images/album_gajah.jpg',	1),
+('Tanggal Merah',	'Tulus',	'2014-02-19',	'Pop',	142,	'assets/songs/Tanggal Merah.mp3',	'assets/images/album_gajah.jpg',	1),
+('Gajah',	'Tulus',	'2014-02-19',	'Pop',	239,	'assets/songs/Gajah.mp3',	'assets/images/album_gajah.jpg',	1),
+('Jangan Cintai Aku Apa Adanya',	'Tulus',	'2015-01-10',	'Pop',	229,	'assets/songs/Jangan Cintai Aku Apa Adanya.mp3',	'assets/images/album_gajah.jpg',	1),
+('Tujuh Belas',	'Tulus',	'2022-02-23',	'Pop',	254,	'assets/songs/Tujuh Belas.mp3',	'assets/images/album_manusia.jpg',	2),
+('Diri',	'Tulus',	'2022-03-03',	'Pop',	240,	'assets/songs/Diri.mp3',	'assets/images/album_manusia.jpg',	2),
+('Hati-Hati di Jalan',	'Tulus',	'2022-03-03',	'Pop',	246,	'assets/songs/Hati-Hati di Jalan.mp3',	'assets/images/album_manusia.jpg',	2),
+('Interaksi',	'Tulus',	'2022-03-03',	'Pop',	230,	'assets/songs/Interaksi.mp3',	'assets/images/album_manusia.jpg',	2),
+('Nala',	'Tulus',	'2022-08-25',	'Pop',	260,	'assets/songs/Nala.mp3',	'assets/images/album_manusia.jpg',	2),
+('Manusia Kuat',	'Tulus',	'2017-04-26',	'Pop',	185,	'assets/songs/Manusia Kuat.mp3',	'assets/images/album_monokrom.jpg',	3),
+('Ruang Sendiri',	'Tulus',	'2016-07-27',	'Pop',	269,	'assets/songs/Ruang Sendiri.mp3',	'assets/images/album_monokrom.jpg',	3),
+('Tergila-gila',	'Tulus',	'2016-08-03',	'Pop',	232,	'assets/songs/Tergila-gila.mp3',	'assets/images/album_monokrom.jpg',	3),
+('Langit Abu-abu',	'Tulus',	'2018-04-20',	'Pop',	203,	'assets/songs/Langit Abu-abu.mp3',	'assets/images/album_monokrom.jpg',	3),
+('Monokrom',	'Tulus',	'2016-11-20',	'Pop',	215,	'assets/songs/Monokrom.mp3',	'assets/images/album_monokrom.jpg',	3),
+('Sewindu',	'Tulus',	'2011-12-20',	'Pop',	240,	'assets/songs/Sewindu.mp3',	'assets/images/album_tulus.jpg',	4);

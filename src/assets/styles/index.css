@@ -1,46 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-html {
-  height: 100%;
-  padding: 0px;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  height: 100%;
-}
-
-p {
-  font-weight: normal;
-  font-size: 12px;
-}
-
-a {
-  font-weight: bold;
-  color: #ededed;
-  text-decoration: none;
-}
-
-.sidebar {
-  position: fixed;
-  width: 200px;
-  height: 100%;
-  padding: 25px;
-}
-
 .sidebar-selected {
   text-decoration: underline solid white 3px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 25px;
 }
 
 .logo-img {
@@ -49,20 +18,20 @@ a {
 }
 
 .menu-item {
-    margin: 10px 0 10px 20px;
+  margin: 10px 0 10px 20px;
 }
 
 .menu-item-icon {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .create-playlist {
-    margin-top: 45px;
+  margin-top: 45px;
 }
 
 .line {
-    margin: 10px 0;
-    border-bottom: 1px solid #fff;
+  margin: 10px 0;
+  border-bottom: 1px solid #fff;
 }
 
 .content {
@@ -74,7 +43,7 @@ a {
 }
 
 .content-header {
-    padding: 20px 10px;
+  padding: 20px 10px;
 }
 
 #searchbar {
@@ -90,14 +59,14 @@ a {
   border: none;
   border-radius: 10px;
   padding: 10px;
-  font-family : "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .searchbar-icon {
   position: absolute;
   right: 0;
   top: 0;
-  margin-top: 2.5vh;
+  margin: 10px 10px;
   color: #fff;
 }
 
@@ -111,39 +80,39 @@ a {
 }
 
 .container {
-    height: 360px;
-    padding: 10px;
+  height: 360px;
+  padding: 10px;
 }
 
 .container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 160px;
-    height: 280px;
-    padding: 10px;
-    background-color: #303030;
-    border-radius: 10px;
-    margin: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 280px;
+  padding: 10px;
+  background-color: #303030;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .card-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 5px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
 }
 
 .card-title {
-    font-weight: bold;
-    margin: 20px 0 10px 0;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
 }
 
 .card p {
@@ -175,7 +144,6 @@ a {
   border-radius: 5px;
 }
 
-
 .row-title {
   font-weight: bold;
   margin: 20px;
@@ -186,7 +154,6 @@ a {
   display: inline-block;
   right: 0;
   margin-top: 20px;
-
 }
 
 .row-desc p {
