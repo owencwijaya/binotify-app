@@ -1,7 +1,7 @@
 <?php
     include("../connect.php");
 
-    $query = "SELECT * FROM song ORDER BY judul DESC";
+    $query = "SELECT * FROM song ORDER BY judul ASC";
     $data = $conn->query($query);
 
     if ($data->num_rows == 0) {
