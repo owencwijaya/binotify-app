@@ -1,8 +1,3 @@
-const userListListener = (pageNumber, page) => {
-    getUserList(pageNumber + page)
-}
-
-
 const getUserListCallback = (data) => {
     const res = JSON.parse(data)
     const sentData = JSON.parse(res["data"]);

@@ -7,7 +7,7 @@ const createNavbar = (data) => {
     <nav class="sidebar bg-black flex flex-col">
       <div class="logo">
         <img
-          src="assets/images/spotify-logo.png"
+          src="assets/images/binotify.png"
           alt="Binotify"
           class="logo-img"
         />
