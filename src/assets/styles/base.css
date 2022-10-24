@@ -100,8 +100,19 @@ tr {
     text-align: center;
 }
 
+tr:hover{
+    background-color:rgb(61, 61, 61);
+    transition-duration:0.2s;
+    border-radius: 10px;
+}
+
 th, td{
-    padding-top: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+}
+
+td{
+    font-style: normal !important;
 }
 
 .centered-div {

@@ -140,7 +140,23 @@ INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) VALUES
 
 
 INSERT INTO `album` (`judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`) VALUES
-('Tulus Geblek', 'Tulus', 1600, 'belom ada path album', '2019-01-01', 'Pop');
+('Gajah', 'Tulus', 1500, 'assets/images/album_gajah.jpg', '2014-02-19', 'Pop'),
+('Manusia', 'Tulus', 1500, 'assets/images/album_manusia.jpg', '2022-03-03', 'Pop'),
+('Monokrom', 'Tulus', 1500, 'assets/images/album_monokrom.jpg', '2016-08-03', 'Pop');
 
 INSERT INTO `song` (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
-('Bintang Kehidupan', 'Tulus', '2019-01-01', 'Pop', 300, 'null', 'null', 1);
+('Baru', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
+('Sepatu', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
+('Tanggal Merah', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
+('Gajah', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
+('Jangan Cintai Aku Apa Adanya', 'Tulus', '2014-02-19', 'Pop', 300, 'null', 'assets/images/album_gajah.jpg', 1),
+('Tujuh Belas', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
+('Diri', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
+('Hati-Hati di Jalan', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
+('Manusia', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
+('Satu Kali', 'Tulus', '2022-03-03', 'Pop', 300, 'null', 'assets/images/album_manusia.jpg', 2),
+('Manusia Kuat', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
+('Ruang Sendiri', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
+('Tergila-gila', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
+('Pamit', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3),
+('Monokrom', 'Tulus', '2016-08-03', 'Pop', 300, 'null', 'assets/images/album_monokrom.jpg', 3);

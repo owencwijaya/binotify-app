@@ -1,6 +1,13 @@
 const getUsernameCallback = (data) => {
   const res = JSON.parse(data);
-  const sentData = JSON.parse(res["data"]);
+
+
+  let sentData;
+
+  if (res["data"].length > 0){
+      sentData = JSON.parse(res["data"])
+  }
+
 
   if (res["status"] === 200) {
     document.getElementById("username").innerHTML = sentData["username"];
