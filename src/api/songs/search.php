@@ -13,7 +13,7 @@
 
     $lower_limit = ($page  - 1) * $limit;
 
-    $query = "SELECT `" . $_POST["table"] ."_id`,`judul`, `penyanyi`, `tanggal_terbit`,`genre`,`image_path` 
+    $query = "SELECT `" . $_POST["table"] ."_id`,`judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
     FROM " . $_POST["table"];
 
 
@@ -33,7 +33,7 @@
         }
 
         if ($_POST["sort_by"] === "year"){
-            $sort_by = "YEAR(`tanggal_terbit`)";
+            $sort_by = "`year`";
         }
         $query .= " ORDER BY " . $sort_by . " " . $_POST["sort_order"];
     } else {

@@ -13,7 +13,7 @@ const getListCallback = (data) => {
         paginationContent.innerHTML = "";
         
         sentData["rows"].forEach((item) =>{
-          paginationContent.innerHTML += createInfoRow(item);
+          paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album");
         })
 
         var pageNumber = parseInt(sentData["page_number"]);

@@ -95,9 +95,9 @@ a {
 
 .searchbar-icon {
   position: absolute;
-  margin-top: 10px;
-  right: 5px;
-  transform: translateY(-50%);
+  right: 0;
+  top: 0;
+  margin-top: 2.5vh;
   color: #fff;
 }
 
@@ -178,9 +178,17 @@ a {
 
 .row-title {
   font-weight: bold;
-  margin: 20px 0 10px 0;
+  margin: 20px;
 }
 
-.row p {
-  margin: 3px;
+.row-desc {
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  margin-top: 20px;
+
+}
+
+.row-desc p {
+  font-size: 15px;
 }

@@ -33,7 +33,7 @@ const createNavbar = (data) => {
             </a>
         `
             : `
-            <a href="song_list.html?query=" class="menu-item flex flex-row items-center
+            <a href="song_list.html" class="menu-item flex flex-row items-center
             ${location.href.includes("song_list.html") && `sidebar-selected`}">
                 <img src="assets/icons/search.png" alt="Search Songs" class="menu-item-icon" />
                 <span class="menu-text">Search Songs</span>

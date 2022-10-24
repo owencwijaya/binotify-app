@@ -1,6 +1,12 @@
-const createInfoRow = (item) =>{
-    return `
-    <a href="#" class="row">
+const createInfoRow = (item, isAlbum) =>{
+    let content = ""
+
+    if (!isAlbum) {
+        content = `<a href = "song_detail.html?song_id=${item["song_id"]}" class = "row">`
+    } else {
+        content = `<a href = "album_detail.html?song_id=${item["album_id"]}" class = "row">`
+    }
+    return content + `
         <img
             src="${item["image_path"]}"
             alt="row Image"
@@ -9,8 +15,8 @@ const createInfoRow = (item) =>{
         <h4 class="row-title">${item["judul"]}</h4>
         <div class="row-desc">
             <p class="row-artist">${item["penyanyi"]}</p>
-            <div class="flex flex-row justify-between">
             <p class="row-genre">${item["genre"]}</p>
+            <p class="row-genre">${item["year"]}</p>
             </div>
         </div>
     </a>
