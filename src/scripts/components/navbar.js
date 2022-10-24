@@ -33,15 +33,15 @@ const createNavbar = (data) => {
             </a>
         `
             : `
-            <a href="search.html?query=" class="menu-item flex flex-row items-center
-            ${location.href.includes("search.html") && `sidebar-selected`}">
-                <img src="assets/icons/search.png" alt="Search" class="menu-item-icon" />
-                <span class="menu-text">Search</span>
+            <a href="song_list.html?query=" class="menu-item flex flex-row items-center
+            ${location.href.includes("song_list.html") && `sidebar-selected`}">
+                <img src="assets/icons/search.png" alt="Search Songs" class="menu-item-icon" />
+                <span class="menu-text">Search Songs</span>
             </a>
         `
         }
-        <a href="list_albums.html" class="menu-item flex flex-row items-center
-        ${location.href.includes("list_albums.html") && `sidebar-selected`}">
+        <a href="album_list.html" class="menu-item flex flex-row items-center
+        ${location.href.includes("album_list.html") && `sidebar-selected`}">
             <img src="assets/icons/library.png" alt="Albums" class="menu-item-icon" />
             <span class="menu-text">List Albums</span>
         </a>

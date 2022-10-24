@@ -12,7 +12,7 @@ const createSearchBar = () => {
     document.getElementsByClassName("searchbar-input")[0].onkeydown = (event) => {
         if (event.key === "Enter"){
             event.preventDefault();
-            location.href = `/search.html?query=${document.getElementsByClassName("searchbar-input")[0].value}`
+            location.href = `/song_list.html${location.href.includes('?') ? '&' : '?'}query=${document.getElementsByClassName("searchbar-input")[0].value}`
         }
     }
 }
