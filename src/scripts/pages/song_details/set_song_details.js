@@ -24,6 +24,7 @@ const edit_admin = (song_id) => {
 };
 
 const set_song_details_callback = (response) => {
+  alert(response)
   const res = JSON.parse(response);
   const song = res.data;
 
@@ -99,4 +100,4 @@ const set_song_details = (song_id) => {
   }
 };
 
-set_song_details(new URLSearchParams(window.location.search).get("id"));
+set_song_details(new URLSearchParams(window.location.search).get("song_id"));

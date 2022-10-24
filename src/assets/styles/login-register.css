@@ -56,3 +56,12 @@ body, html {
     color: #d6483e;
     font-size: 15px;
 }
+
+.login-href{
+    color: #1db954;
+}
+
+.login-href:hover{
+    text-decoration: underline;
+    transition-duration: 0.5s;
+}
