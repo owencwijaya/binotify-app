@@ -137,3 +137,10 @@ INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) VALUES
 ('User 18', 'user18@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user18', false),
 ('User 19', 'user19@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user19', false),
 ('User 20', 'user20@binotify.com', '5f108ff6214b4b6bf0be36f3f1b4ae4f2f348064', 'user20', false);
+
+
+INSERT INTO `album` (`judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`) VALUES
+('Tulus Geblek', 'Tulus', 1600, 'belom ada path album', '2019-01-01', 'Pop');
+
+INSERT INTO `song` (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
+('Bintang Kehidupan', 'Tulus', '2019-01-01', 'Pop', 300, 'null', 'null', 1);

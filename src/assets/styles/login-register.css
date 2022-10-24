@@ -6,8 +6,7 @@ body, html {
   
  
 .bg-image {
-    background-image: url("../images/login-register-bg.jpg");
-    filter: blur(12px);
+    background-color:white;
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,8 +15,7 @@ body, html {
   
 
 .centered-box {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
+    color: black;
     font-weight: bold;
     position: absolute;
     text-align: center;
@@ -29,6 +27,7 @@ body, html {
     width: 90%;
     font-size: 20px;
     letter-spacing: .2rem;
+    border-radius: 30px;
 }
 
 .form-element {
@@ -38,21 +37,22 @@ body, html {
 }
 .form-element > label{
     font-weight: normal;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 .form-element > input {
     display: inline;
     width: 95%;
     margin-top: 10px;
-    padding: 20px;
-    font-size: 20px;
+    padding: 15px 20px;
+    font-size: 15px;
     border: 0px solid black;
-    border-radius: 10px;
+    border-radius: 6px;
+    border: 1px solid black;
+    font-family: "Montserrat", sans-serif;
 }
 
 #register-error-message, #login-error-message {
     color: #d6483e;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 15px;
 }
