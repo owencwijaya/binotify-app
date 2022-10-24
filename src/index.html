@@ -1,38 +1,53 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binotify</title>
+    <link rel="stylesheet" href="assets/styles/base.css" />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+  </head>
 
-<html lang = "en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel = "stylesheet" href = "assets/styles/index.css">
-        <link rel = "stylesheet" href = "assets/styles/login-register.css">
+  <body>
+    <div id="navigation-container"></div>
 
-        <title>Welcome to Binotify!</title>
-    </head>
-
-    <body>
-        <div class = "bg-image"></div>
-
-        <div class = "centered-div centered-box">
-            <h1>BiNotify<y/h1>
-
-            <p>Start listening to your favorite songs now!</p>
-
-            <button id = "login-selection-button" class = "inline-button">LOGIN</button>
-            <p>if you have an account, or</p>
-            <button id = "register-selection-button" class = "inline-button">REGISTER</button>
-            <p>if you don't have one.</p>
+    <div class="content">
+      <div class="content-header flex flex-row justify-end">
+        <div class="searchbar">
+          <input type="text" class="searchbar-input" placeholder="Search" />
+          <img
+            src="assets/icons/searchbar.png"
+            alt="Search"
+            class="searchbar-icon"
+          />
         </div>
+        <div class="user flex flex-row items-center">
+          <p id="username" class="username">Username</p>
+          <img src="assets/icons/user.png" alt="user" class="user-img" />
+        </div>
+      </div>
+      <div id="container-songs"></div>
+      <div id="container-albums"></div>
+    </div>
+    <footer class="footer-container"></footer>
 
-        <script type = "module" src = "scripts/pages/check_login.js"></script>
-    </body>
+    <script type="module" src="scripts/pages/check_login.js"></script>
+    <script type="module" src="scripts/pages/home/getUsername.js"></script>
+  </body>
 
-    <script type = "text/javascript">
-        document.getElementById("login-selection-button").onclick = () => { location.href = "login.html"; };
-        document.getElementById("register-selection-button").onclick = () => { location.href = "register.html"; };
-    </script>
+  <script type="text/javascript" src="scripts/request.js"></script>
+  <script type="text/javascript" src="scripts/cookies.js"></script>
+  <script type="text/javascript" src="scripts/logout.js"></script>
+  <script type="module" src="scripts/utils/navbar.js"></script>
 
-    <script type = "text/javascript" src = "scripts/request.js"></script>
-    <script type = "text/javascript" src = "scripts/cookies.js"></script>
-
+  <script
+    type="text/javascript"
+    src="scripts/pages/home/createCards.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="scripts/pages/home/generateContainer.js"
+  ></script>
+  <script type="module" src="scripts/pages/home/getSongs.js"></script>
+  <script type="module" src="scripts/pages/home/getAlbums.js"></script>
 </html>

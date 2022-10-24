@@ -1,6 +1,7 @@
 const createNavbar = (data) => {
   const res = JSON.parse(data);
   const isAdmin = res["status"] == 200;
+  const isLoggedIn = res["status"] == 401;
 
   document.getElementById("navigation-container").innerHTML = `
     <nav class="sidebar bg-black flex flex-col">
@@ -14,7 +15,7 @@ const createNavbar = (data) => {
       <div id="menu" class="menu flex flex-col">
         <a href="#" class="menu-item flex flex-row items-center">
             <img src="assets/icons/home.png" alt="Home" class="menu-item-icon" />
-            <span class="menu-text">Home</span>
+            <span class="menu-text">Home</span >
         </a>
         ${
           isAdmin
@@ -39,10 +40,27 @@ const createNavbar = (data) => {
             <img src="assets/icons/library.png" alt="Albums" class="menu-item-icon" />
             <span class="menu-text">List Albums</span>
         </a>
-        <a href="main.php" onClick="logout()" class="menu-item flex flex-row items-center">
-            <img src="assets/icons/logout.png" alt="logout" class="menu-item-icon" />
-            <span class="menu-text">Log Out</span>
-        </a>
+        ${
+          isLoggedIn ?
+            `
+            <a href = "./login.html" class="menu-item flex flex-row items-center">
+              <img src="assets/icons/login.png" alt="login" class="menu-item-icon" />
+              <span class="menu-text">Login</span>
+            </a>
+
+            <a href = "./register.html" class="menu-item flex flex-row items-center">
+              <img src="assets/icons/register.png" alt="register" class="menu-item-icon" />
+              <span class="menu-text">Register</span>
+            </a>
+            `
+          :
+           `<a href = "./index.html" onClick="logout()" class="menu-item flex flex-row items-center">
+              <img src="assets/icons/logout.png" alt="logout" class="menu-item-icon" />
+              <span class="menu-text">Log Out</span>
+            </a>
+            `
+        }
+
       </div>
     </nav>
   `;

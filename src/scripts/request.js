@@ -14,6 +14,7 @@ const request = (type, endpoint, data, callback) => {
 
     request.onreadystatechange = () => {
         if (request.readyState == 4){
+            alert(request.responseText)
             callback(request.responseText);
         }
     }

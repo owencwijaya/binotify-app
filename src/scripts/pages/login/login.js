@@ -1,19 +1,23 @@
 const loginCallback = (data) => {
     const res = JSON.parse(data)
-    const sentData = JSON.parse(res["data"]);
+
+    let sentData;
+    if (res["data"].length > 0){
+        sentData = JSON.parse(res["data"]);
+    }
     
     if (res["status"] === 200) {
         alert(sentData["isadmin"])
         document.cookie = `${sentData["session_id"]};}`
         alert(document.cookie)
         if (sentData["isadmin"] == 1){
-            window.location = "/admin/user_list.html"
+            window.location = "/user_list.html"
             return;
         }
 
-        window.location = "/main.html"
+        window.location = "/index.html"
     } else {
-        alert(res)
+        document.getElementById("login-error-message").innerHTML = res["message"]
     }
 
     return;
