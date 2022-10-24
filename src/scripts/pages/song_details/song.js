@@ -15,16 +15,16 @@ const play_and_pause = () => {
     player.play();
     requestAnimationFrame(whilePlaying);
     btn_play.innerHTML = `
-            <p class="btn-play-text text-white font-bold">Pause</p>
-            <img src="assets/icons/pause.png" alt="pause" class="btn-play-img" />
+            <p class="song-btn-text text-white font-bold">Pause</p>
+            <img src="assets/icons/pause.png" alt="pause" class="song-btn-img" />
         `;
     footer_btn_play.innerHTML = `<img src="assets/icons/pause.png" alt="pause" />`;
   } else {
     player.pause();
     cancelAnimationFrame(raf);
     btn_play.innerHTML = `
-            <p class="btn-play-text text-white font-bold">Play</p>
-            <img src="assets/icons/play.png" alt="play" class="btn-play-img" />
+            <p class="song-btn-text text-white font-bold">Play</p>
+            <img src="assets/icons/play.png" alt="play" class="song-btn-img" />
         `;
     footer_btn_play.innerHTML = `<img src="assets/icons/play.png" alt="play" />`;
   }

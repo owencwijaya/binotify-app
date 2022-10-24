@@ -45,8 +45,7 @@
 }
 
 .song-img {
-  width: 60%;
-  max-width: 350px;
+  width: 350px;
 }
 
 .song-right p {
@@ -63,8 +62,8 @@
   width: 12px;
 }
 
-.btn-play {
-  margin: 20px 0;
+.song-btn {
+  margin: 20px 5px;
   background-color: #1db954;
   border: none;
   border-radius: 5px;
@@ -73,14 +72,48 @@
   height: 36px;
 }
 
-.btn-play-text {
+.song-btn-text {
   margin-right: 10px;
 }
 
-.btn-play-img {
+.song-btn-img {
   width: 16px;
 }
 
 .hidden {
   display: none;
+}
+
+#edit-song-form label {
+  font-size: 16px;
+  width: 150px;
+}
+
+.edit-song-item {
+  height: 30px;
+  margin: 5px 0;
+}
+
+.edit-song-input {
+  width: 30%;
+  min-width: 200px;
+  height: 30px;
+  border-radius: 2px;
+  padding: 0 5px;
+}
+
+.edit-song-input:focus {
+  outline: none;
+}
+
+.edit-song-btn {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 20px 5px;
+  padding: 5px 20px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
 }
