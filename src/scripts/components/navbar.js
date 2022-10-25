@@ -1,7 +1,7 @@
 const createNavbar = (data) => {
   const res = JSON.parse(data);
   const isAdmin = res["status"] == 200;
-  const isNotLoggedIn = res["status"] == 401;
+  const isLoggedIn = res["status"] == 403 || res["status"] == 200;
 
   document.getElementById("navigation-container").innerHTML = `
     <nav class="sidebar bg-black flex flex-col">
@@ -46,7 +46,7 @@ const createNavbar = (data) => {
             <span class="menu-text">List Albums</span>
         </a>
         ${
-          isNotLoggedIn
+          !isLoggedIn
             ? `
             <a href = "./login.html" class="menu-item flex flex-row items-center">
               <img src="assets/icons/login.png" alt="login" class="menu-item-icon" />
