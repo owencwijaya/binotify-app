@@ -1,16 +1,16 @@
 const getUsernameCallback = (data) => {
   const res = JSON.parse(data);
 
-
   let sentData;
 
-  if (res["data"].length > 0){
-      sentData = JSON.parse(res["data"])
+  if (res["data"].length > 0) {
+    sentData = JSON.parse(res["data"]);
   }
 
-
   if (res["status"] === 200) {
-    document.getElementById("username").innerHTML = sentData["username"];
+    const usernameLocation = document.getElementById("username");
+    usernameLocation.innerHTML = sentData["username"];
+    usernameLocation.href = "#";
   }
   return;
 };

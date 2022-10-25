@@ -6,7 +6,6 @@
     <title>Binotify</title>
     <link rel="stylesheet" href="assets/styles/base.css" />
     <link rel="stylesheet" href="assets/styles/index.css" />
-
   </head>
 
   <body>
@@ -16,7 +15,7 @@
       <div class="content-header flex flex-row justify-end">
         <div id="searchbar"></div>
         <div class="user flex flex-row items-center">
-          <p id="username" class="username">Username</p>
+          <a id="username" class="username" href="./login.html">Log In</a>
           <img src="assets/icons/user.png" alt="user" class="user-img" />
         </div>
       </div>
@@ -24,19 +23,22 @@
       <div id="container-albums"></div>
     </div>
     <footer class="footer-container"></footer>
-
-    <script type="module" src="scripts/pages/check_login.js"></script>
-    <script type="module" src="scripts/pages/home/getUsername.js"></script>
   </body>
 
   <script type="text/javascript" src="scripts/request.js"></script>
   <script type="text/javascript" src="scripts/cookies.js"></script>
   <script type="text/javascript" src="scripts/logout.js"></script>
+  <script type="module" src="scripts/setUsername.js"></script>
   <script type="module" src="scripts/components/navbar.js"></script>
 
-
-  <script type="text/javascript" src="scripts/pages/home/createCards.js"></script>
-  <script type="text/javascript" src="scripts/pages/home/generateContainer.js"></script>
+  <script
+    type="text/javascript"
+    src="scripts/pages/home/createCards.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="scripts/pages/home/generateContainer.js"
+  ></script>
   <script type="module" src="scripts/components/searchBar.js"></script>
   <script type="module" src="scripts/pages/home/getSongs.js"></script>
   <script type="module" src="scripts/pages/home/getAlbums.js"></script>

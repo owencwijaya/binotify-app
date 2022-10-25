@@ -9,12 +9,12 @@ const generateContainer = (items, isAlbum) => {
   } else {
     content += `
         <div class="container-header">
-          <h2 class="container-title font-bold">`;
-
-    content += isAlbum ? "Albums" : "Songs";
-
-    content += `</h2>
-          <a href="#" class="font-normal">SEE ALL</a>
+          <h2 class="container-title font-bold"> ${
+            isAlbum ? "Albums" : "Songs"
+          }</h2>
+          <a href="${
+            isAlbum ? "./album_list.html" : "song_list.html"
+          }" class="font-normal">SEE ALL</a>
         </div>
         <div class="cards flex flex-row flex-wrap">
     `;

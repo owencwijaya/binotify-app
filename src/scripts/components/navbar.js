@@ -1,4 +1,8 @@
-const generateNavbar = (isAdmin, isLoggedIn) => {
+const createNavbar = (data) => {
+  const res = JSON.parse(data);
+  const isAdmin = res["status"] == 200;
+  const isNotLoggedIn = res["status"] == 401;
+
   document.getElementById("navigation-container").innerHTML = `
     <nav class="sidebar bg-black flex flex-col">
       <div class="logo">
@@ -30,7 +34,7 @@ const generateNavbar = (isAdmin, isLoggedIn) => {
         `
             : `
             <a href="song_list.html" class="menu-item flex flex-row items-center
-            ${location.href.includes("song_list.html") && `sidebar-selected`}">
+            ${location.href.includes("song") && `sidebar-selected`}">
                 <img src="assets/icons/search.png" alt="Search Songs" class="menu-item-icon" />
                 <span class="menu-text">Search Songs</span>
             </a>
@@ -42,7 +46,7 @@ const generateNavbar = (isAdmin, isLoggedIn) => {
             <span class="menu-text">List Albums</span>
         </a>
         ${
-          !isLoggedIn
+          isNotLoggedIn
             ? `
             <a href = "./login.html" class="menu-item flex flex-row items-center">
               <img src="assets/icons/login.png" alt="login" class="menu-item-icon" />
@@ -71,16 +75,10 @@ try {
   if (session_id) {
     const formData = new FormData();
     formData.append("session_id", session_id);
-    request("POST", "/api/auth/check_admin.php", formData, (data) => {
-      const res = JSON.parse(data);
-      console.log(res);
-      let isAdmin = res["status"] == 200;
-      let isLoggedIn = res["status"] == 403 || res["status"] == 200;
-
-      generateNavbar(isAdmin, isLoggedIn);
-    });
+    request("POST", "/api/auth/check_admin.php", formData, createNavbar);
+  } else {
+    createNavbar(JSON.stringify({ status: 403 }));
   }
-  generateNavbar(false, false);
 } catch (error) {
   console.log(error);
   alert(error);
