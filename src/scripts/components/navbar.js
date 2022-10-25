@@ -1,8 +1,4 @@
-const createNavbar = (data) => {
-  const res = JSON.parse(data);
-  const isAdmin = res["status"] == 200;
-  const isLoggedIn = res["status"] == 401;
-
+const generateNavbar = (isAdmin, isLoggedIn) => {
   document.getElementById("navigation-container").innerHTML = `
     <nav class="sidebar bg-black flex flex-col">
       <div class="logo">
@@ -34,7 +30,7 @@ const createNavbar = (data) => {
         `
             : `
             <a href="song_list.html" class="menu-item flex flex-row items-center
-            ${location.href.includes("song") && `sidebar-selected`}">
+            ${location.href.includes("song_list.html") && `sidebar-selected`}">
                 <img src="assets/icons/search.png" alt="Search Songs" class="menu-item-icon" />
                 <span class="menu-text">Search Songs</span>
             </a>
@@ -46,8 +42,8 @@ const createNavbar = (data) => {
             <span class="menu-text">List Albums</span>
         </a>
         ${
-          isLoggedIn ?
-            `
+          !isLoggedIn
+            ? `
             <a href = "./login.html" class="menu-item flex flex-row items-center">
               <img src="assets/icons/login.png" alt="login" class="menu-item-icon" />
               <span class="menu-text">Login</span>
@@ -58,8 +54,7 @@ const createNavbar = (data) => {
               <span class="menu-text">Register</span>
             </a>
             `
-          :
-           `<a href = "./index.html" onClick="logout()" class="menu-item flex flex-row items-center">
+            : `<a href = "./index.html" onClick="logout()" class="menu-item flex flex-row items-center">
               <img src="assets/icons/logout.png" alt="logout" class="menu-item-icon" />
               <span class="menu-text">Log Out</span>
             </a>
@@ -76,8 +71,16 @@ try {
   if (session_id) {
     const formData = new FormData();
     formData.append("session_id", session_id);
-    request("POST", "/api/auth/check_admin.php", formData, createNavbar);
+    request("POST", "/api/auth/check_admin.php", formData, (data) => {
+      const res = JSON.parse(data);
+      console.log(res);
+      let isAdmin = res["status"] == 200;
+      let isLoggedIn = res["status"] == 403 || res["status"] == 200;
+
+      generateNavbar(isAdmin, isLoggedIn);
+    });
   }
+  generateNavbar(false, false);
 } catch (error) {
   console.log(error);
   alert(error);
