@@ -18,7 +18,7 @@ const play_and_pause = () => {
             <p class="song-btn-text text-white font-bold">Pause</p>
             <img src="assets/icons/pause.png" alt="pause" class="song-btn-img" />
         `;
-    footer_btn_play.innerHTML = `<img src="assets/icons/pause.png" alt="pause" />`;
+    footer_btn_play.src = "assets/icons/pause.png";
   } else {
     player.pause();
     cancelAnimationFrame(raf);
@@ -26,27 +26,27 @@ const play_and_pause = () => {
             <p class="song-btn-text text-white font-bold">Play</p>
             <img src="assets/icons/play.png" alt="play" class="song-btn-img" />
         `;
-    footer_btn_play.innerHTML = `<img src="assets/icons/play.png" alt="play" />`;
+    footer_btn_play.src = "assets/icons/play.png";
   }
 };
 
 const mute = () => {
   if (player.muted) {
     player.muted = false;
-    mute_btn.innerHTML = `<img src="assets/icons/sound.png" alt="unmute" />`;
+    mute_btn.src = "assets/icons/sound.png";
   } else {
     player.muted = true;
-    mute_btn.innerHTML = `<img src="assets/icons/mute.png" alt="mute" />`;
+    mute_btn.src = "assets/icons/mute.png";
   }
 };
 
 const loop = () => {
   if (player.loop) {
     player.loop = false;
-    loop_btn.innerHTML = `<img src="assets/icons/repeat.png" alt="loop" />`;
+    loop_btn.src = "assets/icons/repeat.png";
   } else {
     player.loop = true;
-    loop_btn.innerHTML = `<img src="assets/icons/repeat_one.png" alt="loop" />`;
+    loop_btn.src = "assets/icons/repeat_one.png";
   }
 };
 

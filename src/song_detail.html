@@ -33,22 +33,28 @@
       <div id="footer-main" class="footer-main">
         <audio id="player"></audio>
         <span id="current-time">00:00</span>
-        <input type="range" id="seek-bar" value="0" max="100" />
+        <input type="range" id="seek-bar" class="slider" value="0" max="100" />
         <span id="duration"></span>
       </div>
       <div class="footer-right flex flex-row">
-        <button id="footer-btn-play" onclick="play_and_pause()">
-          <img src="assets/icons/play.png" alt="play" />
+        <button onclick="play_and_pause()">
+          <img id="footer-btn-play" src="assets/icons/play.png" alt="play" />
         </button>
         <!-- mute -->
         <div class="flex flex-row items-center justify-center">
-          <input type="range" id="volume-bar" value="100" max="100" />
-          <button id="mute" onclick="mute()">
-            <img src="assets/icons/sound.png" alt="unmute" />
+          <input
+            type="range"
+            id="volume-bar"
+            class="slider"
+            value="100"
+            max="100"
+          />
+          <button onclick="mute()">
+            <img id="mute" src="assets/icons/sound.png" alt="sound" />
           </button>
         </div>
-        <button id="loop" onclick="loop()">
-          <img src="assets/icons/repeat.png" alt="loop" />
+        <button onclick="loop()">
+          <img id="loop" src="assets/icons/repeat.png" alt="loop" />
         </button>
       </div>
     </footer>
