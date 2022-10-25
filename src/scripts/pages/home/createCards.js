@@ -9,7 +9,7 @@ const createCards = (item, isAlbum) => {
   if (isAlbum) {
     content += `<a href="#" class="card">`;
   } else {
-    content += `<a href="song_detail.html?id=${item["song_id"]}" class="card">`;
+    content += `<a href="song_detail.html?song_id=${item["song_id"]}" class="card">`;
   }
 
   content += `

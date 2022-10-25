@@ -21,9 +21,10 @@
     if ($_POST["query"] !== "") {
         $query .= " WHERE `judul` LIKE ". "'%" . $_POST["query"] . "%' ";
     }
+    $keyword = strpos($query, 'WHERE') !== false ? ` AND` : " WHERE";
 
     if ($_POST["genre"] !== "") {
-        $query .= " AND `genre` LIKE ". "'%" . $_POST["genre"] . "%' ";
+        $query .=  $keyword ." `genre` LIKE ". "'%" . $_POST["genre"] . "%' ";
     }
 
     if ($_POST["sort_order"] !== "" && $_POST["sort_by"] !== "") {
@@ -43,7 +44,7 @@
     $query .= " LIMIT $limit OFFSET $lower_limit;";
 
     $data = $conn->query($query);
-    //echo $query;
+    
     $data_count = $data->num_rows;
 
     if ($data_count == 0){

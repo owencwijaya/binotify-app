@@ -77,6 +77,8 @@ try {
     const formData = new FormData();
     formData.append("session_id", session_id);
     request("POST", "/api/auth/check_admin.php", formData, createNavbar);
+  } else {
+    createNavbar(JSON.stringify({"status":403}))
   }
 } catch (error) {
   console.log(error);

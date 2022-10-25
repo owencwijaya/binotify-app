@@ -1,4 +1,5 @@
 const getListCallback = (data) => {
+    alert(data)
     const res = JSON.parse(data)
 
     let sentData;
