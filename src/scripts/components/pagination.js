@@ -5,31 +5,35 @@ const createPagination = (title, needsFilter) => {
             <h1>| ${title}</h1>
             ${needsFilter ?
                 `
-                <button id = "sort-by-name-button" 
-                    
-                    onclick = "nameHref('name');"
-                >
-                    Sort by name <p id = "sort-name-arrow">↑</p>
-                </button>
+                <div id = "pagination-filters">
+                    <button id = "sort-by-name-button" 
+                        
+                        onclick = "nameHref('name');"
+                    >
+                        Sort by name <p id = "sort-name-arrow">↑</p>
+                    </button>
 
-                <button id = "sort-by-year-button"
-                    onclick = "nameHref('year');"
-                >
-                    Sort by year <span id = "sort-year-arrow">↑</span>
-                </button>
+                    <button id = "sort-by-year-button"
+                        onclick = "nameHref('year');"
+                    >
+                        Sort by year <span id = "sort-year-arrow">↑</span>
+                    </button>
 
-                <div id="filter-dropdown">
-                    <button id="filter-dropbutton">Filter by Genre</button>
-                    <div id="filter-content">
+                    <div id="filter-dropdown">
+                        <button id="filter-dropbutton">Filter by Genre</button>
+                        <div id="filter-content"></div>
                     </div>
-                </div>`
+
+                    <h2 id = "pagination-msg"></h2>
+                </div>
+                `
                 : ``
             }
         </div>
 
         <div id = "pagination-content"></div>
 
-        <div class="pagination-buttons">
+        <div id="pagination-buttons">
             <button id="pagination-prev-button">Previous</button>
             <p id="page-info"></p>
             <button id="pagination-next-button">Next</button>
@@ -51,23 +55,21 @@ const updateArrow = (button) => {
 
 const nameHref = (button) => {
     const params = new URLSearchParams(window.location.search)
-    
-    var newHref;
     const sortBy = params.get('sort_by')
     const sortOrder = params.get('sort_order')
 
-    if (sortBy && sortOrder){
-        if ((sortOrder) == 'asc'){
-            newHref = window.location.href.replace('asc', 'desc') 
-        } else {
-            newHref = window.location.href.replace('desc', 'asc') 
-        }
 
-        if (sortBy !== button){
-            newHref = window.location.href.replace(sortBy, button)
+    if (sortOrder) {
+        if (sortOrder === 'asc'){
+            params.set('sort_order', 'desc');
+        } else {
+            params.set('sort_order', 'asc');
         }
     } else {
-        newHref = `${window.location.href}` + (window.location.href.includes("?") ? "&" : "?") + `sort_by=${button}&sort_order=asc`;
+        params.set('sort_order', 'asc');
     }
-    window.location = newHref;
+
+    params.set('sort_by', button);
+
+    window.location = window.location.pathname + "?" +  params.toString();
 }

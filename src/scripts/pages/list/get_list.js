@@ -1,9 +1,7 @@
 const getListCallback = (data) => {
     const res = JSON.parse(data)
     
-
     let sentData;
-
 
     if (res["status"] === 200) {
         sentData = JSON.parse(res["data"]);
@@ -37,6 +35,9 @@ const getListCallback = (data) => {
             nextButton.disabled = false;
             nextButton.onclick = () => getList(pageNumber + 1, sentData["table"])
         }
+    } else if (res["status"] === 404){
+        document.getElementById('pagination-buttons').innerHTML = null;
+        document.getElementById('pagination-msg').innerHTML = `No results found!`
     } else {
         alert(res["data"])
     }

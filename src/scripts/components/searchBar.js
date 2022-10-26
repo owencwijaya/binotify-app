@@ -15,24 +15,9 @@ const createSearchBar = () => {
             event.preventDefault();
 
             const value = document.getElementsByClassName("searchbar-input")[0].value;
-            
-            var newHref = new URL(location.href);
-            const params = new URLSearchParams(newHref.search);
-
-            if (params.get('query')){
-                params.set('query', value);
-                location.href = "song_list.html?" + params;
-                return;
-            }
-
-            if (location.href.includes('?')){
-                newHref += '&'
-            } else {
-                newHref += '?'
-            }
-
-            newHref += `query=${value}`
-            location.href = newHref
+            const params = new URLSearchParams(window.location.search);
+            params.set('query', value)
+            location.href = window.location.pathname + "?" +  params.toString()
         }
     }
 }

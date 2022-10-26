@@ -1,11 +1,15 @@
 const genreCallback = (data) => {
     const res = JSON.parse(data);
     if (res["status"] === 200) { 
-        res["data"].forEach((genre) => {
+        const params = new URLSearchParams(window.location.search);
+        params.set("genre", "");
+        document.getElementById('filter-content').innerHTML += 
+        `<a href = ${window.location.pathname + "?" +  params.toString()}>All</a>`
 
-            newHref = `${window.location.href}` + (window.location.href.includes("?") ? "&" : "?") + `genre=${genre}`
+        res["data"].forEach((genre) => {
+            params.set("genre", genre);
             document.getElementById('filter-content').innerHTML += 
-            `<a href = ${newHref}>${genre}</a>`
+            `<a href = ${window.location.pathname + "?" +  params.toString()}>${genre}</a>`
         })
     } else {
         alert(res["message"]);

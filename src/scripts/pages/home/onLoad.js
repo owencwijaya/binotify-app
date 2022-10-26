@@ -16,7 +16,8 @@ const onLoad = () => {
         console.log(error);
         alert(error);
     }
+
     getSongs();
     getAlbums();
-      
+    createSearchBar();
 }

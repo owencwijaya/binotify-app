@@ -45,7 +45,8 @@
 
 
     if ($_POST["query"] !== "") {
-        $query .= " WHERE `judul` LIKE ". "'%" . $_POST["query"] . "%' ";
+        $query .= " WHERE (`judul` LIKE ". "'%" . $_POST["query"] . "%' OR `penyanyi` LIKE ". "'%" 
+        . $_POST["query"]. "%' OR YEAR(`tanggal_terbit`) LIKE " . "'%" . $_POST["query"] . "%')";
     }
 
     $keyword = strpos($query, 'WHERE') !== false ? " AND" : " WHERE";
@@ -78,7 +79,7 @@
             [
                 "status" => 500,
                 "message" => "Internal server error",
-                "data" => $conn->error
+                "data" => $conn->error . $query
             ]
         ));
     }
@@ -109,7 +110,7 @@
             "message" => "Data found",
             "data" =>  json_encode(
                 [
-                    "data_count" => $table_count,
+                    "data_count" => $data_count,
                     "page_total" => ceil($table_count/ $limit),
                     "page_number" => $page,
                     "rows" => $returned_data,
