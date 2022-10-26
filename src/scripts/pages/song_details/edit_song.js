@@ -62,7 +62,7 @@ const edit_song = (song_id) => {
   document.getElementById("edit-song").classList.remove("hidden");
   try {
     const formData = new FormData();
-    formData.append("song_id", song_id);
+    formData.append("song_id", song_id || "");
     request("POST", "/api/songs/get_song.php", formData, edit_song_callback);
   } catch (error) {
     alert(error);

@@ -16,7 +16,9 @@ const genreCallback = (data) => {
 
 const getGenres = () => {
     try {
-        request("POST", "/api/songs/get_genres.php", null, genreCallback);
+        const formData = new FormData();
+        formData.append("session_id", getCookie("PHPSESSID") || "");
+        request("POST", "/api/songs/get_genres.php", formData, genreCallback);
         return;
     } catch(err){
         alert(err);

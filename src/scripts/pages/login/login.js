@@ -7,14 +7,6 @@ const loginCallback = (data) => {
     }
     
     if (res["status"] === 200) {
-        alert(sentData["isadmin"])
-        document.cookie = `${sentData["session_id"]};}`
-        alert(document.cookie)
-        if (sentData["isadmin"] == 1){
-            window.location = "/user_list.html"
-            return;
-        }
-
         window.location = "/index.html"
     } else {
         document.getElementById("login-error-message").innerHTML = res["message"]
@@ -33,6 +25,7 @@ const login = (event) => {
 
     try {
         const formData = new FormData(event.target);
+        formData.append("session_id", getCookie('PHPSESSID') || "");
         request("POST", "/api/auth/login.php", formData, loginCallback);
         return;
     } catch (err) {

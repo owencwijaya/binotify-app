@@ -54,11 +54,12 @@ const set_song_details_callback = (response) => {
             <p class="song-year">Release : ${song["tanggal_terbit"]}</p>
             <p class="song-duration">Duration : ${duration}</p>
             <div id="song-btn" class="flex flex-row">
-              <button id="btn-play" class="song-btn flex flex-row items-center justify-center" onclick="play_and_pause()">
+              <button id="btn-play" class="song-btn flex flex-row items-center justify-center" onclick="checkBeforePlay()">
                 <p class="song-btn-text text-white font-bold">Play</p>
                 <img src="assets/icons/play.png" alt="play" class="song-btn-img" />
               </button>
             </div>
+            <p id = "playcount-info"></p>
           </div>
     `;
   document.getElementById("song-detail").innerHTML = content;
@@ -87,7 +88,8 @@ const set_song_details_callback = (response) => {
 const set_song_details = (song_id) => {
   try {
     const formData = new FormData();
-    formData.append("song_id", song_id);
+    formData.append("song_id", song_id || "");
+    formData.append("session_id", getCookie("PHPSESSID") || "");
     request(
       "POST",
       "/api/songs/get_song.php",

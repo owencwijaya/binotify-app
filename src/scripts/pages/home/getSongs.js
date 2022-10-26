@@ -1,4 +1,5 @@
 const getSongsCallback = (response) => {
+
   const res = JSON.parse(response);
   let songs = res.data;
 
@@ -9,10 +10,12 @@ const getSongsCallback = (response) => {
 
 const getSongs = () => {
   try {
-    request("GET", "/api/songs/get_songs.php", null, getSongsCallback);
+    const formData = new FormData();
+    formData.append("session_id", getCookie("PHPSESSID") || "");
+
+    request("POST", "/api/songs/get_songs.php", formData, getSongsCallback);
   } catch (error) {
     alert(error);
   }
 };
 
-getSongs();

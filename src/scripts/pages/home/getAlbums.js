@@ -5,12 +5,14 @@ const getAlbumsCallback = (response) => {
   generateContainer(albums, true);
 };
 
-const getSongs = () => {
+const getAlbums= () => {
   try {
-    request("GET", "/api/songs/get_albums.php", null, getAlbumsCallback);
+    const formData = new FormData();
+    formData.append("session_id", getCookie("PHPSESSID") || "");
+    
+    request("POST", "/api/songs/get_albums.php", formData, getAlbumsCallback);
   } catch (error) {
     alert(error);
   }
 };
 
-getSongs();

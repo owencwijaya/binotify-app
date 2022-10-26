@@ -1,13 +1,39 @@
 <?php
+    session_start();
     include('../connect.php');
     
     $page = $_POST["page_number"];
+    $session_id = $_POST["session_id"];
+
+    $current_id = session_id();
+
+    if ($session_id != $current_id || $session_id == "") {
+        http_response_code(401);
+        exit(json_encode(
+            [
+                "status" => 401,
+                "message" => "You are unauthorized to access this endpoint!",
+                "data" => ""
+            ]
+        ));
+    }
 
     $limit = 10;
 
     $query = "SELECT COUNT(*) as `count` FROM `" . $_POST["table"] . "`";
     
     $data = $conn->query($query);
+
+    if ($conn->error){
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Internal server error",
+                "data" => $conn->error
+            ]
+        ));
+    }
 
     $table_count = $data->fetch_array(MYSQLI_ASSOC)["count"];
 
@@ -21,10 +47,11 @@
     if ($_POST["query"] !== "") {
         $query .= " WHERE `judul` LIKE ". "'%" . $_POST["query"] . "%' ";
     }
-    $keyword = strpos($query, 'WHERE') !== false ? ` AND` : " WHERE";
+
+    $keyword = strpos($query, 'WHERE') !== false ? " AND" : " WHERE";
 
     if ($_POST["genre"] !== "") {
-        $query .=  $keyword ." `genre` LIKE ". "'%" . $_POST["genre"] . "%' ";
+        $query .=  $keyword ." `genre` LIKE ". "'%" . $_POST["genre"] . "%'";
     }
 
     if ($_POST["sort_order"] !== "" && $_POST["sort_by"] !== "") {
@@ -38,12 +65,23 @@
         }
         $query .= " ORDER BY " . $sort_by . " " . $_POST["sort_order"];
     } else {
-        $query .= " ORDER BY `judul` DESC";
+        $query .= " ORDER BY `judul` ASC";
     }
 
     $query .= " LIMIT $limit OFFSET $lower_limit;";
 
     $data = $conn->query($query);
+
+    if ($conn->error){
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Internal server error",
+                "data" => $conn->error
+            ]
+        ));
+    }
     
     $data_count = $data->num_rows;
 

@@ -1,7 +1,7 @@
 <?php
     session_start();
+
     if (!(isset($_SESSION["username"]))) {
-        http_response_code(401);
         exit(json_encode(
             [
                 "status" => 401,
@@ -11,7 +11,6 @@
         ));
     }
 
-    http_response_code(200);
     exit(json_encode(
         [
             "status" => 200,
