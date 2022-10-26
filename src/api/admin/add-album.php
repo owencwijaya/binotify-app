@@ -1,6 +1,28 @@
 <?php
     include "../connect.php";
+    session_start();
 
+    if (!(isset($_SESSION["username"]))) {
+        http_response_code(401);
+        exit(json_encode(
+            [
+                "status" => 401,
+                "message" => "You are not logged in!",
+                "data" => ""
+            ]
+        ));
+    }
+
+    if (!($_SESSION["isadmin"])) {
+        http_response_code(403);
+        exit(json_encode(
+            [
+                "status" => 403,
+                "message" => "Forbidden; not admin user",
+                "data" => ""
+            ]
+        ));
+    }
 
     $judul = $_POST["title"];
     $penyanyi = $_POST['singer'];
