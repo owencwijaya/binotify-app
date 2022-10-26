@@ -20,7 +20,7 @@
             </div>
 
 
-            <form onSubmit = "register(event)">
+            <form onSubmit = "registerd(event); return false;">
                 <div class = "form-element">
                     <label for = "name">What's your name?</label>
                     <input type = "text" name = "name" id = "name" 
@@ -61,7 +61,6 @@
             
             <p>Already have an account? <a href = "login.html" class = "login-href">Login</a></p> 
         </div>
-        <script type = "module" src = "scripts/pages/check_login.js"></script>
     </body>
 
     <script type = "text/javascript" src = "scripts/request.js"></script>
@@ -72,4 +71,8 @@
     
     <script type="module" src="scripts/components/navbar.js"></script>
     <script type="module" src="scripts/pages/check_login.js"></script>
+
+    <script>
+
+    </script>
 </html>

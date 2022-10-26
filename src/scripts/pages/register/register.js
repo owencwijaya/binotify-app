@@ -38,3 +38,16 @@ const register = (event) => {
         alert(err);
     }
 }
+
+const debounce = (func, timeout = 500) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
+
+
+const registerd = debounce((event) => {
+    register(event)
+}, 500);

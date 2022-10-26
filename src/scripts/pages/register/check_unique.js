@@ -1,7 +1,6 @@
 const checkUniqueCallback = (data) => {
     const res = JSON.parse(data)
     
-
     document.getElementById(`${res["data"]}-error-message`).innerHTML = res["message"];
     if (res["status"] === 200) {
         document.getElementById(res["data"]).style.border = "3px solid green";
@@ -31,12 +30,14 @@ const checkUnique = (event, column) => {
     }
 
     if (column === 'confirm-password' ){
-        if (document.getElementById('password') !== document.getElementById('confirm-password')){
+        if (document.getElementById('password').value !== document.getElementById('confirm-password').value){
             document.getElementById(column).style.border = "3px solid red";
             document.getElementById(`${column}-error-message`).innerHTML= "Password doesn't match";
+            return;
         } else {
             document.getElementById(column).style.border = "3px solid green";
             document.getElementById(`${column}-error-message`).innerHTML= "Password match";
+            return;
         }
 
     }

@@ -18,7 +18,6 @@
         ));
     }
     if (!(isset($_POST["column"])) || !(isset($_POST["key"]))) {
-        http_response_code(400);
         exit(json_encode(
             [
                 "status" => 400,
@@ -33,7 +32,6 @@
     $data = $conn->query($query);
 
     if ($conn->error){
-        http_response_code(500);
         exit(json_encode(
             [
                 "status" => 500,
@@ -45,7 +43,6 @@
 
     // if data has existed previously, update the message inside `error-message` component and border color to red
     if ($data->num_rows > 0) {
-        http_response_code(400);
         exit(json_encode(
             [
                 "status" => 400,
@@ -56,7 +53,6 @@
     }
 
     // else, return success
-    http_response_code(200);
     exit(json_encode(
         [
             "status" => 200,
