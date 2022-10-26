@@ -53,7 +53,7 @@ const createNavbar = (data) => {
         ${
           isLoggedIn 
             ? 
-            `<a href = "./index.html" onClick="logout()" class="menu-item flex flex-row items-center">
+            `<a href = "./login.html" onClick="logout()" class="menu-item flex flex-row items-center">
               <img src="assets/icons/logout.png" alt="logout" class="menu-item-icon" />
               <span class="menu-text">Log Out</span>
             </a>
