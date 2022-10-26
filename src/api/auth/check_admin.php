@@ -2,7 +2,6 @@
     session_start();
 
     if (!(isset($_SESSION["username"]))) {
-        http_response_code(401);
         exit(json_encode(
             [
                 "status" => 401,
@@ -13,7 +12,6 @@
     }
 
     if (!($_SESSION["isadmin"])) {
-        http_response_code(403);
         exit(json_encode(
             [
                 "status" => 403,
@@ -23,7 +21,6 @@
         ));
     }
 
-    http_response_code(200);
     exit(json_encode(
         [
             "status" => 200,

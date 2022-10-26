@@ -1,14 +1,12 @@
 const getListCallback = (data) => {
-    alert(data)
     const res = JSON.parse(data)
+    
 
     let sentData;
 
-    if (res["status"] === 200){
-        sentData = JSON.parse(res["data"]);
-    }
 
     if (res["status"] === 200) {
+        sentData = JSON.parse(res["data"]);
         var paginationContent = document.getElementById('pagination-content');
         
         paginationContent.innerHTML = "";
@@ -40,7 +38,7 @@ const getListCallback = (data) => {
             nextButton.onclick = () => getList(pageNumber + 1, sentData["table"])
         }
     } else {
-        alert(res["message"])
+        alert(res["data"])
     }
 
     return;
@@ -57,6 +55,7 @@ const getList = (pageNumber = 1, table) => {
         formData.append("sort_by", params.get('sort_by') || "");
         formData.append("sort_order", params.get('sort_order') || "");
         formData.append("table", table);
+        formData.append("session_id", getCookie("PHPSESSID") || "")
         request("POST", "/api/songs/search.php", formData, getListCallback);
         return;
     } catch (err) {

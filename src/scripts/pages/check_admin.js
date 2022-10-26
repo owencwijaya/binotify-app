@@ -1,6 +1,7 @@
 const checkAdminCallback = (data) => {
     const res = JSON.parse(data)
 
+    document.cookie = `PHPSESSID=${res["data"]};`
     if (res["status"] !== 200) {
         location.href = "/index.html"
     }

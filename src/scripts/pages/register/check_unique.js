@@ -34,6 +34,7 @@ const checkUnique = (event, column) => {
         const formData = new FormData();
         formData.append('key', document.getElementById(column).value);
         formData.append('column', column)
+        formData.append('session_id', getCookie('PHPSESSID') || '')
 
         request("POST", "/api/auth/check_unique.php", formData, checkUniqueCallback);
         return;

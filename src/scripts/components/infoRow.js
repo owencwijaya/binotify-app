@@ -4,7 +4,7 @@ const createInfoRow = (item, isAlbum) =>{
     if (!isAlbum) {
         content = `<a href = "song_detail.html?song_id=${item["song_id"]}" class = "row">`
     } else {
-        content = `<a href = "album_detail.html?song_id=${item["album_id"]}" class = "row">`
+        content = `<a href = "album_detail.html?album_id=${item["album_id"]}" class = "row">`
     }
     return content + `
         <img

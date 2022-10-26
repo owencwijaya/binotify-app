@@ -31,6 +31,7 @@ const register = (event) => {
 
     try {
         const formData = new FormData(event.target);
+        formData.append("session_id", getCookie("PHPSESSID") || "")
         request("POST", "/api/auth/register.php", formData, registerCallback);
         return; 
     } catch (err) {
