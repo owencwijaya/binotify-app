@@ -6,6 +6,7 @@ const createSearchBar = () => {
       src="../assets/icons/searchbar.png"
       alt="Search"
       class="searchbar-icon"
+      onclick = search()
     />
     `
 
@@ -13,13 +14,17 @@ const createSearchBar = () => {
     document.getElementsByClassName("searchbar-input")[0].onkeydown = (event) => {
         if (event.key === "Enter"){
             event.preventDefault();
+            search()
 
-            const value = document.getElementsByClassName("searchbar-input")[0].value;
-            const params = new URLSearchParams(window.location.search);
-            params.set('query', value)
-            location.href = window.location.pathname + "?" +  params.toString()
         }
     }
+}
+
+const search = () => {
+    const value = document.getElementsByClassName("searchbar-input")[0].value;
+    const params = new URLSearchParams(window.location.search);
+    params.set('query', value)
+    location.href = "song_list.html" + "?" +  params.toString()
 }
 
 window.onload = createSearchBar;

@@ -10,13 +10,13 @@ const createPagination = (title, needsFilter) => {
                         
                         onclick = "nameHref('name');"
                     >
-                        Sort by name <p id = "sort-name-arrow">↑</p>
+                        Sort by name <p id = "sort-name-arrow" class = "arrow">↑</p>
                     </button>
 
                     <button id = "sort-by-year-button"
                         onclick = "nameHref('year');"
                     >
-                        Sort by year <span id = "sort-year-arrow">↑</span>
+                        Sort by year <span id = "sort-year-arrow" class = "arrow">↑</span>
                     </button>
 
                     <div id="filter-dropdown">

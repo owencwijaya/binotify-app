@@ -14,7 +14,7 @@ const generateContainer = (items, isAlbum) => {
           }</h2>
           <a href="${
             isAlbum ? "./album_list.html" : "song_list.html"
-          }" class="font-normal">SEE ALL</a>
+          }" class="font-normal see-all">SEE ALL</a>
         </div>
         <div class="cards flex flex-row flex-wrap">
     `;

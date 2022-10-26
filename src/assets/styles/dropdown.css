@@ -20,13 +20,13 @@
     display: block;
     padding: 10px;
     border-radius: 1px solid black;
-    font-weight: none;
+    font-weight: normal;
     font-size: 15px;
     border-radius: 6px;
 }
   
 
-#filter-content a:active{
+#filter-content a:hover{
     background-color: #1DB954;
     color: white;
     transition-duration: 0.2s;

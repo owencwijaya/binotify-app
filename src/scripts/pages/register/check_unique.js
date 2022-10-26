@@ -15,7 +15,7 @@ const checkUniqueCallback = (data) => {
 const checkUnique = (event, column) => {
     event.preventDefault();
 
-    var value = document.getElementById(column).value
+    const value = document.getElementById(column).value
 
     // check if username and email valid / invalid
     if (column ==='username' && !validateUsername(value)){
@@ -28,6 +28,17 @@ const checkUnique = (event, column) => {
         document.getElementById(column).style.border = "3px solid red";
         document.getElementById(`${column}-error-message`).innerHTML= "Please provide a valid e-mail";
         return;
+    }
+
+    if (column === 'confirm-password' ){
+        if (document.getElementById('password') !== document.getElementById('confirm-password')){
+            document.getElementById(column).style.border = "3px solid red";
+            document.getElementById(`${column}-error-message`).innerHTML= "Password doesn't match";
+        } else {
+            document.getElementById(column).style.border = "3px solid green";
+            document.getElementById(`${column}-error-message`).innerHTML= "Password match";
+        }
+
     }
 
     try {

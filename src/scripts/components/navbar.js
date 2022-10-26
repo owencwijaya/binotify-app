@@ -63,7 +63,7 @@ const createNavbar = (data) => {
             <a href = "./login.html" class="menu-item flex flex-row items-center
             ${location.href.includes("login.html") && `sidebar-selected`}"">
               <img src="assets/icons/login.png" alt="login" class="menu-item-icon" />
-              <span class="menu-text">Login</span>
+              <span class="menu-text">Log In</span>
             </a>
 
             <a href = "./register.html" class="menu-item flex flex-row items-center
