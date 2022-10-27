@@ -45,7 +45,7 @@ const set_song_details_callback = (response) => {
             <h2 class="song-title">${song["judul"]}</h2>
             <p class="song-artist">Artist : ${song["penyanyi"]}</p>
             <p class="song-album">
-              Album : <a href="#" class="font-bold">
+              Album : <a href="album_detail.html?album_id=${song["album_id"]}" class="font-bold">
               ${song["album"]}
               <img src="assets/icons/open.png" alt="open" class="open-icon" />
               </a>
