@@ -1,9 +1,9 @@
-const createInfoRow = (item, isAlbum, isForAlbumDetail = false,isAdmin = false) =>{
+const createInfoRow = (item, isAlbum, isForAlbumDetail = false, isAdmin = false) =>{
     let content = ""
     if (!isAlbum) {
-        content = `<div class="flex-column"> <a href = "song_detail.html?song_id=${item["song_id"]}" class = "row">`
+        content = `<div class = "row-container"><a href = "song_detail.html?song_id=${item["song_id"]}" class = "row ${isForAlbumDetail && isAdmin? `row-album-detail` : ``}">`
     } else {
-        content = `<div class="flex-column"> <a href = "album_detail.html?album_id=${item["album_id"]}" class = "row">`
+        content = `<div class = "row-container"><a href = "album_detail.html?album_id=${item["album_id"]}" class = "row ${isForAlbumDetail && isAdmin ? `row-album-detail` : ``}">`
     }
     return content + `
         ${isForAlbumDetail ? ``: `<img
@@ -19,10 +19,11 @@ const createInfoRow = (item, isAlbum, isForAlbumDetail = false,isAdmin = false) 
             <div class = "row-p">${getDuration(item["duration"] || item["total_duration"])}</div>
         </div>
         </a>
-    </div>
-    `;
+        ${isForAlbumDetail && isAdmin ? `<button id="del-but" class="del-but" onclick="handle_delete_song_from_album(${item["song_id"]})">Delete</button>` : ``}
+        </div>
+        `;
 
-   // ${isForAlbumDetail && isAdmin ? `<button id="del-but" class="del-but" onclick="handle_delete_song_from_album(${item["song_id"]})">Delete</button>` : ``}
+
 }
 
 
