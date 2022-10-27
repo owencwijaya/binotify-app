@@ -2,7 +2,7 @@ const createPagination = (title, needsFilter) => {
     document.getElementById("pagination-container").innerHTML =
     `
         <div id = "pagination-header">
-            <h1>| ${title} List</h1>
+            <h2>| ${title} List</h2>
             ${needsFilter ?
                 `
                 <div id = "pagination-filters">

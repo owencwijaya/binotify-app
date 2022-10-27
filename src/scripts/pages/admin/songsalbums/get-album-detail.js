@@ -8,14 +8,14 @@ const edit_admin = (album_id) => {
         request("POST", "/api/auth/check_admin.php", formData, (response) => {
           const res = JSON.parse(response);
           if (res["status"] === 200) {
-            let content = document.getElementById("album-detail").innerHTML;
+            let content = document.getElementById("song-btn").innerHTML;
             content += `
                         <button id="btn-edit" class="song-btn flex flex-row items-center justify-center" onclick="edit_album(${album_id})">
                           <p class="song-btn-text text-white font-bold">Edit</p>
                           <img src="assets/icons/edit.png" alt="play" class="song-btn-img" />
                         </button>
                         `;
-            document.getElementById("album-detail").innerHTML = content;
+            document.getElementById("song-btn").innerHTML = content;
           }
         });
       }
@@ -30,23 +30,23 @@ const set_album_detail_callback = (response) =>{
     console.log(response)
     if(res.status==200){
         let content = `
-        <div class="song-left flex justify-center">
-        <img
-        src="${song["image_path"]}"
-        alt="song"
-        class="song-img"
-        />
-    </div>
-    <div class="song-right">
+        <div class="album-left flex justify-center">
+          <img
+          src="${song["image_path"]}"
+          alt="song"
+          class="album-img"
+          />
+        </div>
+        <div class="song-right">
         <h2 class="song-title">${song["judul"]}</h2>
         <p class="song-artist">Artist : ${song["penyanyi"]}</p>
-        <p class="song-album">
-        </p>
         <p class="song-genre">Genre : ${song["genre"]}</p>
-        <p class="song-year">Total Durasi : ${song["total_duration"]}</p>
+        <p class="song-year">Total Durasi : ${ getDuration(song["total_duration"])}</p>
+        <div id="song-btn" class="flex flex-row">
+      </div>
     </div>
         `
-        document.getElementById("album-detail").innerHTML = content;
+        document.getElementById("song-detail").innerHTML = content;
         edit_admin(song["album_id"]);
     }else{
         alert(res.message)

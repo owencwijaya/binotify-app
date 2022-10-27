@@ -32,8 +32,12 @@
   position: relative;
   margin-left: 250px;
   padding: 25px 25px 50px 25px;
-  min-height: 100vh;
   background-color: #212121;
+}
+
+.container>.content{
+  display: block;
+  padding: 25px 25px 10px 25px;
 }
 
 .song {
@@ -44,12 +48,26 @@
   width: 50vw;
 }
 
+.album-left {
+  width: 30vw;
+}
+
 .song-img {
   width: 350px;
 }
 
+.album-img{
+  height: 180px;
+  width: fit-content;
+}
+
 .song-right p {
   font-size: 14px;
+}
+
+.song-right > p {
+  display: block;
+  margin: 15px 0;
 }
 
 .song-album {
@@ -121,4 +139,9 @@
 #playcount-info {
   max-width: 20vw;
   position: absolute;
+}
+
+
+h2 .album{
+  font-size: 24px;
 }

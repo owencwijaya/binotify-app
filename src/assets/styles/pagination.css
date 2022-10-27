@@ -34,7 +34,7 @@ body {
     margin: 0 auto;
 }
 
-#pagination-buttons > button, p{
+#pagination-buttons >button, p{
     display: inline;
     margin: 20px;
 }
