@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/styles/index.css" />
     <link rel="stylesheet" href="assets/styles/pagination.css" />
     <link rel="stylesheet" href="assets/styles/dropdown.css" />
+    <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
   </head>
 
   <body>
@@ -21,14 +22,13 @@
           <img src="assets/icons/user.png" alt="user" class="user-img" />
         </div>
       </div>
-      <div id = "search-list">
-        <div id = "pagination-container" class="pagination-table search-pg"></div>
-      </div>
+
+      <div id = "pagination-container" class="pagination-table search-pg"></div>
+
 
     </div>
     <footer class="footer-container"></footer>
 
-    <script type="module" src="scripts/pages/home/getUsername.js"></script>
   </body>
 
   <script type="text/javascript" src="scripts/request.js"></script>
@@ -42,8 +42,12 @@
   <script type="text/javascript" src="scripts/pages/list/get_list.js"></script>
   <script type="text/javascript" src="scripts/pages/list/get_genres.js"></script>
 
+  <script type="module" src="scripts/components/navbar.js"></script>
+  <script type="module" src="scripts/pages/check_login.js"></script>
+  <script type="module" src="scripts/getUsername.js"></script>
+
     <script>
-        window.onload = createPagination("Album List", true);
+        window.onload = createPagination("Album", true);
         window.onload = createSearchBar()
         window.onload = getList(1, "album")
    </script>

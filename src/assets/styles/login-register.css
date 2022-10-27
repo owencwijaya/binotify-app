@@ -37,7 +37,7 @@ body, html {
 }
 .form-element > label{
     font-weight: normal;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .form-element > input {
@@ -50,8 +50,13 @@ body, html {
     border-radius: 6px;
     border: 1px solid black;
     font-family: "Montserrat", sans-serif;
+    transition-duration: 0.3s;
 }
 
+.form-element > input:focus{
+    transition-duration: 0.3s;
+    box-shadow: -1px 1px 10px -1px rgba(0,0,0,0.3);
+}
 #register-error-message, #login-error-message {
     color: #d6483e;
     font-size: 15px;
@@ -59,9 +64,27 @@ body, html {
 
 .login-href{
     color: #1db954;
+    transition-duration: 0.3s;
 }
 
 .login-href:hover{
     text-decoration: underline;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
+}
+
+.error-msg{
+    font-weight: bold;
+    font-size: 10px;
+}
+
+#logo {
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 15px 20px;
+}
+
+#form-header{
+    margin-top: 60px;
+    margin-bottom: 30px;
 }

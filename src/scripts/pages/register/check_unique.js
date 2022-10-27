@@ -1,7 +1,6 @@
 const checkUniqueCallback = (data) => {
     const res = JSON.parse(data)
     
-
     document.getElementById(`${res["data"]}-error-message`).innerHTML = res["message"];
     if (res["status"] === 200) {
         document.getElementById(res["data"]).style.border = "3px solid green";
@@ -15,7 +14,7 @@ const checkUniqueCallback = (data) => {
 const checkUnique = (event, column) => {
     event.preventDefault();
 
-    var value = document.getElementById(column).value
+    const value = document.getElementById(column).value
 
     // check if username and email valid / invalid
     if (column ==='username' && !validateUsername(value)){
@@ -30,10 +29,24 @@ const checkUnique = (event, column) => {
         return;
     }
 
+    if (column === 'confirm-password' ){
+        if (document.getElementById('password').value !== document.getElementById('confirm-password').value){
+            document.getElementById(column).style.border = "3px solid red";
+            document.getElementById(`${column}-error-message`).innerHTML= "Password doesn't match";
+            return;
+        } else {
+            document.getElementById(column).style.border = "3px solid green";
+            document.getElementById(`${column}-error-message`).innerHTML= "Password match";
+            return;
+        }
+
+    }
+
     try {
         const formData = new FormData();
         formData.append('key', document.getElementById(column).value);
         formData.append('column', column)
+        formData.append('session_id', getCookie('PHPSESSID') || '')
 
         request("POST", "/api/auth/check_unique.php", formData, checkUniqueCallback);
         return;

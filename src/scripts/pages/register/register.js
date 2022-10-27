@@ -31,9 +31,23 @@ const register = (event) => {
 
     try {
         const formData = new FormData(event.target);
+        formData.append("session_id", getCookie("PHPSESSID") || "")
         request("POST", "/api/auth/register.php", formData, registerCallback);
         return; 
     } catch (err) {
         alert(err);
     }
 }
+
+const debounce = (func, timeout = 500) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
+
+
+const registerd = debounce((event) => {
+    register(event)
+}, 500);

@@ -117,3 +117,8 @@
   border-radius: 5px;
   color: #fff;
 }
+
+#playcount-info {
+  max-width: 20vw;
+  position: absolute;
+}

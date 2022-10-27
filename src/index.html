@@ -6,6 +6,7 @@
     <title>Binotify</title>
     <link rel="stylesheet" href="assets/styles/base.css" />
     <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
   </head>
 
   <body>
@@ -28,18 +29,20 @@
   <script type="text/javascript" src="scripts/request.js"></script>
   <script type="text/javascript" src="scripts/cookies.js"></script>
   <script type="text/javascript" src="scripts/logout.js"></script>
-  <script type="module" src="scripts/setUsername.js"></script>
-  <script type="module" src="scripts/components/navbar.js"></script>
+  <script type="text/javascript" src="scripts/pages/home/createCards.js"></script>
+  <script type="text/javascript" src="scripts/pages/home/generateContainer.js"></script>
+  <script type="text/javascript" src="scripts/pages/home/getSongs.js"></script>
+  <script type="text/javascript" src="scripts/pages/home/getAlbums.js"></script>
+  <script type="text/javascript" src="scripts/pages/check_login.js"></script>
+  <script type="text/javascript" src="scripts/components/searchBar.js"></script>
+  <script type="text/javascript" src="scripts/components/navbar.js"></script>
+  <script type="text/javascript" src="scripts/getUsername.js"></script>
 
-  <script
-    type="text/javascript"
-    src="scripts/pages/home/createCards.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="scripts/pages/home/generateContainer.js"
-  ></script>
-  <script type="module" src="scripts/components/searchBar.js"></script>
-  <script type="module" src="scripts/pages/home/getSongs.js"></script>
-  <script type="module" src="scripts/pages/home/getAlbums.js"></script>
+  <script type="text/javascript" src="scripts/pages/home/onLoad.js"></script>
+
+  <script>
+    window.onload = onLoad();
+  </script>
+
+
 </html>

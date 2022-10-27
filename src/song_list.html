@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Song List | Binotify</title>
+    <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
     <link rel="stylesheet" href="assets/styles/base.css" />
     <link rel="stylesheet" href="assets/styles/index.css" />
     <link rel="stylesheet" href="assets/styles/pagination.css" />
@@ -28,22 +29,23 @@
     </div>
     <footer class="footer-container"></footer>
 
-    <script type="module" src="scripts/pages/home/getUsername.js"></script>
   </body>
 
   <script type="text/javascript" src="scripts/request.js"></script>
   <script type="text/javascript" src="scripts/cookies.js"></script>
   <script type="text/javascript" src="scripts/logout.js"></script>
-  <script type="module" src="scripts/components/navbar.js"></script>
-
   <script type="text/javascript" src="scripts/pages/list/get_genres.js"></script>
   <script type="text/javascript" src="scripts/components/pagination.js"></script>
   <script type="text/javascript" src="scripts/components/infoRow.js"></script>
   <script type="text/javascript" src="scripts/components/searchBar.js"></script>
   <script type="text/javascript" src="scripts/pages/list/get_list.js"></script>
 
+  <script type="module" src="scripts/components/navbar.js"></script>
+  <script type="module" src="scripts/pages/check_login.js"></script>
+  <script type="module" src="scripts/getUsername.js"></script>
+
     <script>
-        window.onload = createPagination("Song List", true);
+        window.onload = createPagination("Song", true);
         window.onload = createSearchBar()
         window.onload = getList(1, "song")
    </script>

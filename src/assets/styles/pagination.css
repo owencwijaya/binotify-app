@@ -30,15 +30,26 @@ body {
 .pagination-table > h1 {
     text-align: left;
 }
-.pagination-buttons {
+#pagination-buttons {
     margin: 0 auto;
 }
 
-.pagination-buttons > button, p{
+#pagination-buttons > button, p{
     display: inline;
     margin: 20px;
 }
 
+#pagination-msg {
+    margin: 4vh auto;
+    width: 100%;
+    text-align: center;
+}
+
+.arrow{
+    margin: 0;
+    font-size:15px;
+    font-weight: bold;
+}
 
 
 

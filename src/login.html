@@ -5,16 +5,25 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel = "stylesheet" href = "assets/styles/base.css">
+        <link rel = "stylesheet" href = "assets/styles/index.css" />
         <link rel = "stylesheet" href = "assets/styles/login-register.css">
 
         <title>Login | Binotify</title>
+        <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
+        
     </head>
 
     <body>
-        <div class = "bg-image"></div>
-
+        <div id="navigation-container"></div>
         <div class = "centered-div centered-box">
-            <h1>Login | BiNotify</h1>
+            <div id = "form-header" class = "flex-row items">
+                <img src = "assets/images/binotify.png" alt = "Binotify Logo" id = "logo" />
+                <hr/>
+                <h1>Log In</h1>
+                <p>Log in to start listening, unlimited!</p>
+                <hr/>
+            </div>
+
 
             <form onSubmit = "login(event)">
                 <div class = "form-element">
@@ -40,4 +49,8 @@
     <script type = "text/javascript" src = "scripts/request.js"></script>
     <script type = "text/javascript" src = "scripts/cookies.js"></script>
     <script type = "text/javascript" src = "scripts/pages/login/login.js"></script>
+    
+    <script type="module" src="scripts/components/navbar.js"></script>
+    <script type="module" src="scripts/pages/check_login.js"></script>
+    
 </html>

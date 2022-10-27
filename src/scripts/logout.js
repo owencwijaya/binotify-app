@@ -2,8 +2,7 @@ const logoutCallback = (data) => {
     const res = JSON.parse(data)
 
     if (res["status"] === 200) {
-        document.cookie += "expires=Thu, 01 Jan 1970 00:00:01 GMT"
-        window.location = "/index.html"
+        document.cookie += ";expires=Thu, 01 Jan 1970 00:00:01 GMT;"
     }
     return;
 }

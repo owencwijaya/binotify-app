@@ -4,10 +4,36 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
     $hashed_password = hash('ripemd160', $password);
+    $session_id = $_POST["session_id"];
+
+    session_start();
+
+    if ($session_id != session_id() || $session_id == "") {
+        http_response_code(401);
+        exit(json_encode(
+            [
+                "status" => 401,
+                "message" => "You are unauthorized to access this endpoint!",
+                "data" => ""
+            ]
+        ));
+    }
+
 
     // check if data with corresponding username / email has existed previously
     $query = "SELECT * FROM user WHERE (username = '$username' OR email = '$username');";    
     $data = $conn->query($query);
+
+    if ($conn->error){
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Internal server error",
+                "data" => $conn->error
+            ]
+        ));
+    }
 
     // if data has existed previously, update the message inside `error-message` component
     if ($data->num_rows == 0) {
@@ -45,7 +71,7 @@
         ));
     }
 
-    session_start();
+    session_regenerate_id();
     $session_id = session_id();
     $_SESSION["username"] = $username;
     $_SESSION["isadmin"] = $user_data["isadmin"];

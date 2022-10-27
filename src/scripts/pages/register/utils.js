@@ -1,7 +1,7 @@
 const validateUsername = (username) => {
     return username.match(
         /^[a-zA-Z0-9_]*$/
-    );
+    ) && username.trim().length > 0;
 }
 
 const validateEmail = (email) => {

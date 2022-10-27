@@ -16,7 +16,6 @@ const addMusicCallback = (data) =>{
 }
 
 const fetchMusic = (event) =>{
-    
     event.preventDefault();
 
     title = toTitleCase(document.getElementById("title").value);

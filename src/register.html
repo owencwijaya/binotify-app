@@ -3,18 +3,27 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel = "stylesheet" href = "assets/styles/base.css">
+        <link rel = "stylesheet" href = "assets/styles/index.css">
         <link rel = "stylesheet" href = "assets/styles/login-register.css">
 
         <title>Register | Binotify</title>
+        <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
     </head>
 
     <body>
-        <div class = "bg-image"></div>
+        <div id="navigation-container"></div>
 
         <div class = "centered-div centered-box">
-            <h1>Register | BiNotify </h1>
+            <div id = "form-header" class = "flex-row items">
+                <img src = "assets/images/binotify.png" alt = "Binotify Logo" id = "logo" />
+                <hr/>
+                <h1>Register</h1>
+                <p>Sign up to get your account for free!</p>
+                <hr/>
+            </div>
 
-            <form onSubmit = "register(event)">
+
+            <form onSubmit = "registerd(event); return false;">
                 <div class = "form-element">
                     <label for = "name">What's your name?</label>
                     <input type = "text" name = "name" id = "name" 
@@ -25,14 +34,14 @@
                     <label for = "username">What should we call you?</label>
                     <input type = "text" name = "username" id = "username" 
                     placeholder = "Insert your username here..." onblur = "checkUnique(event, 'username')" required>
-                    <p id = "username-error-message"></p>
+                    <p id = "username-error-message" class = "error-msg"></p>
                 </div>
 
                 <div class = "form-element">
                     <label for = "email">Confirm your e-mail</label>
                     <input type = "text" name = "email" id = "email" 
                     placeholder = "Insert your e-mail here..." onblur = "checkUnique(event, 'email')" required>
-                    <p id = "email-error-message"></p>
+                    <p id = "email-error-message" class = "error-msg"></p>
                 </div>
 
                 <div class = "form-element">
@@ -42,7 +51,8 @@
 
                 <div class = "form-element">
                     <label for = "confirm-password">Please reconfirm your password</label>
-                    <input type = "password" name = "confirm-password" id = "confirm-password" placeholder = "Insert your password here..." required>
+                    <input type = "password" name = "confirm-password" id = "confirm-password" onblur = "checkUnique(event, 'confirm-password')" placeholder = "Insert your password here..." required>
+                    <p id = "confirm-password-error-message" class = "error-msg"></p>
                 </div>
 
                 <button type = "submit" id = "register-selection-button" class = "inline-button">REGISTER</button>
@@ -54,7 +64,6 @@
             
             <p>Already have an account? <a href = "login.html" class = "login-href">Login</a></p> 
         </div>
-        <script type = "module" src = "scripts/pages/check_login.js"></script>
     </body>
 
     <script type = "text/javascript" src = "scripts/request.js"></script>
@@ -62,4 +71,11 @@
     <script type = "text/javascript" src = "scripts/pages/register/utils.js"></script>
     <script type = "text/javascript" src = "scripts/pages/register/register.js"></script>
     <script type = "text/javascript" src = "scripts/pages/register/check_unique.js"></script>
+    
+    <script type="module" src="scripts/components/navbar.js"></script>
+    <script type="module" src="scripts/pages/check_login.js"></script>
+
+    <script>
+
+    </script>
 </html>

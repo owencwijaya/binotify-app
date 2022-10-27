@@ -5,6 +5,20 @@
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $session_id = $_POST["session_id"];
+
+    session_start();
+
+    if ($session_id != session_id() || $session_id == "") {
+        http_response_code(401);
+        exit(json_encode(
+            [
+                "status" => 401,
+                "message" => "You are unauthorized to access this endpoint!",
+                "data" => ""
+            ]
+        ));
+    }
 
     // check if data with corresponding username / email has existed previously
     $query = "SELECT * FROM user WHERE username = '$username' OR email = '$email';";    
