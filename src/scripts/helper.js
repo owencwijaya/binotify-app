@@ -36,19 +36,22 @@ const getDuration = (secs) => {
   return text;
 };
 
-document
-  .getElementById("audio")
-  .addEventListener("loadedmetadata", function () {
-    let f_dur = 0;
-    f_dur = document.getElementById("audio").duration;
-    document.getElementById("f_dur").value = Math.round(f_dur);
+const setDuration = () => {
+  document
+    .getElementById("audio")
+    .addEventListener("loadedmetadata", function () {
+      let f_dur = 0;
+      f_dur = document.getElementById("audio").duration;
+      alert(f_dur)
+      document.getElementById("f_dur").value = Math.round(f_dur);
+    });
+  document.getElementById("f_audio").addEventListener("change", function () {
+    let file = this.files[0];
+    if (!file.name.match(/\.(wav|mp3)/i)) {
+      alert("Please select an audio file");
+      return;
+    }
+    let audio = document.getElementById("audio");
+    audio.src = URL.createObjectURL(file);
   });
-document.getElementById("f_audio").addEventListener("change", function () {
-  let file = this.files[0];
-  if (!file.name.match(/\.(wav|mp3)/i)) {
-    alert("Please select an audio file");
-    return;
-  }
-  let audio = document.getElementById("audio");
-  audio.src = URL.createObjectURL(file);
-});
+};

@@ -12,7 +12,7 @@
 
     $lower_limit = ($page  - 1) * $limit;
 
-    $query = "SELECT judul, image_path, genre FROM song WHERE album_id = '$album_id'  LIMIT $limit OFFSET $lower_limit";
+    $query = "SELECT * FROM song WHERE album_id = '$album_id'  LIMIT $limit OFFSET $lower_limit";
 
     $data = $conn->query($query);
 
@@ -29,14 +29,10 @@
         ));
     }
 
-    $returned_data = "";
+    $returned_data = [];
     
     while ($row = $data->fetch_array(MYSQLI_ASSOC)){
-        $returned_data .= '
-            <tr>
-                <td>'.$row["judul"].'</td>
-                <td>'.$row["genre"].'</td>
-            </tr>';
+        $returned_data[] = $row;
     }
 
     http_response_code(200);

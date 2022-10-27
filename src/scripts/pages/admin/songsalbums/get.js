@@ -7,23 +7,10 @@ const getSongsListCallback = (data) => {
     if (res["status"] === 200) {
         
         var paginationContent = document.getElementById('pagination-content');
-        paginationContent.innerHTML = `
-            <table id="list-table">
-            <thead>
-                <tr>
-                    <th>Judul</th>
-                    <th>Genre</th>
-                </tr>
-            </thead>
-
-            <tbody>
-            ${sentData["rows"]}
-            </tbody>
-            </table>
-        `
-        // var listTable = document.getElementById('list-table');
-        // var tbody = listTable.getElementsByTagName('tbody')[0];
-        // tbody.innerHTML = sentData["rows"];
+        alert(sentData["rows"])
+        sentData["rows"].forEach((item) =>{
+            paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album");
+        })
 
         var pageNumber = parseInt(sentData["page_number"]);
         var pageTotal = parseInt(sentData["page_total"]);

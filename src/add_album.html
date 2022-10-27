@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "assets/styles/base.css">
+    <link rel = "stylesheet" href = "assets/styles/index.css" />
+    <link rel = "stylesheet" href = "assets/styles/login-register.css">
+    <title>Add Album</title>
+</head>
+<body>
+    <div id="navigation-container"></div>
+
+    <div class = "centered-div centered-box">
+        <h1>Add Album | BiNotify </h1>
+
+        <form onsubmit="addAlbum(event)">
+            <div class = "form-element">
+                <label for = "title">Album Title</label>
+                <input type = "text" name = "title" id = "title" placeholder = "Insert album title here..." required>
+            </div>
+
+            <div class = "form-element">
+                <label for = "genre">Genre</label>
+                <input type = "text" name = "genre" id = "genre" placeholder = "Insert genre here..." required>
+            </div>
+
+
+            <div class = "form-element">
+                <label for = "singer">Nama Penyanyi</label>
+                <input type = "text" name = "singer" id = "singer" placeholder = "Insert artist here..." required>
+            </div>
+            
+            <div class = "form-element">
+                <label for = "tanggalTerbit">Release Date</label>
+                <input type = "date" name = "tanggalTerbit" id = "tanggalTerbit" placeholder = "Insert album release date here..." required>
+            </div>
+
+            <div class = "form-element">
+                <label for = "image">Album Image</label>
+                <input type = "file" name = "f_image" id = "f_image" placeholder = "Insert album image here..." required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+    <script
+    type="text/javascript"
+    src="scripts/helper.js"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="scripts/request.js"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="scripts/pages/admin/add_album.js"
+    ></script>
+
+    <script 
+    type = "text/javascript" 
+    src = "scripts/cookies.js"
+    ></script>
+
+    <script type="module" src="scripts/components/navbar.js"></script>
+
+</html>
