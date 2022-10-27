@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/song_details.css" />
     <link rel = "stylesheet" href = "assets/styles/base.css">
     <link rel = "stylesheet" href = "assets/styles/index.css" />
     <link rel = "stylesheet" href = "assets/styles/forms.css">
+    
     <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
 
     <title>Add Album | BiNotify</title>
@@ -17,7 +19,7 @@
     <div class = "centered-div centered-box">
         <h1>Add Album | BiNotify </h1>
 
-        <form onsubmit="addAlbum(event)">
+        <form onsubmit="handle_add_album(event)">
             <div class = "form-element">
                 <label for = "title">Album Title</label>
                 <input type = "text" name = "title" id = "title" placeholder = "Insert album title here..." required>
@@ -40,13 +42,14 @@
             </div>
 
             <div class = "form-element">
-                <label for = "image">Album Image</label>
+                <label for = "f_image">Album Image</label>
                 <input type = "file" name = "f_image" id = "f_image" placeholder = "Insert album image here..." required>
             </div>
 
             <button type="submit">Submit</button>
         </form>
     </div>
+    <div id="modal-container" class="hidden"></div>
 </body>
 
     <script

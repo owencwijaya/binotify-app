@@ -109,7 +109,7 @@
             [
                 "status" => 502,
                 "message" => "Error in adding song, please try again later! $conn->error",
-                "data" => ""
+                "data" => $duration
             ]
         ));
     }   

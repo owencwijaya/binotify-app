@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/song_details.css" />
     <link rel = "stylesheet" href = "assets/styles/base.css">
     <link rel = "stylesheet" href = "assets/styles/index.css" />
     <link rel = "stylesheet" href = "assets/styles/forms.css">
@@ -16,7 +17,7 @@
     <audio id="audio" hidden></audio>
     <div class = "centered-div centered-box">
         <h1>Add Song | BiNotify </h1>
-    <form onsubmit="addSong(event)">
+    <form onsubmit="handle_add_song(event)">
         <div class = "form-element">
             <label for = "title">Song Title</label>
             <input type = "text" name = "title" id = "title" placeholder = "Insert your song title here..." required>
@@ -28,10 +29,6 @@
         <div class = "form-element">
             <label for = "singer">Artist</label>
             <input type = "text" name = "singer" id = "singer" placeholder = "Insert artist here..." required>
-        </div>
-        <div class = "form-element">
-            <label for = "genre">Genre</label>
-            <input type = "text" name = "genre" id = "genre" placeholder = "Insert sons's singer here..." required>
         </div>
         <div class = "form-element">
             <label for = "tanggalTerbit">Tanggal terbit</label>
@@ -48,7 +45,9 @@
         <input type="text" name="f_dur" id="f_dur" hidden>
         <button type="submit">Submit</button>
     </form>
+        
     </div>
+    <div id="modal-container" class="hidden"></div>
 </body>
     <script
     type="text/javascript"
@@ -73,5 +72,6 @@
     <script type="module" src="scripts/components/navbar.js"></script>
     <script>
         window.onload = checkAdmin();
+        setDuration();
     </script>
 </html>

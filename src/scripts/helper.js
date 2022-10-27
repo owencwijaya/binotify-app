@@ -66,3 +66,7 @@ const setModal = (title, messages, textPrimary, textSecondary) => {
   document.getElementById("modal-container").innerHTML = content;
   document.getElementById("modal-container").classList.remove("hidden");
 };
+
+const close_modal = () => {
+  document.getElementById("modal-container").classList.add("hidden");
+};

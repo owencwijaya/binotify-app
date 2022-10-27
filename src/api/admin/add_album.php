@@ -40,7 +40,7 @@
     $imgTypesAllowed = array("jpg","jpeg", "png");
 
     //cek tipe image
-    if(($_FILES["f_image"]["size"]) <=0|| !in_array($fileImgType,$imgTypesAllowed)){
+    if(!file_exists($_FILES["f_image"]["tmp_name"])|| !in_array($fileImgType,$imgTypesAllowed)){
         http_response_code(400);
         exit(json_encode(
             [

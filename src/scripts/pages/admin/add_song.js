@@ -1,8 +1,14 @@
 const addMusicCallback = (data) =>{    
     try{
+        document.getElementById("modal-container").classList.add("hidden");
         let res = JSON.parse(data); //gws
         if(res["status"] === 200){
-            location.reload()
+            setModal("Success", "Song added successfully", "OK", "");
+            document.getElementById("modal-btn-primary").addEventListener("click", () => {
+                window.location.reload();
+            });
+        }else{
+            setModal("Error", `${res["message"]}`, "OK", "");
         }
     }catch(err){
         alert(err.message)
@@ -11,16 +17,14 @@ const addMusicCallback = (data) =>{
 }
 
 const addSong = (event) =>{
-    event.preventDefault();
 
     title = toTitleCase(document.getElementById("title").value);
     singer = toTitleCase(document.getElementById("singer").value);
     genre = toTitleCase(document.getElementById("genre").value);
     tanggalTerbit = document.getElementById("tanggalTerbit").value;
-    f_image = document.getElementById("f_image").value;
-    f_audio = document.getElementById("f_audio").value;
+    f_image = document.getElementById("f_image").files[0];
+    f_audio = document.getElementById("f_audio").files[0];
     f_dur = document.getElementById("f_dur").value;
-    alert(f_dur)
     session_id = getCookie("PHPSESSID") || ""; 
 
     try{
@@ -31,3 +35,15 @@ const addSong = (event) =>{
         alert(err);
     }
 }
+
+const handle_add_song = (event) => {
+    event.preventDefault();
+    setModal("Add song", "Do you want to add new song?", "Yes", "No");
+    console.log("aaaa")
+    document.getElementById("modal-btn-primary").addEventListener("click", () => {
+      addSong(event);
+    });
+    document.getElementById("modal-btn-secondary").addEventListener("click", () => {
+        close_modal();
+    });
+  };
