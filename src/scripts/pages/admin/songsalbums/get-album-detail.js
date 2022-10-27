@@ -1,7 +1,7 @@
 
 const edit_admin = (album_id) => {
     try {
-      let session_id = getCookie("session_id") || getCookie("PHPSESSID");
+      let session_id = getCookie("PHPSESSID") || "";
       if (session_id) {
         const formData = new FormData();
         formData.append("session_id", session_id);

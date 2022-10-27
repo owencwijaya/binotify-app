@@ -5,9 +5,7 @@ const toTitleCase = (title) => {
 
   splitted.forEach((x) => {
     if (x.length > 0) {
-      ret += exceptionInCase.includes(x.toLowerCase())
-        ? x[0]
-        : x[0].toUpperCase();
+      ret += exceptionInCase.includes(x.toLowerCase()) ? x[0] : x[0].toUpperCase();
 
       if (x.length > 1) {
         ret += x.slice(1) + " ";
@@ -37,14 +35,11 @@ const getDuration = (secs) => {
 };
 
 const setDuration = () => {
-  document
-    .getElementById("audio")
-    .addEventListener("loadedmetadata", function () {
-      let f_dur = 0;
-      f_dur = document.getElementById("audio").duration;
-      alert(f_dur)
-      document.getElementById("f_dur").value = Math.round(f_dur);
-    });
+  document.getElementById("audio").addEventListener("loadedmetadata", function () {
+    let f_dur = 0;
+    f_dur = document.getElementById("audio").duration;
+    document.getElementById("f_dur").value = Math.round(f_dur);
+  });
   document.getElementById("f_audio").addEventListener("change", function () {
     let file = this.files[0];
     if (!file.name.match(/\.(wav|mp3)/i)) {
@@ -54,4 +49,20 @@ const setDuration = () => {
     let audio = document.getElementById("audio");
     audio.src = URL.createObjectURL(file);
   });
+};
+
+const setModal = (title, messages, textPrimary, textSecondary) => {
+  let content = `
+    <h3 class="modal-title">${title}</h3>
+    <p class="modal-body">${messages}</p>
+    <div class="modal-footer">
+    ${
+      textSecondary
+        ? `<button id="modal-btn-secondary" class="btn btn-secondary">${textSecondary}</button>`
+        : ""
+    }
+      <button id="modal-btn-primary" class="btn btn-primary">${textPrimary}</button>
+    </div>`;
+  document.getElementById("modal-container").innerHTML = content;
+  document.getElementById("modal-container").classList.remove("hidden");
 };

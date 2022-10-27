@@ -1,7 +1,6 @@
 const checkAdminCallback = (data) => {
     const res = JSON.parse(data)
 
-    document.cookie = `PHPSESSID=${res["data"]};`
     if (res["status"] !== 200) {
         location.href = "/index.html"
     }
@@ -13,7 +12,7 @@ const checkAdminCallback = (data) => {
 
 const checkAdmin = () => {
     try {
-        var session_id = getCookie('session_id') || getCookie('PHPSESSID')
+        var session_id = getCookie('PHPSESSID') || ""
 
         if (session_id){
             const formData = new FormData();

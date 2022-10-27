@@ -24,30 +24,42 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
                         <div id="filter-content"></div>
                     </div>
 
-                    <h2 id = "pagination-msg"></h2>
+
                 </div>
 
 
                 `
                 : ``
             }
-            <div id = "pagination-table-header">
+            <h2 id = "pagination-msg"></h2>
+            ${
+                title === "User" ? `` :
+                `
+                <div id = "pagination-table-header" hidden>
                 <div id = "headers">
                 ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
                     <div id = "row-p">Genre</div>
                     <div id = "row-p">Year Released</div>
                 </div>
             </div>
+                `
+            }
+
         </div>
 
         <div id = "pagination-content"></div>
-
-        <div id="pagination-buttons">
+        
+        ${isForAlbumDetail ?
+        `` :       
+        ` <div id="pagination-buttons">
             <button id="pagination-prev-button">Previous</button>
             <p id="page-info"></p>
             <button id="pagination-next-button">Next</button>
         </div>
+        `
+        }
     `
+
 
     needsFilter && getGenres(title);
     needsFilter && updateArrow('name');

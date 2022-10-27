@@ -3,7 +3,7 @@
     
     $page = $_POST["page_number"];
     $limit = 10;
-    $album_id = $_GET["album_id"];
+    $album_id = $_POST["album_id"];
     $query = "SELECT COUNT(*) as `count` FROM song WHERE album_id = '$album_id';";
 
     $data = $conn->query($query);
