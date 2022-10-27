@@ -3,6 +3,7 @@
     include "../connect.php";
 
     $session_id = $_POST["session_id"];
+    $table = $_POST["table"];
 
     $current_id = session_id();
 
@@ -17,7 +18,7 @@
         ));
     }
 
-    $query = "SELECT DISTINCT(`genre`) AS `genres` FROM song ORDER BY `genres` DESC";
+    $query = "SELECT DISTINCT(`genre`) AS `genres` FROM $table ORDER BY `genres` DESC";
     $data = $conn->query($query);
 
     if ($conn->error){

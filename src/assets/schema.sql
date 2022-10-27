@@ -143,11 +143,11 @@ INSERT INTO `album` (`judul`, `penyanyi`, `total_duration`, `image_path`, `tangg
 ('Gajah',	'Tulus',	1892,	'assets/images/album_gajah.jpg',	'2014-02-19',	'Pop'),
 ('Manusia',	'Tulus',	2317,	'assets/images/album_manusia.jpg',	'2022-03-03',	'Pop'),
 ('Monokrom',	'Tulus',	2137,	'assets/images/album_monokrom.jpg',	'2016-08-03',	'Pop'),
-('Tulus',	'Tulus',	1760,	'assets/images/album_tulus.jpg',	'2011-12-20',	'Pop');
+('Tulus',	'Tulus',	1760,	'assets/images/album_tulus.jpg',	'2011-12-20',	'Sad');
 
 INSERT INTO `song` (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
-('Baru',	'Tulus',	'2014-04-22',	'Pop',	178,	'assets/songs/Baru.mp3',	'assets/images/album_gajah.jpg',	1),
-('Sepatu',	'Tulus',	'2013-08-22',	'Pop',	219,	'assets/songs/Sepatu.mp3',	'assets/images/album_gajah.jpg',	1),
+('Baru',	'Tulus',	'2014-04-22',	'Sad',	178,	'assets/songs/Baru.mp3',	'assets/images/album_gajah.jpg',	1),
+('Sepatu',	'Tulus',	'2013-08-22',	'Very Sad',	219,	'assets/songs/Sepatu.mp3',	'assets/images/album_gajah.jpg',	1),
 ('Tanggal Merah',	'Tulus',	'2014-02-19',	'Pop',	142,	'assets/songs/Tanggal Merah.mp3',	'assets/images/album_gajah.jpg',	1),
 ('Gajah',	'Tulus',	'2014-02-19',	'Pop',	239,	'assets/songs/Gajah.mp3',	'assets/images/album_gajah.jpg',	1),
 ('Jangan Cintai Aku Apa Adanya',	'Tulus',	'2015-01-10',	'Pop',	229,	'assets/songs/Jangan Cintai Aku Apa Adanya.mp3',	'assets/images/album_gajah.jpg',	1),

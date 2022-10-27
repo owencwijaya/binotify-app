@@ -2,7 +2,7 @@ const createPagination = (title, needsFilter) => {
     document.getElementById("pagination-container").innerHTML =
     `
         <div id = "pagination-header">
-            <h1>| ${title}</h1>
+            <h1>| ${title} List</h1>
             ${needsFilter ?
                 `
                 <div id = "pagination-filters">
@@ -40,7 +40,7 @@ const createPagination = (title, needsFilter) => {
         </div>
     `
 
-    needsFilter && getGenres();
+    needsFilter && getGenres(title);
     needsFilter && updateArrow('name');
     needsFilter && updateArrow('year');
 }

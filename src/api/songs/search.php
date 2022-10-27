@@ -52,7 +52,7 @@
     $keyword = strpos($query, 'WHERE') !== false ? " AND" : " WHERE";
 
     if ($_POST["genre"] !== "") {
-        $query .=  $keyword ." `genre` LIKE ". "'%" . $_POST["genre"] . "%'";
+        $query .=  $keyword ." `genre` = ". "'" . $_POST["genre"] . "'";
     }
 
     if ($_POST["sort_order"] !== "" && $_POST["sort_by"] !== "") {
