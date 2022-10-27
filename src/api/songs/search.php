@@ -46,7 +46,7 @@
     }
 
 
-    $query = "SELECT `" . $_POST["table"] ."_id`, ".  $duration_column. ", `judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
+    $query = "SELECT `" . $_POST["table"] ."_id`, `".  $duration_column. "`, `judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
     FROM " . $_POST["table"];
 
 

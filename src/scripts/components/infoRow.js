@@ -16,7 +16,7 @@ const createInfoRow = (item, isAlbum, isForAlbumDetail = false,isAdmin = false) 
             ${isForAlbumDetail ? `` : `<div class="row-p">${item["penyanyi"]}</div>`}
             <div class = "row-p">${item["genre"]}</div>
             <div class = "row-p">${item["year"]}</div>
-            <div class = "row-p">${getDuration(item["duration"])}</div>
+            <div class = "row-p">${getDuration(item["duration"] || item["total_duration"])}</div>
         </div>
         </a>
     </div>
