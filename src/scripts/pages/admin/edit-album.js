@@ -1,15 +1,15 @@
-const submit_song = (song_id) => {
-  console.log("success modify song:", song_id);
+const submit_song = (album_id) => {
+  console.log("success modify song:", album_id);
   document.getElementById("song-detail").classList.remove("hidden");
   document.getElementById("edit-song").classList.add("hidden");
-  document.getElementById("page-title").innerHTML = "Song Details";
+  document.getElementById("page-title").innerHTML = "Album Details";
 };
 
-const delete_song = (song_id) => {
-  console.log("success delete song:", song_id);
+const delete_song = (album_id) => {
+  console.log("success delete song:", album_id);
   document.getElementById("song-detail").classList.remove("hidden");
   document.getElementById("edit-song").classList.add("hidden");
-  document.getElementById("page-title").innerHTML = "Song Details";
+  document.getElementById("page-title").innerHTML = "Album Details";
 };
 
 const edit_song_callback = (response) => {
@@ -27,10 +27,6 @@ const edit_song_callback = (response) => {
             <input type="text" name="penyanyi" id="penyanyi" class="edit-song-input" value="${song["penyanyi"]}" />
         </div>
         <div class="edit-song-item flex flex-row items-center">
-            <label for="album" class="edit-song-label">Album</label>
-            <input type="text" name="album" id="album" class="edit-song-input" value="${song["total_duration"]}" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
             <label for="genre" class="edit-song-label">Genre</label>
             <input type="text" name="genre" id="genre" class="edit-song-input" value="${song["genre"]}" />
         </div>
@@ -41,10 +37,6 @@ const edit_song_callback = (response) => {
         <div class="edit-song-item flex flex-row items-center">
             <label for="image" class="edit-song-img-label">Cover Photo</label>
             <input type="file" name="image" id="image" class="" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="audio" class="edit-song-audio-label">Song Track</label>
-            <input type="file" name="audio" id="audio" class="" />
         </div>
         <div class="edit-song-btns flex flex-row items-center">
             <button id="btn-submit-song" class="edit-song-btn" onclick="submit_song(${song["album_id"]})">Submit</button>
@@ -58,12 +50,12 @@ const edit_song_callback = (response) => {
 };
 
 const edit_album = (album_id) => {
-  console.log(album_id)
   document.getElementById("song-detail").classList.add("hidden");
+  document.getElementById("pagination-container").classList.add("hidden");
   document.getElementById("edit-song").classList.remove("hidden");
   try {
     const formData = new FormData();
-    formData.append("song_id", album_id);
+    formData.append("album_id", album_id);
     request("POST", "/api/admin/get_album.php", formData, edit_song_callback);
   } catch (error) {
     alert(error);

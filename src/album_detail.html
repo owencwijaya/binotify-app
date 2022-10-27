@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="assets/styles/index.css">
         <link rel="stylesheet" href="assets/styles/pagination.css">
         <link rel="stylesheet" href="assets/styles/song_details.css" />
-x
         <title>Album | Binotify</title>
     </head>
 
@@ -20,12 +19,9 @@ x
                 <div class="content-header">
                     <h2 id="page-title" class="content-title font-bold album">Album Details</h2>
                   </div>
-                  <div id="song-detail" class="album flex flex-row">
-    
-                    <div id="edit-song" class="hidden"></div>
+                  <div id="song-detail" class="album flex flex-row">  
                   </div>
-                  
-                
+                  <div id="edit-song" class="hidden" ></div>
             </div>
             <div class="content">
                 <div id = "pagination-container" class="pagination-table song-list"></div>
@@ -45,7 +41,7 @@ x
     <script type="text/javascript" src="scripts/components/pagination.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
     <script>
-        window.onload = createPagination("Album's songs List", false);
+        window.onload = createPagination("Album's Songs", false);
     </script>
         <script
         type="text/javascript"

@@ -3,7 +3,7 @@ include "../connect.php";
 
 $album_id = $_POST["album_id"];
 
-$query = "SELECT album_id, judul, penyanyi, genre, image_path, tanggal_terbit, total_duration FROM album WHERE album_id = '$album_id';";
+$query = "SELECT * FROM album WHERE album_id = '$album_id';";
 $data = $conn->query($query);
 if(!$data){
     http_response_code(500);
@@ -17,10 +17,10 @@ if(!$data){
 }
 
 if ($data->num_rows == 0) {
-    http_response_code(500);
+    http_response_code(503);
     exit(json_encode(
         [
-            "status" => 500,
+            "status" => 503,
             "message" => "Album songs found!",
             "data" => $query
         ]
