@@ -7,7 +7,7 @@ const createCards = (item, isAlbum) => {
   let content = "";
 
   if (isAlbum) {
-    content += `<a href="#" class="card">`;
+    content += `<a href="album_detail.html?album_id=${item["album_id"]}"class="card">`;
   } else {
     content += `<a href="song_detail.html?song_id=${item["song_id"]}" class="card">`;
   }

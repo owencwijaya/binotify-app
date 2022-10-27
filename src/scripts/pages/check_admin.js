@@ -2,7 +2,7 @@ const checkAdminCallback = (data) => {
     const res = JSON.parse(data)
 
     if (res["status"] !== 200) {
-        location.href = "/index.html"
+        location.href = "/login.html"
     }
 
 

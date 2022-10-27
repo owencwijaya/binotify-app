@@ -1,6 +1,4 @@
 const getSongsListCallback = (data) => {
-    console.log(data)
-
     const res = JSON.parse(data)
 
     let sentData;
@@ -11,7 +9,7 @@ const getSongsListCallback = (data) => {
 
     
     if (res["status"] === 200) {
-        document.getElementById('pagination-table-header').hidden = false;
+        document.getElementById('pagination-table-header').removeAttribute("hidden");
         var paginationContent = document.getElementById('pagination-content');
 
         sentData["rows"].forEach((item) =>{

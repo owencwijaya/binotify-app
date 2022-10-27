@@ -36,12 +36,13 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
                 title === "User" ? `` :
                 `
                 <div id = "pagination-table-header" hidden>
-                <div id = "headers">
-                ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
-                    <div id = "row-p">Genre</div>
-                    <div id = "row-p">Year Released</div>
-                </div>
-            </div>
+                    <div id = "headers">
+                    ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
+                        <div id = "row-p">Genre</div>
+                        <div id = "row-p">Year Released</div>
+                        <div id = "row-p">Duration</div>
+                    </div>
+              </div>
                 `
             }
 
