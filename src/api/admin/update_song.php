@@ -45,6 +45,92 @@ $baseFilename = time() . "-";
 if ($album_id == "0") {
     $album_id = "NULL";
 }
+$query = "SELECT duration, album_id FROM song WHERE song_id = '$song_id';";
+
+$data = $conn -> query ($query);
+
+if(!$data){
+    http_response_code(504);
+    exit(json_encode(
+        [
+            "status" => 504,
+            "message" => "Failed to get duration and album_id song",
+            "data" => $query . " " . $conn->error
+        ]
+    ));
+}
+
+$song = $data -> fetch_assoc();
+
+if($album_id != $song["album_id"] && $song["album_id"] != "0"){
+    $albumLama = $song["album_id"];
+    $query = "SELECT total_duration FROM album WHERE album_id = '$albumLama';";
+    $data = $conn -> query($query);
+
+    if(!$data){
+        http_response_code(505);
+        exit(json_encode(
+            [
+                "status" => 505,
+                "message" => "Failed to get duration and album_id song",
+                "data" => $query . " " . $conn->error
+            ]
+        ));
+    }
+
+    $durtot =  $data -> fetch_assoc()["total_duration"];
+
+    $newDur = ((int)$durtot) - ((int) $song["duration"]);
+
+    $query = "UPDATE album SET total_duration = '$newDur' WHERE album_id = '$albumLama';";
+
+    $data = $conn -> query($query);
+
+    if(!$data){
+        http_response_code(506);
+        exit(json_encode(
+            [
+                "status" => 506,
+                "message" => "Failed to update  total_duration on old album",
+                "data" => $query . " " . $conn->error
+            ]
+        ));
+    }
+
+    $query = "SELECT total_duration FROM album WHERE album_id = '$album_id';";
+    $data = $conn -> query($query);
+
+    if(!$data){
+        http_response_code(507);
+        exit(json_encode(
+            [
+                "status" => 507,
+                "message" => "Failed to get duration and album_id song",
+                "data" => $query . " " . $conn->error
+            ]
+        ));
+    }
+
+    $durtotAB =  $data -> fetch_assoc()["total_duration"];
+
+    $newDurAB = ((int)$durtotAB) + ((int) $song["duration"]);
+    $query = "UPDATE album SET total_duration = '$newDurAB' WHERE album_id = '$album_id';";
+
+    $data = $conn -> query($query);
+
+    if(!$data){
+        http_response_code(508);
+        exit(json_encode(
+            [
+                "status" => 508,
+                "message" => "Failed to update  total_duration on new album",
+                "data" => $query . " " . $conn->error
+            ]
+        ));
+    }
+
+
+}
 
 $query = "UPDATE song SET judul = '$judul', tanggal_terbit = '$tanggal_terbit', genre = '$genre', album_id = $album_id";
 
