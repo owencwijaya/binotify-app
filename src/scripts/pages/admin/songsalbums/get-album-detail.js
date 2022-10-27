@@ -27,7 +27,6 @@ const edit_admin = (album_id) => {
 const set_album_detail_callback = (response) =>{
     const res = JSON.parse(response);
     const song = res.data;
-    console.log(response)
     if(res.status==200){
         let content = `
         <div class="album-left flex justify-center">
@@ -58,7 +57,6 @@ const set_album_detail_callback = (response) =>{
 const set_song_details = () => {
   try {
     let id = new URLSearchParams(window.location.search).get("album_id");
-    console.log(id);
     const formData = new FormData();
     formData.append("album_id", id);
     request(

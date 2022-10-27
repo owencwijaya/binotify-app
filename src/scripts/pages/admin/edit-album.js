@@ -17,7 +17,6 @@ const submit_album = (album_id) => {
     return;
   } catch (error) {
     alert(error);
-    console.log(error)
   }
 };
 
@@ -96,7 +95,6 @@ const handle_delete_album = (album_id) => {
 };
 
 const delete_album = (album_id) => {
-  console.log("delete song: ", album_id);
   try {
     const formData = new FormData();
     formData.append("session_id", getCookie("PHPSESSID") || "");

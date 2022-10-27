@@ -1,13 +1,8 @@
-const addMusicCallback = (data) =>{
-    console.log(data)
-    
+const addMusicCallback = (data) =>{    
     try{
         let res = JSON.parse(data); //gws
-        if(res["message"] === 200){
+        if(res["status"] === 200){
             location.reload()
-        }else{
-            alert(res["message"])
-            console.log(res["message"])
         }
     }catch(err){
         alert(err.message)
@@ -33,7 +28,6 @@ const addSong = (event) =>{
         request("POST", "/api/admin/add_song.php", formData, addMusicCallback);
         return;
     }catch(err){
-        console.log(err)
         alert(err);
     }
 }

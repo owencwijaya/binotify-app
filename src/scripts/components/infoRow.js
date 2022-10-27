@@ -45,7 +45,6 @@ const deleteFromAlbum = (song_id) =>{
     form.append("session_id", session_id)
 
     request("POST", "/api/album/delete_song_from_album.php", form, (response) =>{ 
-        console.log(response)  
         const res = JSON.parse(response);
         if (res["status"] === 200) {
             alert("Song deleted from album");

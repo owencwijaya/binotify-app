@@ -98,15 +98,9 @@
     $audioPath = 'assets/songs/' . $baseFileName . $replacedAudio;
 
     $query = "INSERT INTO `song` 
-<<<<<<< HEAD
-                (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`, `genre`) 
-                VALUES 
-                ('$title', '$singer', '$tanggalTerbit', '$duration', '$imgPath', '$audioPath', '$genre');"; 
-=======
                 (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`,  `image_path`, `audio_path`) 
                 VALUES 
                 ('$title', '$singer', '$tanggalTerbit', '$genre', '$duration', '$imgPath', '$audioPath');"; 
->>>>>>> a35ffd96eecab805e53ee641170b63f75ef1e6ca
     
 
     if (!($conn->query($query))) {

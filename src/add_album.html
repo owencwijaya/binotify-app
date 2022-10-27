@@ -49,9 +49,6 @@
     </div>
 </body>
 
-<script>
-    window.onload = checkAdmin();
-</script>
     <script
     type="text/javascript"
     src="scripts/helper.js"
@@ -71,7 +68,10 @@
     type = "text/javascript" 
     src = "scripts/cookies.js"
     ></script>
-    <script type="module" src="scripts/pages/check_admin.js"></script>
+    <script type="text/javascript" src="scripts/pages/check_admin.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
+    <script>
+        window.onload = checkAdmin();
+    </script>
 
 </html>

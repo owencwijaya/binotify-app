@@ -35,7 +35,6 @@ const getSongsListCallback = (data) => {
 const getSongsList = (pageNumber = 1) => {
     try {
         let query = params.album_id
-        console.log(query)
         const formData = new FormData();
         formData.append("page_number", pageNumber);
         formData.append("album_id", query);
