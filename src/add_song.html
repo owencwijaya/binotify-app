@@ -65,13 +65,10 @@
     type = "text/javascript" 
     src = "scripts/cookies.js"
     ></script>
-
-
-
-    <script>
-        setDuration();
-    </script>
     <script type="module" src="scripts/pages/check_admin.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
-
+    <script>
+        window.onload = checkAdmin();
+        setDuration();
+    </script>
 </html>
