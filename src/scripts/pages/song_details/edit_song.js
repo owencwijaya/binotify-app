@@ -1,10 +1,3 @@
-const delete_song = (song_id) => {
-  console.log("success delete song:", song_id);
-  document.getElementById("song-detail").classList.remove("hidden");
-  document.getElementById("edit-song").classList.add("hidden");
-  document.getElementById("page-title").innerHTML = "Song Details";
-};
-
 const edit_song_callback = (response) => {
   const res = JSON.parse(response);
   const song = res.data;
