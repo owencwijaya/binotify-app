@@ -1,4 +1,4 @@
-const addAlbumCallback = (data) =>{
+const addMusicCallback = (data) =>{
     console.log(data)
     
     try{
@@ -7,7 +7,7 @@ const addAlbumCallback = (data) =>{
             location.reload()
         }else{
             alert(res["message"])
-            console.log(res["data"])
+            console.log(res["message"])
         }
     }catch(err){
         alert(err.message)
@@ -15,7 +15,7 @@ const addAlbumCallback = (data) =>{
 
 }
 
-const addAlbum = (event) =>{
+const addSong = (event) =>{
     event.preventDefault();
 
     title = toTitleCase(document.getElementById("title").value);
@@ -23,11 +23,14 @@ const addAlbum = (event) =>{
     genre = toTitleCase(document.getElementById("genre").value);
     tanggalTerbit = document.getElementById("tanggalTerbit").value;
     f_image = document.getElementById("f_image").value;
-    session_id = getCookie("session_id") || getCookie("PHPSESSID");
-    
+    f_audio = document.getElementById("f_audio").value;
+    f_dur = document.getElementById("f_dur").value;
+    alert(f_dur)
+    session_id = getCookie("session_id") || getCookie("PHPSESSID"); 
+
     try{
         let formData = new FormData(event.target);
-        request("POST", "/api/admin/add-album.php", formData, addAlbumCallback);
+        request("POST", "/api/admin/add_song.php", formData, addMusicCallback);
         return;
     }catch(err){
         console.log(err)

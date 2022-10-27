@@ -28,6 +28,7 @@
     //get post
     $title = $_POST['title']; //
     $singer= $_POST['singer']; //
+    $genre = $_POST['genre'];
     $duration = $_POST['f_dur']; //
     $genre = $_POST['genre']; //
     $tanggalTerbit = $_POST['tanggalTerbit'];
@@ -97,9 +98,15 @@
     $audioPath = 'assets/songs/' . $baseFileName . $replacedAudio;
 
     $query = "INSERT INTO `song` 
+<<<<<<< HEAD:src/api/admin/fetchMusic.php
                 (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`, `genre`) 
                 VALUES 
                 ('$title', '$singer', '$tanggalTerbit', '$duration', '$imgPath', '$audioPath', '$genre');"; 
+=======
+                (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`,  `image_path`, `audio_path`) 
+                VALUES 
+                ('$title', '$singer', '$tanggalTerbit', '$genre', '$duration', '$imgPath', '$audioPath');"; 
+>>>>>>> main:src/api/admin/add_song.php
     
 
     if (!($conn->query($query))) {
@@ -107,11 +114,12 @@
         exit(json_encode(
             [
                 "status" => 502,
-                "message" => "Error in adding song, please try again later!",
+                "message" => "Error in adding song, please try again later! $conn->error",
                 "data" => ""
             ]
         ));
     }   
+
     http_response_code(200);
     exit(json_encode(
         [
