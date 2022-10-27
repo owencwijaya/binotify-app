@@ -1,68 +1,69 @@
 const getUserListCallback = (data) => {
-    const res = JSON.parse(data)
-    const sentData = JSON.parse(res["data"]);
+  const res = JSON.parse(data);
+  const sentData = JSON.parse(res["data"]);
 
-    if (res["status"] === 200) {
-        
-        var paginationContent = document.getElementById('pagination-content');
-        paginationContent.innerHTML = `
-            <table id="list-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
+  if (res["status"] === 200) {
+    let content = `
+            <div id="user-list-table" class="header-list">
+                <h3 class="list-left">Name</h3>
+                <h3 class="list-center">Username</h3>
+                <h3 class="list-right">Email</h3>
+            </div> 
+        `;
 
-            <tbody>
-            ${sentData["rows"]}
-            </tbody>
-            </table>
-        `
-        // var listTable = document.getElementById('list-table');
-        // var tbody = listTable.getElementsByTagName('tbody')[0];
-        // tbody.innerHTML = sentData["rows"];
+    sentData["rows"].forEach((item) => {
+      content += `
+            <div class="user-list-table">
+                <p class="list-left">${item["name"]}</p>
+                <p class="list-center">${item["username"]}</p>
+                <p class="list-right">${item["email"]}</p>
+            </div>
+            `;
+    });
+    document.getElementById("pagination-content").innerHTML = content;
 
-        var pageNumber = parseInt(sentData["page_number"]);
-        var pageTotal = parseInt(sentData["page_total"]);
+    // var listTable = document.getElementById('list-table');
+    // var tbody = listTable.getElementsByTagName('tbody')[0];
+    // tbody.innerHTML = sentData["rows"];
 
-        document.getElementById('page-info').innerHTML = `Page ${pageNumber} of ${pageTotal}`;
-        
-        var prevButton = document.getElementById('pagination-prev-button');
-        var nextButton = document.getElementById('pagination-next-button');
+    var pageNumber = parseInt(sentData["page_number"]);
+    var pageTotal = parseInt(sentData["page_total"]);
 
-        if (pageNumber === 1){
-            prevButton.onclick = null
-            prevButton.disabled = true;
-        } else {
-            prevButton.disabled = false;
-            prevButton.onclick = () => getUserList(pageNumber - 1)
-        }
+    document.getElementById("page-info").innerHTML = `Page ${pageNumber} of ${pageTotal}`;
 
-        if (pageNumber === pageTotal){
-            nextButton.disabled = true;
-        } else {
-            nextButton.disabled = false;
-            nextButton.onclick = () => getUserList(pageNumber + 1)
-        }
+    var prevButton = document.getElementById("pagination-prev-button");
+    var nextButton = document.getElementById("pagination-next-button");
+
+    if (pageNumber === 1) {
+      prevButton.onclick = null;
+      prevButton.disabled = true;
     } else {
-        alert(res["message"])
+      prevButton.disabled = false;
+      prevButton.onclick = () => getUserList(pageNumber - 1);
     }
 
-    return;
-}
+    if (pageNumber === pageTotal) {
+      nextButton.disabled = true;
+    } else {
+      nextButton.disabled = false;
+      nextButton.onclick = () => getUserList(pageNumber + 1);
+    }
+  } else {
+    alert(res["message"]);
+  }
 
+  return;
+};
 
 const getUserList = (pageNumber = 1) => {
-    try {
-        const formData = new FormData();
-        formData.append("page_number", pageNumber);
-        request("POST", "/api/admin/user_list.php", formData, getUserListCallback);
-        return;
-    } catch (err) {
-        alert(err);
-    }
-}
+  try {
+    const formData = new FormData();
+    formData.append("page_number", pageNumber);
+    request("POST", "/api/admin/user_list.php", formData, getUserListCallback);
+    return;
+  } catch (err) {
+    alert(err);
+  }
+};
 
 window.onload = getUserList(1);

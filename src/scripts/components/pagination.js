@@ -1,16 +1,16 @@
 const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
-    document.getElementById("pagination-container").innerHTML =
-    `
+  document.getElementById("pagination-container").innerHTML = `
         <div id = "pagination-header">
             <h2>| ${title} List</h2>
-            ${needsFilter ?
-                `
+            ${
+              needsFilter
+                ? `
                 <div id = "pagination-filters">
                     <button id = "sort-by-title-button" 
                         
                         onclick = "nameHref('title');"
                     >
-                        Sort by title <p id = "sort-title-arrow" class = "arrow">↑</p>
+                        Sort by title <span id = "sort-title-arrow" class = "arrow">↑</span>
                     </button>
 
                     <button id = "sort-by-year-button"
@@ -33,8 +33,9 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
             }
             <h2 id = "pagination-msg"></h2>
             ${
-                title === "User" ? `` :
-                `
+              title === "User"
+                ? ``
+                : `
                 <div id = "pagination-table-header" hidden>
                     <div id = "headers">
                     ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
@@ -50,47 +51,46 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
 
         <div id = "pagination-content"></div>
         
-        ${isForAlbumDetail ?
-        `` :       
-        ` <div id="pagination-buttons">
+        ${
+          isForAlbumDetail
+            ? ``
+            : ` <div id="pagination-buttons">
             <button id="pagination-prev-button">Previous</button>
             <p id="page-info"></p>
             <button id="pagination-next-button">Next</button>
         </div>
         `
         }
-    `
+    `;
 
-
-    needsFilter && getGenres(title);
-    needsFilter && updateArrow('title');
-    needsFilter && updateArrow('year');
-}
+  needsFilter && getGenres(title);
+  needsFilter && updateArrow("title");
+  needsFilter && updateArrow("year");
+};
 
 const updateArrow = (button) => {
-    const params = new URLSearchParams(window.location.search)
+  const params = new URLSearchParams(window.location.search);
 
-    if (params.get('sort_by') == button && params.get('sort_order') == 'asc'){
-        document.getElementById(`sort-${button}-arrow`).innerHTML= '↓'
-    }
-}
+  if (params.get("sort_by") == button && params.get("sort_order") == "asc") {
+    document.getElementById(`sort-${button}-arrow`).innerHTML = "↓";
+  }
+};
 
 const nameHref = (button) => {
-    const params = new URLSearchParams(window.location.search)
-    const sortOrder = params.get('sort_order')
+  const params = new URLSearchParams(window.location.search);
+  const sortOrder = params.get("sort_order");
 
-
-    if (sortOrder) {
-        if (sortOrder === 'asc'){
-            params.set('sort_order', 'desc');
-        } else {
-            params.set('sort_order', 'asc');
-        }
+  if (sortOrder) {
+    if (sortOrder === "asc") {
+      params.set("sort_order", "desc");
     } else {
-        params.set('sort_order', 'asc');
+      params.set("sort_order", "asc");
     }
+  } else {
+    params.set("sort_order", "asc");
+  }
 
-    params.set('sort_by', button);
+  params.set("sort_by", button);
 
-    window.location = window.location.pathname + "?" +  params.toString();
-}
+  window.location = window.location.pathname + "?" + params.toString();
+};

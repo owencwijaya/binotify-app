@@ -74,15 +74,10 @@
         ));
     }
 
-    $returned_data = "";
+    $returned_data = [];
     
-    while ($row = $data->fetch_array(MYSQLI_ASSOC)){
-        $returned_data .= '
-            <tr>
-                <td>'.$row["name"].'</td>
-                <td>'.$row["username"].'</td>
-                <td>'.$row["email"].'</td>
-            </tr>';
+    while ($row = $data->fetch_assoc()){
+        $returned_data[] = $row;
     }
 
     http_response_code(200);
