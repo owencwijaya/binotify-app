@@ -57,12 +57,13 @@ const edit_song_callback = (response) => {
   document.getElementById("page-title").innerHTML = "Edit Album";
 };
 
-const edit_album = (song_id) => {
-  document.getElementById("album-detail").classList.add("hidden");
+const edit_album = (album_id) => {
+  console.log(album_id)
+  document.getElementById("song-detail").classList.add("hidden");
   document.getElementById("edit-song").classList.remove("hidden");
   try {
     const formData = new FormData();
-    formData.append("song_id", song_id);
+    formData.append("song_id", album_id);
     request("POST", "/api/admin/get_album.php", formData, edit_song_callback);
   } catch (error) {
     alert(error);

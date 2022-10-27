@@ -17,7 +17,7 @@ const getUsernameCallback = (data) => {
 
 const getUsername = () => {
   try {
-    var session_id = getCookie("session_id") || getCookie("PHPSESSID");
+    var session_id = getCookie("PHPSESSID") || "";
     if (session_id) {
       const formData = new FormData();
       formData.append("session_id", session_id);

@@ -26,67 +26,71 @@ const checkCount = (data) => {
     }
 
     const params = new URLSearchParams(window.location.search)
-    const session_id = getCookie("PHPSESSID");
     const song_id = params.get("song_id").hashCode();
     const errMsg = `
     You have played a maximum of three songs.
     To continue listening, please sign up / log in, or wait for the next day 
     (you can still play the previous songs you've played!)`;
 
-    if (localStorage.getItem("played_songs") === null){
-        localStorage.setItem("played_songs", JSON.stringify(new Object()))
+    if (localStorage.getItem("last_updated")=== null){
+        localStorage.setItem("last_updated", new Date().toLocaleDateString());
+    }
+
+    let now = new Date(new Date().toLocaleDateString()).getTime();
+    let lastUpdated = new Date(localStorage.getItem("last_updated")).getTime()
+
+    if (lastUpdated < now || localStorage.getItem("played_songs") === null){
+        localStorage.setItem("played_songs", JSON.stringify(new Object()));
     }
 
     let playedSongs = JSON.parse(localStorage.getItem("played_songs"))
-    len = Object.keys(playedSongs).length;
+    let len = Object.keys(playedSongs).length;
 
-    now = new Date();
-
-    if (localStorage.getItem("last_updated")=== null){
-        localStorage.setItem("last_updated", now);
-    }
-
-    lastUpdated = localStorage.getItem("last_updated");
-    lastUpdatedDate = new Date(lastUpdated);
-    
     if (len === 3){
         let i = 1;
         for (i = 1; i < len + 1; i++){
-            if (playedSongs[`song${i}`] == song_id){
+            if (playedSongs[`song${i}`.hashCode()] == song_id){
                 document.getElementById("playcount-info").innerHTML = "You can play this song again!"
                 play_and_pause()
                 document.getElementById("btn-play").onclick = () => play_and_pause();
                 return;
             }
         }
-        if (lastUpdatedDate.getDate() === now.getDate()){
+        if (lastUpdated === now){
             document.getElementById("btn-play").disabled = true;
             document.getElementById("playcount-info").innerHTML = errMsg
             alert(errMsg);
             return;
         }
+
         localStorage.setItem("played_songs", JSON.stringify(new Object()))
+        len = Object.keys(playedSongs).length;
     }
 
+    let existedBefore = false;
 
     if (len < 3){
         let i = 1;
         if (len > 0){
             for (i = 1; i < len + 1; i++){
-                if (playedSongs[`song${i}`] == song_id){
+                if (playedSongs[`song${i}`.hashCode()] == song_id){
                     document.getElementById("playcount-info").innerHTML = "You can play this song again!"
+                    existedBefore = true;
                     break;
                 }
             }
         } 
 
-        playedSongs[`song${i}`] = song_id
+        playedSongs[`song${i}`.hashCode()] = song_id;
 
         play_and_pause()
         document.getElementById("btn-play").onclick = () => play_and_pause();
         localStorage.setItem('played_songs', JSON.stringify(playedSongs));
-        localStorage.setItem('last_updated', new Date());
-        document.getElementById("playcount-info").innerHTML = `You have ${3 - (len + 1)} free song(s) left today!`
+        localStorage.setItem('last_updated', new Date().toLocaleDateString());
+
+        if (!existedBefore){
+            document.getElementById("playcount-info").innerHTML = `You have ${3 - (len + 1)} free song(s) left today!`
+        }
 
         return;
     }

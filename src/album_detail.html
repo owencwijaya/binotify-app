@@ -6,35 +6,49 @@
         <link rel="stylesheet" href="assets/styles/base.css">
         <link rel="stylesheet" href="assets/styles/index.css">
         <link rel="stylesheet" href="assets/styles/pagination.css">
-x
-        <title>Album | Binotify</title>
+        <link rel="stylesheet" href="assets/styles/song_details.css" />
+
+        <title>Album | BiNotify</title>
     </head>
 
     <body>
         <div id="navigation-container"></div>
-
-        <div id="page-title"></div>
         
-        <div id="album-detail"></div>
-        
-        <div class="content">
-            <div id="edit-song"></div>
-            <div id = "pagination-container" class="pagination-table user-list-pg"></div>
+        <div class="container">
+            <div class="content">
+                <div class="content-header flex flex-row justify-end details-header">
+                    <h2 id="page-title" class="content-title font-bold details-title">Album Details</h2>
+                    <div class="user flex flex-row items-center">
+                        <a id="username" class="username" href="./login.html">Log In</a>
+                        <img src="assets/icons/user.png" alt="user" class="user-img" />
+                    </div>
+                </div>
+                <div id="song-detail" class="album flex flex-row">
+                    <div id="edit-song" class="hidden"></div>
+                </div>
+            </div>
+            <div class="content">
+                <div id = "pagination-container" class="pagination-table song-list"></div>
+            </div>
         </div>
+
 
 
         <script type="module" src="scripts/pages/check_admin.js"></script>
         <script type="module" src="scripts/pages/admin/songsalbums/get.js"></script>
         <script type="module" src="scripts/pages/admin/songsalbums/get-album-detail.js"></script>
     </body>
-
+    <script type="text/javascript" src="scripts/helper.js"></script>
     <script type="text/javascript" src="scripts/request.js"></script>
     <script type="text/javascript" src="scripts/cookies.js"></script>
     <script type="text/javascript" src="scripts/logout.js"></script>
     <script type="text/javascript" src="scripts/components/pagination.js"></script>
+    <script type="text/javascript" src="scripts/components/infoRow.js"></script>
+    <script type="module" src="scripts/username.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
+
     <script>
-        window.onload = createPagination("Album's songs List", false);
+        window.onload = createPagination("Song", false, true);
     </script>
         <script
         type="text/javascript"

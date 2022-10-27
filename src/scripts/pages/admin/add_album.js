@@ -23,7 +23,7 @@ const addAlbum = (event) =>{
     genre = toTitleCase(document.getElementById("genre").value);
     tanggalTerbit = document.getElementById("tanggalTerbit").value;
     f_image = document.getElementById("f_image").value;
-    session_id = getCookie("session_id") || getCookie("PHPSESSID");
+    session_id = getCookie("PHPSESSID") || "";
     
     try{
         let formData = new FormData(event.target);
