@@ -13,7 +13,10 @@ const createCards = (item, isAlbum) => {
   }
 
   content += `
-        <img
+          <div class="overlayer">
+            <img src="assets/icons/play_black.png" alt="play" class="play-icon" />
+          </div>
+          <img
             src="${item["image_path"]}"
             alt="Card Image"
             class="card-img"
