@@ -170,11 +170,11 @@ tr:hover {
   font-size: 20px;
 }
 
-th, td {
+th,
+td {
   padding-top: 1vh;
   padding-bottom: 2vh;
 }
-
 
 .navbar-container {
   background-color: #555555;
@@ -201,6 +201,11 @@ th, td {
   padding: 25px;
 }
 
+.sidebar-selected .menu-text {
+  /* text-decoration: underline solid white 2px; */
+  border-bottom: 2px solid white;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -218,16 +223,30 @@ th, td {
   margin-right: 20px;
   transition-duration: 0.2s;
   padding: 5px 10px;
+  height: 40px;
+  margin: 5px 0 5px 20px;
 }
 
 .menu-item-icon {
   margin-right: 20px;
 }
 
-.menu-item:hover{
+.menu-item:hover {
   background-color: #555555;
   border-radius: 10px;
   transition-duration: 0.2s;
+}
+
+.menu-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ededed;
+  padding-bottom: 2px;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .footer {

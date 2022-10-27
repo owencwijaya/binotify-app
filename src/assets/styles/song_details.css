@@ -1,35 +1,5 @@
 body {
-  background-color: #212121;  
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  margin-bottom: 25px;
-}
-
-.logo-img {
-  position: relative;
-  width: 70%;
-}
-
-.menu-item {
-  margin: 10px 0 10px 20px;
-}
-
-.menu-item-icon {
-  margin-right: 20px;
-}
-
-.create-playlist {
-  margin-top: 45px;
-}
-
-.line {
-  margin: 10px 0;
-  border-bottom: 1px solid #fff;
+  background-color: #212121;
 }
 
 .content {
@@ -39,7 +9,7 @@ body {
   background-color: #212121;
 }
 
-.container>.content{
+.container > .content {
   display: block;
   padding: 25px 25px 10px 25px;
 }
@@ -52,11 +22,11 @@ body {
   width: 50vw;
 }
 
-.details-title{
+.details-title {
   width: 90vw;
 }
 
-.details-header{
+.details-header {
   margin-top: -5vh;
 }
 
@@ -68,7 +38,7 @@ body {
   width: 350px;
 }
 
-.album-img{
+.album-img {
   height: 180px;
   width: fit-content;
 }
