@@ -2,46 +2,14 @@ const edit_song_callback = (response) => {
   const res = JSON.parse(response);
   const song = res.data;
 
-  let content = `
-    <form id="edit-song-form" class="flex flex-col" onsubmit="return false">
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="judul" class="edit-song-label">Judul</label>
-            <input type="text" name="judul" id="judul" class="edit-song-input" value="${song["judul"]}" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="penyanyi" class="edit-song-label">Penyanyi</label>
-            <input type="text" name="penyanyi" id="penyanyi" class="edit-song-input" value="${song["penyanyi"]}" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="album" class="edit-song-label">Album</label>
-            <select name="album" id="album" class="edit-song-input"></select>
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="genre" class="edit-song-label">Genre</label>
-            <input type="text" name="genre" id="genre" class="edit-song-input" value="${song["genre"]}" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="tanggal_terbit" class="edit-song-label">Tanggal Terbit</label>
-            <input type="date" name="tanggal_terbit" id="tanggal_terbit" class="edit-song-input" value="${song["tanggal_terbit"]}" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="f_image" class="edit-song-img-label">Cover Photo</label>
-            <input type="file" name="f_image" id="f_image" class="" />
-        </div>
-        <div class="edit-song-item flex flex-row items-center">
-            <label for="f_audio" class="edit-song-audio-label">Song Track</label>
-            <input type="file" name="f_audio" id="f_audio" class="" />
-        </div>
-        <audio id="audio" hidden></audio>
-        <input type="text" name="f_dur", id="f_dur" hidden/>
-        <div class="edit-song-btns flex flex-row items-center">
-            <button id="btn-submit-song" class="edit-song-btn" onclick="update_song(${song["song_id"]})">Submit</button>
-            <button id="btn-delete-song" class="edit-song-btn" onclick="delete_song(${song["song_id"]})">Delete</button>
-        </div>
-    </form>
-  `;
+  document.getElementById("judul").value = song["judul"];
+  document.getElementById("penyanyi").value = song["penyanyi"];
+  document.getElementById("genre").value = song["genre"];
+  document.getElementById("tanggal_terbit").value = song["tanggal_terbit"];
+  document.getElementById("edit-song-btns").innerHTML = `
+    <button id="btn-submit-song" class="edit-song-btn" onclick="handle_update_song(${song["song_id"]})">Save</button>
+    <button id="btn-delete-song" class="edit-song-btn" onclick="handle_delete_song(${song["song_id"]})">Delete</button>`;
 
-  document.getElementById("edit-song").innerHTML = content;
   document.getElementById("page-title").innerHTML = "Edit Song";
   setDuration();
 };

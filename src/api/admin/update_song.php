@@ -31,7 +31,7 @@ if (!($_SESSION["isadmin"])) {
 
 $song_id = $_POST["song_id"];
 $judul = $_POST["judul"];
-$penyanyi = $_POST["penyanyi"];
+// $penyanyi = $_POST["penyanyi"];
 $tanggal_terbit = $_POST["tanggal_terbit"];
 $genre = $_POST["genre"];
 $audio = $_FILES["audio"];
@@ -42,71 +42,80 @@ $duration = $_POST["duration"];
 $targetDir = $_SERVER["DOCUMENT_ROOT"] . "/assets/";
 $baseFilename = time() . "-";
 
-// save file audio
-$audio_path = "assets/songs/" . $baseFilename . basename($audio["name"]);
-$target_audio_path = $targetDir ."songs/" . $baseFilename . basename($audio["name"]);
-$type_audio = strtolower(pathinfo($target_audio_path, PATHINFO_EXTENSION));
-$type_audio_allowed = array("mp3", "wav", "ogg");
-
-// cek tipe audio
-if (!in_array($type_audio, $type_audio_allowed)) {
-    http_response_code(400);
-    exit(json_encode(
-        [
-            "status" => 400,
-            "message" => "Audio file must be mp3, wav, or ogg",
-            "data" => $audio, $type_audio, $type_audio_allowed
-        ]
-    ));
-}
-
-// move upload file
-if (!move_uploaded_file($_FILES["audio"]["tmp_name"], $target_audio_path)) {
-    http_response_code(501);
-    exit(json_encode(
-        [
-            "status" => 501,
-            "message" => "Failed to upload audio file!",
-            "data" => ["audio" => $_FILES["audio"], "target" => $target_audio_path]
-        ]
-    ));
-}
-
-
-// save file image
-$image_path = "assets/images/" . $baseFilename  . basename($image["name"]);
-$target_image_path = $targetDir . "images/" . $baseFilename  . basename($image["name"]);
-$type_image = strtolower(pathinfo($target_image_path, PATHINFO_EXTENSION));
-$type_image_allowed = array("jpg", "jpeg", "png");
-
-if ($image["size"] <= 0 || !in_array($type_image, $type_image_allowed)) {
-    http_response_code(400);
-    exit(json_encode(
-        [
-            "status" => 400,
-            "message" => "Image file must be jpg, jpeg, or png",
-            "data" => ""
-        ]
-    ));
-}
-
-
-if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_image_path)) {
-    http_response_code(501);
-    exit(json_encode(
-        [
-            "status" => 501,
-            "message" => "Failed to upload image file!",
-            "data" => ""
-        ]
-    ));
-}
-
 if ($album_id == "0") {
     $album_id = "NULL";
 }
 
-$query = "UPDATE song SET judul = '$judul', penyanyi = '$penyanyi', tanggal_terbit = '$tanggal_terbit', genre = '$genre', audio_path = '$audio_path', image_path = '$image_path', album_id = $album_id, duration = '$duration' WHERE song_id = '$song_id'";
+$query = "UPDATE song SET judul = '$judul', tanggal_terbit = '$tanggal_terbit', genre = '$genre', album_id = $album_id";
+
+// save file audio
+if (!is_null($audio)) {
+    $audio_path = "assets/songs/" . $baseFilename . basename($audio["name"]);
+    $target_audio_path = $targetDir ."songs/" . $baseFilename . basename($audio["name"]);
+    $type_audio = strtolower(pathinfo($target_audio_path, PATHINFO_EXTENSION));
+    $type_audio_allowed = array("mp3", "wav", "ogg");
+    
+    // cek tipe audio
+    if (!in_array($type_audio, $type_audio_allowed)) {
+        http_response_code(400);
+        exit(json_encode(
+            [
+                "status" => 400,
+                "message" => "Audio file must be mp3, wav, or ogg",
+                "data" => $audio, $type_audio, $type_audio_allowed
+            ]
+        ));
+    }
+    
+    // move upload file
+    if (!move_uploaded_file($_FILES["audio"]["tmp_name"], $target_audio_path)) {
+        http_response_code(501);
+        exit(json_encode(
+            [
+                "status" => 501,
+                "message" => "Failed to upload audio file!",
+                "data" => ["audio" => $_FILES["audio"], "target" => $target_audio_path]
+            ]
+        ));
+    }
+
+    $query = $query . ", audio = '$audio_path'" . ", duration = $duration";
+} 
+
+// save file image
+if (!is_null($image)) {
+    $image_path = "assets/images/" . $baseFilename  . basename($image["name"]);
+    $target_image_path = $targetDir . "images/" . $baseFilename  . basename($image["name"]);
+    $type_image = strtolower(pathinfo($target_image_path, PATHINFO_EXTENSION));
+    $type_image_allowed = array("jpg", "jpeg", "png");
+    
+    if ($image["size"] <= 0 || !in_array($type_image, $type_image_allowed)) {
+        http_response_code(400);
+        exit(json_encode(
+            [
+                "status" => 400,
+                "message" => "Image file must be jpg, jpeg, or png",
+                "data" => ""
+            ]
+        ));
+    }
+    
+    
+    if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_image_path)) {
+        http_response_code(501);
+        exit(json_encode(
+            [
+                "status" => 501,
+                "message" => "Failed to upload image file!",
+                "data" => ""
+            ]
+        ));
+    }
+
+    $query = $query . ", image = '$image_path'";
+}
+
+$query = $query . " WHERE song_id = '$song_id'";
 $data = $conn->query($query);
 
 if ($data) {

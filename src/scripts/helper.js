@@ -56,7 +56,11 @@ const setModal = (title, messages, textPrimary, textSecondary) => {
     <h3 class="modal-title">${title}</h3>
     <p class="modal-body">${messages}</p>
     <div class="modal-footer">
-      <button id="modal-btn-secondary" class="btn btn-secondary">${textSecondary}</button>
+    ${
+      textSecondary
+        ? `<button id="modal-btn-secondary" class="btn btn-secondary">${textSecondary}</button>`
+        : ""
+    }
       <button id="modal-btn-primary" class="btn btn-primary">${textPrimary}</button>
     </div>`;
   document.getElementById("modal-container").innerHTML = content;
