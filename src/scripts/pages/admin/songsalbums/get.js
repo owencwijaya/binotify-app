@@ -2,52 +2,25 @@ const getSongsListCallback = (data) => {
     console.log(data)
 
     const res = JSON.parse(data)
-    const sentData = JSON.parse(res["data"]);
+
+    let sentData;
+
+    if (res["data"].length > 0){
+        sentData = JSON.parse(res["data"]);
+    }
+
     
     if (res["status"] === 200) {
-        
+        document.getElementById('pagination-table-header').hidden = false;
         var paginationContent = document.getElementById('pagination-content');
-        paginationContent.innerHTML = `
-            <table id="list-table">
-            <thead>
-                <tr>
-                    <th>Judul</th>
-                    <th>Genre</th>
-                </tr>
-            </thead>
 
-            <tbody>
-            ${sentData["rows"]}
-            </tbody>
-            </table>
-        `
-        // var listTable = document.getElementById('list-table');
-        // var tbody = listTable.getElementsByTagName('tbody')[0];
-        // tbody.innerHTML = sentData["rows"];
-
-        var pageNumber = parseInt(sentData["page_number"]);
-        var pageTotal = parseInt(sentData["page_total"]);
-
-        document.getElementById('page-info').innerHTML = `Page ${pageNumber} of ${pageTotal}`;
-        
-        var prevButton = document.getElementById('pagination-prev-button');
-        var nextButton = document.getElementById('pagination-next-button');
-
-        if (pageNumber === 1){
-            prevButton.onclick = null
-            prevButton.disabled = true;
-        } else {
-            prevButton.disabled = false;
-            prevButton.onclick = () => getUserList(pageNumber - 1)
-        }
-
-        if (pageNumber === pageTotal){
-            nextButton.disabled = true;
-        } else {
-            nextButton.disabled = false;
-            nextButton.onclick = () => getUserList(pageNumber + 1)
-        }
-    } else {
+        sentData["rows"].forEach((item) =>{
+            paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album", true);
+        })
+    } else if (res["status"] === 404){
+        document.getElementById("pagination-msg").innerHTML = "This album doesn't have any song yet!";
+    }
+    else {
         alert(res["message"])
     }
 
@@ -61,7 +34,8 @@ const getSongsList = (pageNumber = 1) => {
         console.log(query)
         const formData = new FormData();
         formData.append("page_number", pageNumber);
-        request("POST", `/api/admin/songs-albums.php?album_id=${query}`, formData, getSongsListCallback);
+        formData.append("album_id", query);
+        request("POST", `/api/admin/songs-albums.php`, formData, getSongsListCallback);
         return;
     } catch (err) {
         alert(err);

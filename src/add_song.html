@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "assets/styles/base.css">
     <link rel = "stylesheet" href = "assets/styles/index.css" />
-    <link rel = "stylesheet" href = "assets/styles/login-register.css">
-    <title>Add Music</title>
+    <link rel = "stylesheet" href = "assets/styles/forms.css">
+    <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
+
+    <title>Add Song | BiNotify</title>
 </head>
 <body>   
     <div id="navigation-container"></div>
@@ -56,7 +58,7 @@
 
     <script
     type="text/javascript"
-    src="scripts/pages/add_song.js"
+    src="scripts/pages/admin/add_song.js"
     ></script>
 
     <script 
@@ -67,22 +69,9 @@
 
 
     <script>
-        let f_dur = 0;
-        document.getElementById('audio').addEventListener('loadedmetadata', function() {
-            f_dur = document.getElementById('audio').duration;
-            document.getElementById('f_dur').value = Math.round(f_dur);
-        });
-        document.getElementById('f_audio').addEventListener('change', function() {
-            let file = this.files[0];
-            if(!file.name.match(/\.(wav|mp3)/i)) {
-                alert('Please select an audio file');
-                return;
-            }
-            let audio = document.getElementById('audio');
-            audio.src = URL.createObjectURL(file);
-        });
+        setDuration();
     </script>
-
+    <script type="module" src="scripts/pages/check_admin.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
 
 </html>

@@ -79,7 +79,7 @@ if (!is_null($audio)) {
         ));
     }
 
-    $query = $query . ", audio = '$audio_path'" . ", duration = $duration";
+    $query = $query . ", audio_path = '$audio_path'" . ", duration = $duration";
 } 
 
 // save file image
@@ -112,7 +112,7 @@ if (!is_null($image)) {
         ));
     }
 
-    $query = $query . ", image = '$image_path'";
+    $query = $query . ", image_path = '$image_path'";
 }
 
 $query = $query . " WHERE song_id = '$song_id'";
@@ -133,7 +133,7 @@ if ($data) {
         [
             "status" => 500,
             "message" => "Failed to update song",
-            "data" => $query
+            "data" => $query . " " . $conn->error
         ]
     ));
 }

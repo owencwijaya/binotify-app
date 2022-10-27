@@ -30,6 +30,7 @@
     $singer= $_POST['singer']; //
     $genre = $_POST['genre'];
     $duration = $_POST['f_dur']; //
+    $genre = $_POST['genre']; //
     $tanggalTerbit = $_POST['tanggalTerbit'];
 
     $replacedAudio = str_replace(' ', '_', basename($_FILES["f_audio"]["name"]) );

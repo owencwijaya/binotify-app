@@ -19,7 +19,7 @@ const fillAlbums = (response) => {
   const albums = res.data;
 
   if (albums.length > 0) {
-    let content = `<option value="0">Tanpa Album</option>`;
+    let content = `<option value="0">No Album</option>`;
     albums.forEach((album) => {
       content += `<option value="${album["album_id"]}">${album["judul"]}</option>`;
     });
