@@ -20,25 +20,25 @@ const createNavbar = (data) => {
         </a>
 
         <a href="song_list.html" class="menu-item flex flex-row items-center
-        ${location.href.includes("song") && `sidebar-selected`}">
+        ${(location.href.includes("song_list.html") || location.href.includes("song_detail.html")) && `sidebar-selected`}">
             <img src="assets/icons/search.png" alt="Search Songs" class="menu-item-icon" />
             <span class="menu-text">Search Songs</span>
         </a>
         <a href="album_list.html" class="menu-item flex flex-row items-center
-        ${location.href.includes("album_list.html") && `sidebar-selected`}">
+        ${(location.href.includes("album_list.html") || location.href.includes("album_detail.html")) && `sidebar-selected`}">
             <img src="assets/icons/library.png" alt="Albums" class="menu-item-icon" />
             <span class="menu-text">List Albums</span>
         </a>
         ${
           isLoggedIn && isAdmin
             ?`
-            <a href="add_songs.html" class="menu-item flex flex-row items-center
-            ${location.href.includes("add_songs.html") && `sidebar-selected`}">
+            <a href="add_song.html" class="menu-item flex flex-row items-center
+            ${location.href.includes("add_song.html") && `sidebar-selected`}">
                 <img src="assets/icons/add.png" alt="Add" class="menu-item-icon" />
                 <span class="menu-text">Add Songs</span>
             </a>
-            <a href="add_albums.html" class="menu-item flex flex-row items-center
-            ${location.href.includes("add_albums.html") && `sidebar-selected`}">
+            <a href="add_album.html" class="menu-item flex flex-row items-center
+            ${location.href.includes("add_album.html") && `sidebar-selected`}">
                 <img src="assets/icons/add.png" alt="Add" class="menu-item-icon" />
                 <span class="menu-text">Add Albums</span>
             </a>
