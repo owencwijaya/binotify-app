@@ -1,6 +1,6 @@
 const edit_admin = (song_id) => {
   try {
-    let session_id = getCookie("session_id") || getCookie("PHPSESSID");
+    let session_id = getCookie("PHPSESSID") || "";
     if (session_id) {
       const formData = new FormData();
       formData.append("session_id", session_id);
@@ -53,7 +53,7 @@ const set_song_details_callback = (response) => {
                     <img src="assets/icons/open.png" alt="open" class="open-icon" />
                     </a>
                   </p>`
-                : `<p class="song-album">Album : Tanpa Album</p>`
+                : `<p class="song-album">Album : No Album</p>`
             }
             <p class="song-genre">Genre : ${song["genre"]}</p>
             <p class="song-year">Release : ${song["tanggal_terbit"]}</p>

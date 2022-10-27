@@ -1,3 +1,7 @@
+body {
+  background-color: #212121;  
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -46,6 +50,14 @@
 
 .song-left {
   width: 50vw;
+}
+
+.details-title{
+  width: 92vw;
+}
+
+.details-header{
+  margin-top: -5vh;
 }
 
 .album-left {
@@ -141,10 +153,13 @@
   position: absolute;
 }
 
+<<<<<<< HEAD
 
 h2 .album{
   font-size: 24px;
 }
+=======
+>>>>>>> a35ffd96eecab805e53ee641170b63f75ef1e6ca
 #modal-container {
   position: absolute;
   top: 30%;

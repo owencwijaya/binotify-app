@@ -26,7 +26,7 @@ const addSong = (event) =>{
     f_audio = document.getElementById("f_audio").value;
     f_dur = document.getElementById("f_dur").value;
     alert(f_dur)
-    session_id = getCookie("session_id") || getCookie("PHPSESSID"); 
+    session_id = getCookie("PHPSESSID") || ""; 
 
     try{
         let formData = new FormData(event.target);

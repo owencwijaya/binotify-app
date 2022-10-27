@@ -1,5 +1,6 @@
 const update_song_callback = (response) => {
   try {
+    alert(response);
     const res = JSON.parse(response);
     if (res["status"] == 200) {
       document.getElementById("modal-container").classList.add("hidden");

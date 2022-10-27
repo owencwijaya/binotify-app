@@ -13,15 +13,18 @@
     <body>
         <div id="navigation-container"></div>
         
-
         <div class="container">
-            <div class="content" id=""content>
-                <div class="content-header">
-                    <h2 id="page-title" class="content-title font-bold album">Album Details</h2>
-                  </div>
-                  <div id="song-detail" class="album flex flex-row">  
-                  </div>
-                  <div id="edit-song" class="hidden" ></div>
+            <div class="content">
+                <div class="content-header flex flex-row justify-end details-header">
+                    <h2 id="page-title" class="content-title font-bold details-title">Album Details</h2>
+                    <div class="user flex flex-row items-center">
+                        <a id="username" class="username" href="./login.html">Log In</a>
+                        <img src="assets/icons/user.png" alt="user" class="user-img" />
+                    </div>
+                </div>
+                <div id="song-detail" class="album flex flex-row">
+                    <div id="edit-song" class="hidden"></div>
+                </div>
             </div>
             <div class="content">
                 <div id = "pagination-container" class="pagination-table song-list"></div>
@@ -40,10 +43,12 @@
     <script type="text/javascript" src="scripts/cookies.js"></script>
     <script type="text/javascript" src="scripts/logout.js"></script>
     <script type="text/javascript" src="scripts/components/pagination.js"></script>
+    <script type="text/javascript" src="scripts/components/infoRow.js"></script>
+    <script type="module" src="scripts/username.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
-    <script type="text/javascript" src="scripts/pages/song_details/update_song.js"></script>
+
     <script>
-        window.onload = createPagination("Album's Songs", false);
+        window.onload = createPagination("Song", false, true);
     </script>
         <script
         type="text/javascript"
