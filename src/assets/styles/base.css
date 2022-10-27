@@ -147,6 +147,11 @@ button:active {
   box-shadow: 1px -1px 31px 0px #1db954;
 }
 
+button.del-but:active{
+  background-color: #b91d1d !important;
+  box-shadow: 1px -1px 31px 0px #b91d1d !important;
+}
+
 table {
   width: 100%;
   color: white;

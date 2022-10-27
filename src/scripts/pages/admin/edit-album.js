@@ -1,4 +1,4 @@
-const submit_song = (album_id) => {
+const submit_album = (album_id) => {
   let formData = new FormData();
   let genre = toTitleCase(document.getElementById("genre").value);
   let judul = toTitleCase(document.getElementById("judul").value);
@@ -79,14 +79,15 @@ const edit_album = (album_id) => {
 };
 
 const handle_update_album = (album_id) => {
-  const close_modal = () => {
-    document.getElementById("modal-container").classList.add("hidden");
-  };
   setModal("Save Song", "Do you want to save your changes?", "Yes", "No");
   document.getElementById("modal-btn-primary").addEventListener("click", () => {
-    submit_song(album_id);
+    submit_album(album_id);
   });
   document.getElementById("modal-btn-secondary").addEventListener("click", () => {
     close_modal();
   });
+};
+
+const close_modal = () => {
+  document.getElementById("modal-container").classList.add("hidden");
 };

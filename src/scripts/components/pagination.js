@@ -1,4 +1,5 @@
 const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
+    
     document.getElementById("pagination-container").innerHTML =
     `
         <div id = "pagination-header">
