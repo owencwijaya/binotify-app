@@ -42,6 +42,7 @@ const setDuration = () => {
     .addEventListener("loadedmetadata", function () {
       let f_dur = 0;
       f_dur = document.getElementById("audio").duration;
+      alert(f_dur)
       document.getElementById("f_dur").value = Math.round(f_dur);
     });
   document.getElementById("f_audio").addEventListener("change", function () {

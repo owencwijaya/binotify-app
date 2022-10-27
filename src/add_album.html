@@ -5,39 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "assets/styles/base.css">
+    <link rel = "stylesheet" href = "assets/styles/index.css" />
     <link rel = "stylesheet" href = "assets/styles/login-register.css">
     <title>Add Album</title>
 </head>
 <body>
-    <div class = "bg-image"></div>
+    <div id="navigation-container"></div>
 
     <div class = "centered-div centered-box">
         <h1>Add Album | BiNotify </h1>
 
         <form onsubmit="addAlbum(event)">
             <div class = "form-element">
-                <label for = "title">Judul Album</label>
-                <input type = "text" name = "title" id = "title" placeholder = "Insert your song tittle here..." required>
+                <label for = "title">Album Title</label>
+                <input type = "text" name = "title" id = "title" placeholder = "Insert album title here..." required>
             </div>
+
+            <div class = "form-element">
+                <label for = "genre">Genre</label>
+                <input type = "text" name = "genre" id = "genre" placeholder = "Insert genre here..." required>
+            </div>
+
 
             <div class = "form-element">
                 <label for = "singer">Nama Penyanyi</label>
-                <input type = "text" name = "singer" id = "singer" placeholder = "Insert sons's singer here..." required>
+                <input type = "text" name = "singer" id = "singer" placeholder = "Insert artist here..." required>
             </div>
             
             <div class = "form-element">
-                <label for = "genre">Genre</label>
-                <input type = "text" name = "genre" id = "genre" placeholder = "Insert sons's genre here..." required>
+                <label for = "tanggalTerbit">Release Date</label>
+                <input type = "date" name = "tanggalTerbit" id = "tanggalTerbit" placeholder = "Insert album release date here..." required>
             </div>
 
             <div class = "form-element">
-                <label for = "tanggalTerbit">Tanggal terbit</label>
-                <input type = "date" name = "tanggalTerbit" id = "tanggalTerbit" placeholder = "Insert songs's realesed date here..." required>
-            </div>
-
-            <div class = "form-element">
-                <label for = "image">Gambar</label>
-                <input type = "file" name = "f_image" id = "f_image" placeholder = "Insert song's image here..." required>
+                <label for = "image">Album Image</label>
+                <input type = "file" name = "f_image" id = "f_image" placeholder = "Insert album image here..." required>
             </div>
 
             <button type="submit">Submit</button>
@@ -56,11 +58,14 @@
 
     <script
     type="text/javascript"
-    src="scripts/pages/admin/add-album.js"
+    src="scripts/pages/admin/add_album.js"
     ></script>
 
     <script 
     type = "text/javascript" 
     src = "scripts/cookies.js"
     ></script>
+
+    <script type="module" src="scripts/components/navbar.js"></script>
+
 </html>

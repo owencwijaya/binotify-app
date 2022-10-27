@@ -28,6 +28,7 @@
     //get post
     $title = $_POST['title']; //
     $singer= $_POST['singer']; //
+    $genre = $_POST['genre'];
     $duration = $_POST['f_dur']; //
     $tanggalTerbit = $_POST['tanggalTerbit'];
 
@@ -96,9 +97,9 @@
     $audioPath = 'assets/songs/' . $baseFileName . $replacedAudio;
 
     $query = "INSERT INTO `song` 
-                (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`) 
+                (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`,  `image_path`, `audio_path`) 
                 VALUES 
-                ('$title', '$singer', '$tanggalTerbit', '$duration', '$imgPath', '$audioPath');"; 
+                ('$title', '$singer', '$tanggalTerbit', '$genre', '$duration', '$imgPath', '$audioPath');"; 
     
 
     if (!($conn->query($query))) {
@@ -106,11 +107,12 @@
         exit(json_encode(
             [
                 "status" => 502,
-                "message" => "Error in adding song, please try again later!",
+                "message" => "Error in adding song, please try again later! $conn->error",
                 "data" => ""
             ]
         ));
     }   
+
     http_response_code(200);
     exit(json_encode(
         [
