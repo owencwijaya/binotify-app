@@ -29,6 +29,7 @@
     $title = $_POST['title']; //
     $singer= $_POST['singer']; //
     $duration = $_POST['f_dur']; //
+    $genre = $_POST['genre']; //
     $tanggalTerbit = $_POST['tanggalTerbit'];
 
     $replacedAudio = str_replace(' ', '_', basename($_FILES["f_audio"]["name"]) );
@@ -96,9 +97,9 @@
     $audioPath = 'assets/songs/' . $baseFileName . $replacedAudio;
 
     $query = "INSERT INTO `song` 
-                (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`) 
+                (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`, `genre`) 
                 VALUES 
-                ('$title', '$singer', '$tanggalTerbit', '$duration', '$imgPath', '$audioPath');"; 
+                ('$title', '$singer', '$tanggalTerbit', '$duration', '$imgPath', '$audioPath', '$genre');"; 
     
 
     if (!($conn->query($query))) {
