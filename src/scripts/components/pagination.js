@@ -1,4 +1,4 @@
-const createPagination = (title, needsFilter) => {
+const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
     document.getElementById("pagination-container").innerHTML =
     `
         <div id = "pagination-header">
@@ -26,9 +26,18 @@ const createPagination = (title, needsFilter) => {
 
                     <h2 id = "pagination-msg"></h2>
                 </div>
+
+
                 `
                 : ``
             }
+            <div id = "pagination-table-header">
+                <div id = "headers">
+                ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
+                    <div id = "row-p">Genre</div>
+                    <div id = "row-p">Year Released</div>
+                </div>
+            </div>
         </div>
 
         <div id = "pagination-content"></div>

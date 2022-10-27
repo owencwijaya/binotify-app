@@ -166,12 +166,17 @@
 
 .row-desc {
   position: absolute;
-  display: inline-block;
   right: 0;
-  margin-top: 20px;
+}
+.row-desc div {
+    display: inline-block;
+    right: 0;
+    margin-top: 20px;
+    min-width: 10vw;
+    font-weight: normal;
 }
 
-.row-desc p {
+.row-p{
   font-size: 15px;
 }
 

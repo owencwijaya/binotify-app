@@ -36,6 +36,7 @@ const getListCallback = (data) => {
             nextButton.onclick = () => getList(pageNumber + 1, sentData["table"])
         }
     } else if (res["status"] === 404){
+        document.getElementById('pagination-table-header').innerHTML = null;
         document.getElementById('pagination-buttons').innerHTML = null;
         document.getElementById('pagination-msg').innerHTML = `No results found!`
     } else {

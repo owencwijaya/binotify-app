@@ -50,5 +50,22 @@ body {
     font-weight: bold;
 }
 
+#pagination-table-header {
+    margin: 4vh auto;
+    width: 100%;
+    text-align: right;
+}
 
+#headers{
+    position: relative;
+    right: 0;
+    margin-right: 2vw;
+}
+
+#headers div {
+    display: inline-block;
+    text-align: left;
+    min-width: 10vw;
+    font-weight: normal;
+}
 

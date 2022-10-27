@@ -18,7 +18,7 @@
         ));
     }
 
-    $query = "SELECT song.song_id, song.judul AS judul, song.penyanyi, song.tanggal_terbit, song.audio_path, song.image_path, song.duration, song.genre, album.judul AS album FROM song INNER JOIN album USING (album_id) WHERE song_id = '$song_id'";
+    $query = "SELECT song.song_id, song.judul AS judul, song.penyanyi, song.tanggal_terbit, song.audio_path, song.image_path, song.duration, song.genre, album.judul AS album FROM song JOIN album WHERE album.album_id = song.album_id WHERE song_id = '$song_id'";
     $data = $conn->query($query);
 
     if(!$data){

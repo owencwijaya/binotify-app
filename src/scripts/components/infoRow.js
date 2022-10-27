@@ -14,9 +14,9 @@ const createInfoRow = (item, isAlbum, isForAlbumDetail = false) =>{
         />`}
         <h4 class="row-title">${item["judul"]}</h4>
         <div class="row-desc">
-            ${isForAlbumDetail ? `` : `<p class="row-artist">${item["penyanyi"]}</p>`}
-            <p class="row-genre">${item["genre"]}</p>
-            <p class="row-genre">${item["year"]}</p>
+            ${isForAlbumDetail ? `` : `<div class="row-p">${item["penyanyi"]}</div>`}
+            <div class = "row-p">${item["genre"]}</div>
+            <div class = "row-p">${item["year"]}</div>
         </div>
     </a>
     `;
