@@ -12,7 +12,7 @@
 
     $lower_limit = ($page  - 1) * $limit;
 
-    $query = "SELECT * FROM song WHERE album_id = '$album_id'  LIMIT $limit OFFSET $lower_limit";
+    $query = "SELECT *, YEAR(`tanggal_terbit`) AS `year` FROM song WHERE album_id = '$album_id'  LIMIT $limit OFFSET $lower_limit";
 
     $data = $conn->query($query);
 

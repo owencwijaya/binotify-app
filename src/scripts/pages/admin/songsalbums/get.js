@@ -5,11 +5,11 @@ const getSongsListCallback = (data) => {
     const sentData = JSON.parse(res["data"]);
     
     if (res["status"] === 200) {
-        
+        document.getElementById('pagination-buttons').hidden = true;
         var paginationContent = document.getElementById('pagination-content');
-        alert(sentData["rows"])
+
         sentData["rows"].forEach((item) =>{
-            paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album");
+            paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album", true);
         })
 
         var pageNumber = parseInt(sentData["page_number"]);
