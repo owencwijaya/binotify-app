@@ -17,6 +17,7 @@ const createInfoRow = (item, isAlbum, isForAlbumDetail = false) =>{
             ${isForAlbumDetail ? `` : `<div class="row-p">${item["penyanyi"]}</div>`}
             <div class = "row-p">${item["genre"]}</div>
             <div class = "row-p">${item["year"]}</div>
+            <div class = "row-p">${getDuration(item["duration"])}</div>
         </div>
     </a>
     `;

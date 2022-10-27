@@ -77,6 +77,8 @@
 
 .username {
   margin: 0 10px;
+  min-width: 5vw;
+  text-align: right;
 }
 
 .user-img {
@@ -172,7 +174,7 @@
     display: inline-block;
     right: 0;
     margin-top: 20px;
-    min-width: 10vw;
+    min-width: 8vw;
     font-weight: normal;
 }
 

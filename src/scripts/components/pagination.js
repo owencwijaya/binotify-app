@@ -6,11 +6,11 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
             ${needsFilter ?
                 `
                 <div id = "pagination-filters">
-                    <button id = "sort-by-name-button" 
+                    <button id = "sort-by-title-button" 
                         
-                        onclick = "nameHref('name');"
+                        onclick = "nameHref('title');"
                     >
-                        Sort by name <p id = "sort-name-arrow" class = "arrow">↑</p>
+                        Sort by title <p id = "sort-title-arrow" class = "arrow">↑</p>
                     </button>
 
                     <button id = "sort-by-year-button"
@@ -36,12 +36,13 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
                 title === "User" ? `` :
                 `
                 <div id = "pagination-table-header" hidden>
-                <div id = "headers">
-                ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
-                    <div id = "row-p">Genre</div>
-                    <div id = "row-p">Year Released</div>
-                </div>
-            </div>
+                    <div id = "headers">
+                    ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
+                        <div id = "row-p">Genre</div>
+                        <div id = "row-p">Year Released</div>
+                        <div id = "row-p">Duration</div>
+                    </div>
+              </div>
                 `
             }
 
@@ -62,7 +63,7 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false) => {
 
 
     needsFilter && getGenres(title);
-    needsFilter && updateArrow('name');
+    needsFilter && updateArrow('title');
     needsFilter && updateArrow('year');
 }
 
@@ -76,7 +77,6 @@ const updateArrow = (button) => {
 
 const nameHref = (button) => {
     const params = new URLSearchParams(window.location.search)
-    const sortBy = params.get('sort_by')
     const sortOrder = params.get('sort_order')
 
 

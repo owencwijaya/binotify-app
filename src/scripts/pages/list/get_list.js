@@ -4,6 +4,8 @@ const getListCallback = (data) => {
     let sentData;
 
     if (res["status"] === 200) {
+        document.getElementById('pagination-table-header').removeAttribute("hidden");
+
         sentData = JSON.parse(res["data"]);
         var paginationContent = document.getElementById('pagination-content');
         

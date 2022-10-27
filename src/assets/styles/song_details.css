@@ -53,7 +53,7 @@ body {
 }
 
 .details-title{
-  width: 92vw;
+  width: 90vw;
 }
 
 .details-header{
@@ -153,13 +153,10 @@ body {
   position: absolute;
 }
 
-<<<<<<< HEAD
 
 h2 .album{
   font-size: 24px;
 }
-=======
->>>>>>> a35ffd96eecab805e53ee641170b63f75ef1e6ca
 #modal-container {
   position: absolute;
   top: 30%;

@@ -39,7 +39,14 @@
 
     $lower_limit = ($page  - 1) * $limit;
 
-    $query = "SELECT `" . $_POST["table"] ."_id`,`judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
+    $duration_column = "duration";
+
+    if ($_POST["table"] === "album"){
+        $duration_column = "total_duration";
+    }
+
+
+    $query = "SELECT `" . $_POST["table"] ."_id`, ".  $duration_column. ", `judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
     FROM " . $_POST["table"];
 
 
