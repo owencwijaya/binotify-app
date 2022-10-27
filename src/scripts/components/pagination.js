@@ -3,7 +3,7 @@ const createPagination = (title, needsFilter) => {
     `
         <div id = "pagination-header">
             <h1>| ${title}</h1>
-            ${needsFilter &&
+            ${ needsFilter &&
                 `
                 <button id = "sort-by-name-button" 
                     

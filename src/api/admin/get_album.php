@@ -1,11 +1,10 @@
 <?php
 include "../connect.php";
 
-$song_id = $_POST["song_id"];
+$album_id = $_POST["album_id"];
 
-$query = "SELECT song.song_id, song.judul AS judul, song.penyanyi, song.tanggal_terbit, song.audio_path, song.image_path, song.duration, song.genre, album.judul AS album FROM song INNER JOIN album USING (album_id) WHERE song_id = '$song_id'";
+$query = "SELECT album_id, judul, penyanyi, genre, image_path, tanggal_terbit, total_duration FROM album WHERE album_id = '$album_id';";
 $data = $conn->query($query);
-
 if(!$data){
     http_response_code(500);
     exit(json_encode(
@@ -18,21 +17,21 @@ if(!$data){
 }
 
 if ($data->num_rows == 0) {
-    http_response_code(400);
+    http_response_code(500);
     exit(json_encode(
         [
-            "status" => 400,
-            "message" => "No songs found!",
-            "data" => ""
+            "status" => 500,
+            "message" => "Album songs found!",
+            "data" => $query
         ]
     ));
 }
 
 if ($data->num_rows > 1) {
-    http_response_code(500);
+    http_response_code(501);
     exit(json_encode(
         [
-            "status" => 500,
+            "status" => 501,
             "message" => "Duplicate data detected!",
             "data" => ""
         ]
