@@ -10,6 +10,7 @@ const delete_song_callback = (response) => {
     });
   } catch (error) {
     alert(error);
+    console.log(error)
   }
 };
 

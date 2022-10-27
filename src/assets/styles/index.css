@@ -142,16 +142,21 @@
 }
 
 .row {
+  z-index: 4;
   position: relative;
   display: flex;
   flex-direction: row;
-  width: 97%;
+  min-width: 98%;
   height: 10%;
   padding: 10px;
   background-color: #303030;
   border-radius: 10px;
   margin: 10px;
   transition-duration: 0.3s;
+}
+
+.row-album-detail {
+  min-width: 87% ;
 }
 
 .row-img {
@@ -193,4 +198,10 @@
 .see-all:hover {
   font-weight: bold;
   transition-duration: 0.3s;
+}
+
+.row-container{
+  display: flex;
+  justify-content: flex-end;
+  max-width: 95vw;
 }

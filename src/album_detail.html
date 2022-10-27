@@ -7,8 +7,7 @@
         <link rel="stylesheet" href="assets/styles/index.css">
         <link rel="stylesheet" href="assets/styles/pagination.css">
         <link rel="stylesheet" href="assets/styles/song_details.css" />
-
-        <title>Album | BiNotify</title>
+        <title>Album | Binotify</title>
     </head>
 
     <body>
@@ -24,31 +23,43 @@
                     </div>
                 </div>
                 <div id="song-detail" class="album flex flex-row">
-                    <div id="edit-song" class="hidden"></div>
                 </div>
+                <div id="edit-song" class="hidden"></div>
             </div>
             <div class="content">
                 <div id = "pagination-container" class="pagination-table song-list"></div>
             </div>
+            <div id="modal-container" class="hidden"></div>
         </div>
 
 
 
         <script type="module" src="scripts/pages/check_admin.js"></script>
         <script type="module" src="scripts/pages/admin/songsalbums/get.js"></script>
-        <script type="module" src="scripts/pages/admin/songsalbums/get-album-detail.js"></script>
+        <script type="module" src="scripts/pages/admin/songsalbums/get-album-detail.js"></script>        
     </body>
     <script type="text/javascript" src="scripts/helper.js"></script>
     <script type="text/javascript" src="scripts/request.js"></script>
     <script type="text/javascript" src="scripts/cookies.js"></script>
     <script type="text/javascript" src="scripts/logout.js"></script>
+    <script type="text/javascript" src="scripts/pages/check_login.js"></script>
     <script type="text/javascript" src="scripts/components/pagination.js"></script>
     <script type="text/javascript" src="scripts/components/infoRow.js"></script>
+    <script type="text/javascript" src="scripts/pages/song_details/update_song.js"></script>
+    <script type="text/javascript" src="scripts/pages/song_details/delete_song.js"></script>
+
+
     <script type="module" src="scripts/username.js"></script>
     <script type="module" src="scripts/components/navbar.js"></script>
 
     <script>
-        window.onload = createPagination("Song", false, true);
+        const formData = new FormData();
+        formData.append("session_id", getCookie("PHPSESSID") || "")
+        request("POST", "api/auth/check_admin.php", formData, (data) => {
+            const resp = JSON.parse(data);
+            createPagination("Song", false, true, resp["status"] === 200);
+        } )
+
     </script>
         <script
         type="text/javascript"
