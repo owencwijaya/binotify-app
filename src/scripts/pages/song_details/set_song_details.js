@@ -27,11 +27,7 @@ const set_song_details_callback = (response) => {
   const res = JSON.parse(response);
   const song = res.data;
 
-  let minutes = Math.floor(song["duration"] / 60);
-  let seconds = song["duration"] % 60;
-  let duration = `${
-    minutes < 10 ? "0" + minutes.toString() : minutes.toString()
-  }:${seconds < 10 ? "0" + seconds.toString() : seconds.toString()}`;
+  let duration = getDuration(song["duration"]);
 
   let content = `
           <div class="song-left flex justify-center">
@@ -53,7 +49,7 @@ const set_song_details_callback = (response) => {
                     <img src="assets/icons/open.png" alt="open" class="open-icon" />
                     </a>
                   </p>`
-                : `<p class="song-album">Album : No Album</p>`
+                : `<p class="song-album">Album : -</p>`
             }
             <p class="song-genre">Genre : ${song["genre"]}</p>
             <p class="song-year">Release : ${song["tanggal_terbit"]}</p>
@@ -95,12 +91,7 @@ const set_song_details = (song_id) => {
     const formData = new FormData();
     formData.append("song_id", song_id || "");
     formData.append("session_id", getCookie("PHPSESSID") || "");
-    request(
-      "POST",
-      "/api/songs/get_song.php",
-      formData,
-      set_song_details_callback
-    );
+    request("POST", "/api/songs/get_song.php", formData, set_song_details_callback);
   } catch (error) {
     alert(error);
   }

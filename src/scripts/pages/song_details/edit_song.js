@@ -18,13 +18,13 @@ const fillAlbums = (response) => {
   const res = JSON.parse(response);
   const albums = res.data;
 
+  let content = `<option value="0">-</option>`;
   if (albums.length > 0) {
-    let content = `<option value="0">No Album</option>`;
     albums.forEach((album) => {
       content += `<option value="${album["album_id"]}">${album["judul"]}</option>`;
     });
-    document.getElementById("album").innerHTML = content;
   }
+  document.getElementById("album").innerHTML = content;
 };
 
 const edit_song = (song_id) => {
@@ -37,7 +37,8 @@ const edit_song = (song_id) => {
     request("POST", "/api/songs/get_song.php", formData, edit_song_callback);
     const formData2 = new FormData();
     formData2.append("session_id", getCookie("PHPSESSID") || "");
-    request("POST", "/api/songs/get_albums.php", formData2, fillAlbums);
+    formData2.append("song_id", song_id || "");
+    request("POST", "/api/admin/get_specific_album.php", formData2, fillAlbums);
   } catch (error) {
     alert(error);
   }

@@ -21,6 +21,7 @@ const update_song_callback = (response) => {
 };
 
 const update_song = (song_id) => {
+  console.log("update song: ", song_id);
   let judul = document.getElementById("judul").value;
   // let penyanyi = document.getElementById("penyanyi").value;
   let album_id = document.getElementById("album").value;
@@ -52,14 +53,11 @@ const update_song = (song_id) => {
 };
 
 const handle_update_song = (song_id) => {
-  const close_modal = () => {
-    document.getElementById("modal-container").classList.add("hidden");
-  };
   setModal("Save Song", "Do you want to save your changes?", "Yes", "No");
   document.getElementById("modal-btn-primary").addEventListener("click", () => {
     update_song(song_id);
   });
   document.getElementById("modal-btn-secondary").addEventListener("click", () => {
-    close_modal();
+    document.getElementById("modal-container").classList.add("hidden");
   });
 };

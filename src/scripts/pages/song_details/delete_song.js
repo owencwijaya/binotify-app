@@ -14,6 +14,7 @@ const delete_song_callback = (response) => {
 };
 
 const delete_song = (song_id) => {
+  console.log("delete song: ", song_id);
   try {
     const formData = new FormData();
     formData.append("session_id", getCookie("PHPSESSID") || "");
@@ -25,14 +26,11 @@ const delete_song = (song_id) => {
 };
 
 const handle_delete_song = (song_id) => {
-  const close_modal = () => {
-    document.getElementById("modal-container").classList.add("hidden");
-  };
   setModal("Delete Song", "Do you want to delete this song?", "Yes", "No");
   document.getElementById("modal-btn-primary").addEventListener("click", () => {
     delete_song(song_id);
   });
   document.getElementById("modal-btn-secondary").addEventListener("click", () => {
-    close_modal();
+    document.getElementById("modal-container").classList.add("hidden");
   });
 };
