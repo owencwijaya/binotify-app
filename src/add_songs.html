@@ -59,4 +59,23 @@
     type = "text/javascript" 
     src = "scripts/cookies.js"
     ></script>
+
+
+
+    <script>
+        let f_dur = 0;
+        document.getElementById('audio').addEventListener('loadedmetadata', function() {
+            f_dur = document.getElementById('audio').duration;
+            document.getElementById('f_dur').value = Math.round(f_dur);
+        });
+        document.getElementById('f_audio').addEventListener('change', function() {
+            let file = this.files[0];
+            if(!file.name.match(/\.(wav|mp3)/i)) {
+                alert('Please select an audio file');
+                return;
+            }
+            let audio = document.getElementById('audio');
+            audio.src = URL.createObjectURL(file);
+        });
+    </script>
 </html>

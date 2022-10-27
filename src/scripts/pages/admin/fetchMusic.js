@@ -24,7 +24,7 @@ const fetchMusic = (event) =>{
     f_image = document.getElementById("f_image").value;
     f_audio = document.getElementById("f_audio").value;
     f_dur = document.getElementById("f_dur").value;
-   
+    session_id = getCookie("session_id") || getCookie("PHPSESSID"); 
 
     try{
         let formData = new FormData(event.target);

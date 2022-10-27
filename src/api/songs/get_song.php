@@ -21,17 +21,17 @@
     $query = "SELECT song.song_id, song.judul AS judul, song.penyanyi, song.tanggal_terbit, song.audio_path, song.image_path, song.duration, song.genre, album.judul AS album FROM song INNER JOIN album USING (album_id) WHERE song_id = '$song_id'";
     $data = $conn->query($query);
 
-    if ($conn->error){
+    if(!$data){
         http_response_code(500);
         exit(json_encode(
             [
                 "status" => 500,
-                "message" => "Internal server error",
+                "message" => "Internal server error: ".$conn->error,
                 "data" => $conn->error
             ]
         ));
     }
-
+    
     if ($data->num_rows == 0) {
         http_response_code(400);
         exit(json_encode(

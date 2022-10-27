@@ -17,7 +17,6 @@ const createInfoRow = (item, isAlbum) =>{
             <p class="row-artist">${item["penyanyi"]}</p>
             <p class="row-genre">${item["genre"]}</p>
             <p class="row-genre">${item["year"]}</p>
-            </div>
         </div>
     </a>
     `;
