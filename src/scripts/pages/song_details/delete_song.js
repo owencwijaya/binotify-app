@@ -14,7 +14,6 @@ const delete_song_callback = (response) => {
 };
 
 const delete_song = (song_id) => {
-  console.log("delete song: ", song_id);
   try {
     const formData = new FormData();
     formData.append("session_id", getCookie("PHPSESSID") || "");

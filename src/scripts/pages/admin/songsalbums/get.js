@@ -11,10 +11,16 @@ const getSongsListCallback = (data) => {
     if (res["status"] === 200) {
         document.getElementById('pagination-table-header').removeAttribute("hidden");
         var paginationContent = document.getElementById('pagination-content');
+        
+        const formData = new FormData();
+        formData.append("session_id", getCookie("PHPSESSID") || "")
+        request("POST", "api/auth/check_admin.php", formData, (data) => {
+            const resp = JSON.parse(data);
+            sentData["rows"].forEach((item) =>{
+                paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album", true, resp["status"] === 200);
+            })
+        } )
 
-        sentData["rows"].forEach((item) =>{
-            paginationContent.innerHTML += createInfoRow(item, sentData["table"] === "album", true);
-        })
     } else if (res["status"] === 404){
         document.getElementById("pagination-msg").innerHTML = "This album doesn't have any song yet!";
     }
@@ -29,7 +35,6 @@ const getSongsListCallback = (data) => {
 const getSongsList = (pageNumber = 1) => {
     try {
         let query = params.album_id
-        console.log(query)
         const formData = new FormData();
         formData.append("page_number", pageNumber);
         formData.append("album_id", query);

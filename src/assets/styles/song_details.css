@@ -123,6 +123,10 @@ body {
   position: absolute;
 }
 
+
+h2 .album{
+  font-size: 24px;
+}
 #modal-container {
   position: absolute;
   top: 30%;

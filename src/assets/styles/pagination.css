@@ -80,8 +80,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 97%;
-  margin-right: 8%;
 }
 
 #headers div {

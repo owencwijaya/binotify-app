@@ -140,6 +140,7 @@
 }
 
 .row {
+  z-index: 4;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -202,6 +203,10 @@
   transition-duration: 0.3s;
 }
 
+.row-album-detail {
+  min-width: 87% ;
+}
+
 .row-img {
   max-width: 4%;
   max-height: 4%;
@@ -241,4 +246,10 @@
 .see-all:hover {
   font-weight: bold;
   transition-duration: 0.3s;
+}
+
+.row-container {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 95vw;
 }

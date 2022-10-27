@@ -1,13 +1,8 @@
-const addAlbumCallback = (data) =>{
-    console.log(data)
-    
+const addAlbumCallback = (data) =>{    
     try{
         let res = JSON.parse(data); //gws
         if(res["message"] === 200){
             location.reload()
-        }else{
-            alert(res["message"])
-            console.log(res["data"])
         }
     }catch(err){
         alert(err.message)
@@ -30,7 +25,6 @@ const addAlbum = (event) =>{
         request("POST", "/api/admin/add_album.php", formData, addAlbumCallback);
         return;
     }catch(err){
-        console.log(err)
         alert(err);
     }
 }

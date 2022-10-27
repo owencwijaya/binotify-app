@@ -21,7 +21,6 @@ const update_song_callback = (response) => {
 };
 
 const update_song = (song_id) => {
-  console.log("update song: ", song_id);
   let judul = document.getElementById("judul").value;
   // let penyanyi = document.getElementById("penyanyi").value;
   let album_id = document.getElementById("album").value;

@@ -33,7 +33,8 @@
     $baseFileName = time() . "-" ;
 
     //image path
-    $tempName = $baseFileName . basename($_FILES["f_image"]["name"]);
+    $replacedImg  = str_replace(' ', '_', basename($_FILES["f_image"]["name"]));
+    $tempName = $baseFileName . $replacedImg;
     $targetImgPath = $tartgetDir . 'images/' . $tempName;
     $fileImgType = strtolower(pathinfo($targetImgPath,PATHINFO_EXTENSION));
     $imgTypesAllowed = array("jpg","jpeg", "png");
@@ -44,7 +45,7 @@
         exit(json_encode(
             [
                 "status" => 400,
-                "message" => "File bukan gambar atau tipe gambar tidak sesuai",
+                "message" => "File bukan gambar atau tipe gambar tidak sesuai ". $fileImgType,
                 "data" => $_FILES["f_image"]["size"]
             ]
         ));
@@ -62,7 +63,7 @@
         ));
     }
 
-    $imgPath = '/assets/images/' . $tempName;
+    $imgPath = 'assets/images/' . $tempName;
 
     $query = "INSERT INTO album (judul, penyanyi, image_path, genre, tanggal_terbit, total_duration) 
             VALUES ('$judul', '$penyanyi', '$imgPath', '$genre', '$tanggal_terbit', 0);";

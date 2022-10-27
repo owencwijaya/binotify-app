@@ -5,44 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "assets/styles/base.css">
-    <link rel = "stylesheet" href = "assets/styles/index.css" />
-    <link rel = "stylesheet" href = "assets/styles/forms.css">
+    <link rel = "stylesheet" href = "assets/styles/login-register.css">
     <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
 
-    <title>Add Song | BiNotify</title>
+    <title>Add Music | BiNotify</title>
 </head>
 <body>   
-    <div id="navigation-container"></div>
+
+    <div class = "bg-image"></div>
     <audio id="audio" hidden></audio>
     <div class = "centered-div centered-box">
-        <h1>Add Song | BiNotify </h1>
-    <form onsubmit="addSong(event)">
+        <h1>Add Music | BiNotify </h1>
+    <form onsubmit="fetchMusic(event)">
         <div class = "form-element">
-            <label for = "title">Song Title</label>
-            <input type = "text" name = "title" id = "title" placeholder = "Insert your song title here..." required>
+            <label for = "title">Judul Lagu</label>
+            <input type = "text" name = "title" id = "title" placeholder = "Insert your song tittle here..." required>
         </div>
         <div class = "form-element">
-            <label for = "genre">Genre</label>
-            <input type = "text" name = "genre" id = "genre" placeholder = "Insert genre here..." required>
-        </div>
-        <div class = "form-element">
-            <label for = "singer">Artist</label>
-            <input type = "text" name = "singer" id = "singer" placeholder = "Insert artist here..." required>
-        </div>
-        <div class = "form-element">
-            <label for = "genre">Genre</label>
-            <input type = "text" name = "genre" id = "genre" placeholder = "Insert sons's singer here..." required>
+            <label for = "singer">Nama Penyanyi</label>
+            <input type = "text" name = "singer" id = "singer" placeholder = "Insert sons's singer here..." required>
         </div>
         <div class = "form-element">
             <label for = "tanggalTerbit">Tanggal terbit</label>
             <input type = "date" name = "tanggalTerbit" id = "tanggalTerbit" placeholder = "Insert songs's realesed date here..." required>
         </div>
         <div class = "form-element">
-            <label for = "image">Image</label>
+            <label for = "genre">Genre</label>
+            <input type = "text" name = "genre" id = "genre" placeholder = "Insert songs's genre here..." required>
+        </div>
+        <div class = "form-element">
+            <label for = "image">Gambar</label>
             <input type = "file" name = "f_image" id = "f_image" placeholder = "Insert song's image here..." required>
         </div>
         <div class = "form-element">
-            <label for = "f_audio">Audio File</label>
+            <label for = "f_audio">Audio</label>
             <input type = "file" name = "f_audio" id = "f_audio" placeholder = "Insert songs's audio file here..." required>
         </div>
         <input type="text" name="f_dur" id="f_dur" hidden>
@@ -62,16 +58,11 @@
 
     <script
     type="text/javascript"
-    src="scripts/pages/admin/add_song.js"
+    src="scripts/pages/admin/fetchMusic.js"
     ></script>
 
     <script 
     type = "text/javascript" 
     src = "scripts/cookies.js"
     ></script>
-    <script type="text/javascript" src="scripts/pages/check_admin.js"></script>
-    <script type="module" src="scripts/components/navbar.js"></script>
-    <script>
-        window.onload = checkAdmin();
-    </script>
 </html>

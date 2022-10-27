@@ -13,7 +13,6 @@ const onLoad = () => {
           createNavbar(JSON.stringify({ status: 401 }));
         }
     } catch (error) {
-        console.log(error);
         alert(error);
     }
 

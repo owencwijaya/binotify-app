@@ -89,7 +89,7 @@ CREATE TABLE `song` (
   `album_id` int DEFAULT NULL,
   PRIMARY KEY (`song_id`),
   KEY `fk_album_id` (`album_id`),
-  CONSTRAINT `song_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`)
+  CONSTRAINT `song_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,10 +140,10 @@ INSERT INTO `user` (`name`, `email`, `password`, `username`, `isadmin`) VALUES
 
 
 INSERT INTO `album` (`judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`) VALUES
-('Gajah',	'Tulus',	1892,	'assets/images/album_gajah.jpg',	'2014-02-19',	'Pop'),
-('Manusia',	'Tulus',	2317,	'assets/images/album_manusia.jpg',	'2022-03-03',	'Romance'),
-('Monokrom',	'Tulus',	2137,	'assets/images/album_monokrom.jpg',	'2016-08-03',	'Pop'),
-('Tulus',	'Tulus',	1760,	'assets/images/album_tulus.jpg',	'2011-12-20',	'Romance');
+('Gajah',	'Tulus',	1007,	'assets/images/album_gajah.jpg',	'2014-02-19',	'Pop'),
+('Manusia',	'Tulus',	1230,	'assets/images/album_manusia.jpg',	'2022-03-03',	'Romance'),
+('Monokrom',	'Tulus',	1104,	'assets/images/album_monokrom.jpg',	'2016-08-03',	'Pop'),
+('Tulus',	'Tulus',	240,	'assets/images/album_tulus.jpg',	'2011-12-20',	'Romance');
 
 INSERT INTO `song` (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id`) VALUES
 ('Baru',	'Tulus',	'2014-04-22',	'Romance',	178,	'assets/songs/Baru.mp3',	'assets/images/album_gajah.jpg',	1),
