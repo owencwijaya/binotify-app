@@ -21,13 +21,6 @@ const submit_album = (album_id) => {
   }
 };
 
-const delete_song = (album_id) => {
-  console.log("success delete song:", album_id);
-  document.getElementById("song-detail").classList.remove("hidden");
-  document.getElementById("edit-song").classList.add("hidden");
-  document.getElementById("page-title").innerHTML = "Album Details";
-};
-
 const edit_song_callback = (response) => {
   const res = JSON.parse(response);
   const song = res.data;
@@ -56,7 +49,7 @@ const edit_song_callback = (response) => {
         </div>
         <div class="edit-song-btns flex flex-row items-center">
             <button id="btn-submit-song" class="edit-song-btn" onclick="handle_update_album(${song["album_id"]})">Submit</button>
-            <button id="btn-delete-song" class="edit-song-btn" onclick="delete_song(${song["album_id"]})">Delete</button>
+            <button id="btn-delete-song" class="edit-song-btn" onclick="handle_delete_album(${song["album_id"]})">Delete</button>
         </div>
     </form>
   `;
@@ -90,4 +83,26 @@ const handle_update_album = (album_id) => {
 
 const close_modal = () => {
   document.getElementById("modal-container").classList.add("hidden");
+};
+
+const handle_delete_album = (album_id) => {
+  setModal("Delete Song", "Do you want to delete this song?", "Yes", "No");
+  document.getElementById("modal-btn-primary").addEventListener("click", () => {
+    delete_album(album_id);
+  });
+  document.getElementById("modal-btn-secondary").addEventListener("click", () => {
+    document.getElementById("modal-container").classList.add("hidden");
+  });
+};
+
+const delete_album = (album_id) => {
+  console.log("delete song: ", album_id);
+  try {
+    const formData = new FormData();
+    formData.append("session_id", getCookie("PHPSESSID") || "");
+    formData.append("album_id", album_id);
+    request("POST", "/api/admin/delete_album.php", formData, delete_song_callback);
+  } catch (error) {
+    alert(error);
+  }
 };

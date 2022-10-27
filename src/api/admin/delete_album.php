@@ -1,5 +1,5 @@
 <?php
-
+    include('../connect.php');
     session_start();
     $session_id = $_POST["session_id"];
 
@@ -33,7 +33,7 @@
 
     $data = $conn->query($query);
 
-    if ($conn->error){
+    if (!$data){
         http_response_code(500);
         exit(json_encode(
             [
@@ -51,6 +51,6 @@
         "message" => "Success",
         "data" => $albums
     ]
-));
+    ));
 
 ?>

@@ -89,7 +89,7 @@ CREATE TABLE `song` (
   `album_id` int DEFAULT NULL,
   PRIMARY KEY (`song_id`),
   KEY `fk_album_id` (`album_id`),
-  CONSTRAINT `song_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`)
+  CONSTRAINT `song_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
