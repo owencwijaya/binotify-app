@@ -145,3 +145,26 @@
 h2 .album{
   font-size: 24px;
 }
+#modal-container {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 30vw;
+  height: 20vh;
+  min-height: 200px;
+  z-index: 100;
+  background-color: black;
+  border-radius: 10px;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

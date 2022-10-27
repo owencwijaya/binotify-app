@@ -98,15 +98,9 @@
     $audioPath = 'assets/songs/' . $baseFileName . $replacedAudio;
 
     $query = "INSERT INTO `song` 
-<<<<<<< HEAD:src/api/admin/fetchMusic.php
                 (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`, `genre`) 
                 VALUES 
                 ('$title', '$singer', '$tanggalTerbit', '$duration', '$imgPath', '$audioPath', '$genre');"; 
-=======
-                (`judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`,  `image_path`, `audio_path`) 
-                VALUES 
-                ('$title', '$singer', '$tanggalTerbit', '$genre', '$duration', '$imgPath', '$audioPath');"; 
->>>>>>> main:src/api/admin/add_song.php
     
 
     if (!($conn->query($query))) {
