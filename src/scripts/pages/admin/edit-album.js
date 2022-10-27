@@ -1,8 +1,24 @@
 const submit_song = (album_id) => {
-  console.log("success modify song:", album_id);
-  document.getElementById("song-detail").classList.remove("hidden");
-  document.getElementById("edit-song").classList.add("hidden");
-  document.getElementById("page-title").innerHTML = "Album Details";
+  let formData = new FormData();
+  let genre = toTitleCase(document.getElementById("genre").value);
+  let judul = toTitleCase(document.getElementById("judul").value);
+  let tanggal_terbit = toTitleCase(document.getElementById("tanggal_terbit").value);
+  let image = document.getElementById("image").value;
+  formData.append("session_id", getCookie("PHPSESSID") || "");
+  formData.append("album_id", album_id);
+  formData.append("judul", judul);
+  formData.append("genre", genre);
+  formData.append("tanggal_terbit", tanggal_terbit);
+
+  !image ? formData.append("image", image) : formData.append("image", "");
+
+  try{
+    request("POST", "/api/admin/update_detail_album.php", formData, update_song_callback);
+    return;
+  } catch (error) {
+    alert(error);
+    console.log(error)
+  }
 };
 
 const delete_song = (album_id) => {
@@ -24,7 +40,7 @@ const edit_song_callback = (response) => {
         </div>
         <div class="edit-song-item flex flex-row items-center">
             <label for="penyanyi" class="edit-song-label">Penyanyi</label>
-            <input type="text" name="penyanyi" id="penyanyi" class="edit-song-input" value="${song["penyanyi"]}" />
+            <input type="text" name="penyanyi" id="penyanyi" class="edit-song-input text-white" value="${song["penyanyi"]}" disabled />
         </div>
         <div class="edit-song-item flex flex-row items-center">
             <label for="genre" class="edit-song-label">Genre</label>
@@ -39,7 +55,7 @@ const edit_song_callback = (response) => {
             <input type="file" name="image" id="image" class="" />
         </div>
         <div class="edit-song-btns flex flex-row items-center">
-            <button id="btn-submit-song" class="edit-song-btn" onclick="submit_song(${song["album_id"]})">Submit</button>
+            <button id="btn-submit-song" class="edit-song-btn" onclick="handle_update_album(${song["album_id"]})">Submit</button>
             <button id="btn-delete-song" class="edit-song-btn" onclick="delete_song(${song["album_id"]})">Delete</button>
         </div>
     </form>
@@ -60,4 +76,17 @@ const edit_album = (album_id) => {
   } catch (error) {
     alert(error);
   }
+};
+
+const handle_update_album = (album_id) => {
+  const close_modal = () => {
+    document.getElementById("modal-container").classList.add("hidden");
+  };
+  setModal("Save Song", "Do you want to save your changes?", "Yes", "No");
+  document.getElementById("modal-btn-primary").addEventListener("click", () => {
+    submit_song(album_id);
+  });
+  document.getElementById("modal-btn-secondary").addEventListener("click", () => {
+    close_modal();
+  });
 };

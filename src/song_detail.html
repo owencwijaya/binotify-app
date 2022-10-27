@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Binotify | Song</title>
-    <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
     <link rel="stylesheet" href="assets/styles/base.css" />
     <link rel="stylesheet" href="assets/styles/song_details.css" />
   </head>
@@ -16,14 +16,59 @@
       <div class="content-header">
         <h2 id="page-title" class="content-title font-bold">Song Details</h2>
       </div>
+      <div id="modal-container" class="hidden"></div>
       <div id="song-detail" class="song flex flex-row"></div>
-      <div id="edit-song" class="hidden"></div>
+      <div id="edit-song" class="hidden">
+        <div id="edit-song-form" class="flex flex-col" hidden>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="judul" class="edit-song-label">Judul</label>
+            <input type="text" name="judul" id="judul" class="edit-song-input" value="" />
+          </div>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="penyanyi" class="edit-song-label">Penyanyi</label>
+            <input
+              type="text"
+              name="penyanyi"
+              id="penyanyi"
+              class="edit-song-input text-white"
+              value=""
+              disabled
+            />
+          </div>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="album" class="edit-song-label">Album</label>
+            <select name="album" id="album" class="edit-song-input"></select>
+          </div>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="genre" class="edit-song-label">Genre</label>
+            <input type="text" name="genre" id="genre" class="edit-song-input" value="" />
+          </div>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="tanggal_terbit" class="edit-song-label">Tanggal Terbit</label>
+            <input
+              type="date"
+              name="tanggal_terbit"
+              id="tanggal_terbit"
+              class="edit-song-input"
+              value=""
+            />
+          </div>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="f_image" class="edit-song-img-label">Cover Photo</label>
+            <input type="file" name="f_image" id="f_image" class="" />
+          </div>
+          <div class="edit-song-item flex flex-row items-center">
+            <label for="f_audio" class="edit-song-audio-label">Song Track</label>
+            <input type="file" name="f_audio" id="f_audio" class="" />
+          </div>
+          <audio id="audio" hidden></audio>
+          <input type="text" name="f_dur" id="f_dur" hidden />
+          <div id="edit-song-btns" class="edit-song-btns flex flex-row items-center"></div>
+        </div>
+      </div>
     </div>
 
-    <footer
-      id="footer-container"
-      class="footer hidden flex flex-row justify-between items-center"
-    >
+    <footer id="footer-container" class="footer hidden flex flex-row justify-between items-center">
       <div id="footer-left" class="footer-left flex flex-row">
         <img src="" alt="song" class="footer-song-img" />
         <div class="flex flex-col justify-center">
@@ -43,13 +88,7 @@
         </button>
         <!-- mute -->
         <div class="flex flex-row items-center justify-center">
-          <input
-            type="range"
-            id="volume-bar"
-            class="slider"
-            value="100"
-            max="100"
-          />
+          <input type="range" id="volume-bar" class="slider" value="100" max="100" />
           <button onclick="mute()">
             <img id="mute" src="assets/icons/sound.png" alt="sound" />
           </button>
@@ -59,8 +98,6 @@
         </button>
       </div>
     </footer>
-
-
   </body>
   <script type="text/javascript" src="scripts/request.js"></script>
   <script type="text/javascript" src="scripts/cookies.js"></script>
@@ -69,7 +106,11 @@
   <script type="text/javascript" src="scripts/pages/song_details/set_song_details.js"></script>
   <script type="text/javascript" src="scripts/pages/song_details/song.js"></script>
   <script type="text/javascript" src="scripts/pages/song_details/edit_song.js"></script>
-
+  <script type="text/javascript" src="scripts/pages/song_details/update_song.js"></script>
+  <script type="text/javascript" src="scripts/pages/song_details/delete_song.js"></script>
+  <script type="text/javascript" src="scripts/helper.js"></script>
+  
   <script type="module" src="scripts/components/navbar.js"></script>
+  <script type="module" src="scripts/username.js"></script>
   <script type="module" src="scripts/pages/check_login.js"></script>
 </html>

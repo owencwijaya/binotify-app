@@ -44,12 +44,17 @@ const set_song_details_callback = (response) => {
           <div class="song-right">
             <h2 class="song-title">${song["judul"]}</h2>
             <p class="song-artist">Artist : ${song["penyanyi"]}</p>
-            <p class="song-album">
-              Album : <a href="#" class="font-bold">
-              ${song["album"]}
-              <img src="assets/icons/open.png" alt="open" class="open-icon" />
-              </a>
-            </p>
+
+            ${
+              song["album_id"]
+                ? `<p class="song-album">
+                    Album : <a href="album_detail.html?album_id=${song["album_id"]}" class="font-bold">
+                    ${song["album"]}
+                    <img src="assets/icons/open.png" alt="open" class="open-icon" />
+                    </a>
+                  </p>`
+                : `<p class="song-album">Album : Tanpa Album</p>`
+            }
             <p class="song-genre">Genre : ${song["genre"]}</p>
             <p class="song-year">Release : ${song["tanggal_terbit"]}</p>
             <p class="song-duration">Duration : ${duration}</p>
