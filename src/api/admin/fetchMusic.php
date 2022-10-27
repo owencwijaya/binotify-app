@@ -92,8 +92,8 @@
         ));
     }
     
-    $imgPath = 'assets/images/' . $baseFileName . basename($_FILES["f_image"]["name"]);
-    $audioPath = 'assets/songs/' . $baseFileName . basename($_FILES["f_audio"]["name"]);
+    $imgPath = 'assets/images/' . $baseFileName . $replacedImg;
+    $audioPath = 'assets/songs/' . $baseFileName . $replacedAudio;
 
     $query = "INSERT INTO `song` 
                 (`judul`, `penyanyi`, `tanggal_terbit`, `duration`,  `image_path`, `audio_path`) 
