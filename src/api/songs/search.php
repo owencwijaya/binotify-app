@@ -20,22 +20,7 @@
 
     $limit = 10;
 
-    $query = "SELECT COUNT(*) as `count` FROM `" . $_POST["table"] . "`";
-    
-    $data = $conn->query($query);
 
-    if ($conn->error){
-        http_response_code(500);
-        exit(json_encode(
-            [
-                "status" => 500,
-                "message" => "Internal server error",
-                "data" => $conn->error
-            ]
-        ));
-    }
-
-    $table_count = $data->fetch_array(MYSQLI_ASSOC)["count"];
 
     $lower_limit = ($page  - 1) * $limit;
 
@@ -46,10 +31,10 @@
     }
 
 
-    $query = "SELECT `" . $_POST["table"] ."_id`, `".  $duration_column. "`, `judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
+    $base = "SELECT `" . $_POST["table"] ."_id`, `".  $duration_column. "`, `judul`, `penyanyi`, YEAR(`tanggal_terbit`) as `year`,`genre`,`image_path` 
     FROM " . $_POST["table"];
 
-
+    $query = "";
 
     if ($_POST["query"] !== "") {
         $query .= " WHERE (`judul` LIKE ". "'%" . $_POST["query"] . "%' OR `penyanyi` LIKE ". "'%" 
@@ -69,7 +54,7 @@
         }
 
         if ($_POST["sort_by"] === "year"){
-            $sort_by = "`year`";
+            $sort_by = "YEAR(`tanggal_terbit`)";
         }
         $query .= " ORDER BY " . $sort_by . " " . $_POST["sort_order"];
     } else {
@@ -78,7 +63,7 @@
 
     $query .= " LIMIT $limit OFFSET $lower_limit;";
 
-    $data = $conn->query($query);
+    $data = $conn->query($base . $query);
 
     if ($conn->error){
         http_response_code(500);
@@ -104,11 +89,30 @@
         ));
     }
 
+
     $returned_data = [];
     
     while ($row = $data->fetch_assoc()){
         $returned_data[] = $row;
     }
+
+
+    $count_query = "SELECT COUNT(*) as `count` FROM `" . $_POST["table"] . "`" . $query;
+    
+    $data = $conn->query($count_query);
+
+    if ($conn->error){
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Internal server error",
+                "data" => $conn->error 
+            ]
+        ));
+    }
+
+    $table_count = $data->fetch_array(MYSQLI_ASSOC)["count"];
 
     http_response_code(200);
     exit(json_encode(
@@ -118,7 +122,7 @@
             "data" =>  json_encode(
                 [
                     "data_count" => $data_count,
-                    "page_total" => ceil($table_count/ $limit),
+                    "page_total" => ceil($table_count / $limit),
                     "page_number" => $page,
                     "rows" => $returned_data,
                     "table" => $_POST["table"]

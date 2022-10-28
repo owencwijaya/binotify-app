@@ -50,6 +50,8 @@ Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digu
 ![readme/home.png](readme/home.png)
 
 ### Halaman Daftar Lagu (_Search, Sort, dan Filter_)
+(Kasus melakukan pencarian pada lagu yang dinyanyikan Tulus dengan genre Melancholic diurutkan berdasarkan nama lagu secara menurun dari alfabet besar ke kecil)
+
 ![readme/search.png](readme/song_list.png)
 
 ### Halaman Daftar Album
@@ -112,5 +114,5 @@ Legenda NIM adalah sebagai berikut:
 - Halaman Detail Album: 13520043
 - Halaman Tambah Lagu: 13520043
 - Halaman Tambah Album: 13520043
-- Halaman Daftar User: 13520124
+- Halaman Daftar User: 13520117, 13520124
 
