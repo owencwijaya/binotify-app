@@ -22,6 +22,7 @@
 
 .searchbar-input {
   width: 100%;
+  min-width: 200px;
   height: 100%;
   border: none;
   border-radius: 10px;
@@ -153,9 +154,14 @@
   border-radius: 5px;
 }
 
+.row a {
+  width: 100%;
+  margin: 0;
+}
+
 .row:hover {
   top: -5px;
-  box-shadow: -1px 1px 43px -1px rgba(0, 0, 0, 0.63);
+  /* box-shadow: -1px 1px 43px -1px rgba(0, 0, 0, 0.63); */
   background-color: #555555;
 }
 .row-left {
@@ -190,60 +196,6 @@
   font-weight: normal;
   text-align: center;
 }
-
-/* .row {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: 97%;
-  height: 10%;
-  padding: 10px;
-  background-color: #303030;
-  border-radius: 10px;
-  margin: 10px;
-  transition-duration: 0.3s;
-}
-
-.row-album-detail {
-  min-width: 87% ;
-}
-
-.row-img {
-  max-width: 4%;
-  max-height: 4%;
-  object-fit: contain;
-  border-radius: 5px;
-}
-
-.row-title {
-  font-weight: bold;
-  margin: 20px;
-}
-
-.row-desc {
-  position: absolute;
-  right: 0;
-}
-.row-desc div {
-  display: inline-block;
-  right: 0;
-  margin-top: 20px;
-  min-width: 8vw;
-  font-weight: normal;
-}
-
-.row-p {
-  font-size: 15px;
-}
-
-.row:hover {
-  transition-duration: 0.3s;
-  margin-top: -10px;
-  margin-bottom: 20px;
-  box-shadow: -1px 1px 43px -1px rgba(0, 0, 0, 0.63);
-  background-color: #555555;
-} */
-
 .see-all:hover {
   font-weight: bold;
   transition-duration: 0.3s;

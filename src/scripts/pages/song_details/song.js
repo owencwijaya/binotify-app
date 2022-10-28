@@ -92,6 +92,7 @@ seek_bar.addEventListener("input", () => {
 
 seek_bar.addEventListener("change", () => {
   player.currentTime = seek_bar.value;
+
   if (!player.paused) {
     requestAnimationFrame(whilePlaying);
   }

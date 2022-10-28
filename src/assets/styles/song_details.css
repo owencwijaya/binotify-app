@@ -19,7 +19,8 @@ body {
 }
 
 .song-left {
-  width: 50vw;
+  width: 50%;
+  height: 50%;
 }
 
 .details-title {
@@ -35,12 +36,17 @@ body {
 }
 
 .song-img {
-  width: 350px;
+  width: 100%;
+  max-width: 360px;
 }
 
 .album-img {
   height: 180px;
   width: fit-content;
+}
+
+.song-right {
+  margin-left: 5%;
 }
 
 .song-right p {
@@ -123,8 +129,7 @@ body {
   position: absolute;
 }
 
-
-h2 .album{
+h2 .album {
   font-size: 24px;
 }
 #modal-container {

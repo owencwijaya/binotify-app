@@ -40,9 +40,13 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false, isAdmin 
                     <div id = "headers">
                     ${isForAlbumDetail ? ` ` : `<div id = "row-p">Artist</div>`}
                         <div id = "row-p">Genre</div>
-                        <div id = "row-p">Year Released</div>
+                        <div id = "row-p">Year</div>
                         <div id = "row-p">Duration</div>
-                    ${isForAlbumDetail && isAdmin ? `<div id = "row-p" class = "filler">        </div>` : ``}
+                        ${
+                          isForAlbumDetail && isAdmin
+                            ? `<div id = "row-p" class="button-admin"></div>`
+                            : ``
+                        }
                     </div>
               </div>
                 `

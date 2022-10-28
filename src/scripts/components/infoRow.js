@@ -1,14 +1,14 @@
 const createInfoRow = (item, isAlbum, isForAlbumDetail = false, isAdmin = false) => {
   let content = "";
   if (!isAlbum) {
-    content = `<div class = "row-container"><a href = "song_detail.html?song_id=${
+    content = `<div class = "row"><a href = "song_detail.html?song_id=${
       item["song_id"]
     }" class = "row ${isForAlbumDetail && isAdmin ? `row-album-detail` : ``}">`;
   } else {
-    content = `<div class = "row-container">
-    <a href = "album_detail.html?album_id=${
-      item["album_id"]
-    }" class = "row ${isForAlbumDetail && isAdmin ? `row-album-detail` : ``}">`;
+    content = `<div class = "row">
+    <a href = "album_detail.html?album_id=${item["album_id"]}" class = "row ${
+      isForAlbumDetail && isAdmin ? `row-album-detail` : ``
+    }">`;
   }
   return (
     content +
@@ -24,14 +24,16 @@ const createInfoRow = (item, isAlbum, isForAlbumDetail = false, isAdmin = false)
                     alt="row Image"
                     class="row-img"
                 />`
-            }
+        }
             <h4 class="row-title">${item["judul"]}</h4>
           </div>
             <div class="row-desc">
                 ${isForAlbumDetail ? `` : `<div class="row-p">${item["penyanyi"]}</div>`}
                 <div class = "row-p">${item["genre"]}</div>
                 <div class = "row-p">${item["year"]}</div>
-                <div class = "row-p">${getDuration(item["duration"] || item["total_duration"])}</div>
+                <div class = "row-p">${getDuration(
+                  item["duration"] || item["total_duration"]
+                )}</div>
             </div>
         </a>
         ${
