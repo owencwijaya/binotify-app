@@ -47,7 +47,6 @@ const addSong = (event) =>{
 const handle_add_song = (event) => {
     event.preventDefault();
     setModal("Add song", "Do you want to add new song?", "Yes", "No");
-    console.log("aaaa")
     document.getElementById("modal-btn-primary").addEventListener("click", () => {
       addSong(event);
     });

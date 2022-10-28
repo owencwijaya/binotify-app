@@ -52,7 +52,6 @@ const add_album = () =>{
 const handle_add_album = (event) => {
     event.preventDefault();
     setModal("Add Album", "Do you want to add new album?", "Yes", "No");
-    console.log("aaaa")
     document.getElementById("modal-btn-primary").addEventListener("click", () => {
       add_album();
     });

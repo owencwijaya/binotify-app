@@ -61,6 +61,23 @@
         $query .= " ORDER BY `judul` ASC";
     }
 
+    $count_query = "SELECT COUNT(*) as `count` FROM `" . $_POST["table"] . "`" . $query;
+    
+    $data = $conn->query($count_query);
+
+    if ($conn->error){
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Internal server error",
+                "data" => $conn->error 
+            ]
+        ));
+    }
+
+    $table_count = $data->fetch_array(MYSQLI_ASSOC)["count"];
+
     $query .= " LIMIT $limit OFFSET $lower_limit;";
 
     $data = $conn->query($base . $query);
@@ -97,22 +114,7 @@
     }
 
 
-    $count_query = "SELECT COUNT(*) as `count` FROM `" . $_POST["table"] . "`" . $query;
-    
-    $data = $conn->query($count_query);
 
-    if ($conn->error){
-        http_response_code(500);
-        exit(json_encode(
-            [
-                "status" => 500,
-                "message" => "Internal server error",
-                "data" => $conn->error 
-            ]
-        ));
-    }
-
-    $table_count = $data->fetch_array(MYSQLI_ASSOC)["count"];
 
     http_response_code(200);
     exit(json_encode(
@@ -125,7 +127,8 @@
                     "page_total" => ceil($table_count / $limit),
                     "page_number" => $page,
                     "rows" => $returned_data,
-                    "table" => $_POST["table"]
+                    "table" => $_POST["table"],
+                    "table_count_query" => $count_query
                 ]
             )
         ]
