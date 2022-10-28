@@ -25,7 +25,7 @@ const update_song = (song_id) => {
   let album_id = (document.getElementById("album").value);
   let genre = toTitleCase(document.getElementById("genre").value);
 
-  if(!isOnlyAlphaNumeric(judul) || !isOnlyAlphaNumeric(genre) || !isOnlyAlphaNumeric(album_id)){
+  if(!isOnlyAlphaNumeric(judul) || !isOnlyAlphaNumeric(genre)){
     setModal("Invalid input", "Only alphanumeric input allowable", "OK", "");
       document.getElementById("modal-btn-primary").addEventListener("click", () => {
         document.getElementById("modal-container").classList.add("hidden");
