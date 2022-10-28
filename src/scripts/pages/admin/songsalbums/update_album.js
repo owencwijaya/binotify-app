@@ -2,6 +2,7 @@ const submit_album = (album_id) => {
     let formData = new FormData();
     let genre = toTitleCase(document.getElementById("genre").value);
     let judul = toTitleCase(document.getElementById("judul").value);
+   
     if(!isOnlyAlphaNumeric(judul) || !isOnlyAlphaNumeric(genre)){
       setModal("Invalid input", "Only alphanumeric input allowable", "OK", "");
         document.getElementById("modal-btn-primary").addEventListener("click", () => {
