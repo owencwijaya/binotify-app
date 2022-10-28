@@ -53,7 +53,7 @@ Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digu
 ### Halaman Daftar Lagu (_Search, Sort, dan Filter_)
 (Kasus melakukan pencarian pada lagu yang dinyanyikan Tulus dengan genre Melancholic diurutkan berdasarkan nama lagu secara menurun dari alfabet besar ke kecil)
 
-![readme/search.png](readme/song_list.png)
+![readme/song_list.png](readme/song_list.png)
 
 ### Halaman Daftar Album
 ![readme/album_list.png](readme/album_list.png)
@@ -87,6 +87,7 @@ Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digu
 (dijadikan satu kasus karena layouting yang sama)
 
 ![readme/edit_song.png](readme/edit_song.png)
+
 
 ## Pembagian Tugas
 Secara umum, pembagian tugas dilakukan dengan setiap anggota melakukan pengembangan di _server side_ maupun _client side_ berdasarkan _groundwork_ yang sudah dibuat. Pengecualian terkhusus pada pembuatan komponen _reusable_ dan CSS yang digunakan bersama. 
