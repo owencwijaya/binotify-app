@@ -140,7 +140,6 @@
 }
 
 .row {
-
   z-index: 4;
   position: relative;
   display: flex;
@@ -148,7 +147,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #303030;
-  width: 97%;
+  width: 100%;
   min-height: 60px;
   margin: 5px 0;
   border-radius: 5px;
@@ -253,5 +252,9 @@
 .row-container {
   display: flex;
   justify-content: flex-end;
-  margin-left: -2vw;
+  margin-left: 0vw;
+}
+
+.filler{
+  width: 8vw;
 }

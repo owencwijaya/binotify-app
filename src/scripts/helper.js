@@ -73,5 +73,5 @@ const close_modal = () => {
 
 
 const isOnlyAlphaNumeric = (value) =>{
-  return (/(^[a-zA-Z0-9]+$)/).test(value)
+  return (/(^[a-zA-Z0-9]+$)/).test(value.replaceAll(" ", ""))
 }

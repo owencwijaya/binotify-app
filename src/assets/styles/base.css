@@ -147,12 +147,7 @@ button:active {
   box-shadow: 1px -1px 31px 0px #1db954;
 }
 
-.del-but{
-  /* right: 10vw;
-  margin-top: -8vh;
-  z-index: 5; */
-  float: right;
-}
+
 .del-but:active{
   background-color: #b91d1d !important;
   box-shadow: 1px -1px 31px 0px #b91d1d !important;
