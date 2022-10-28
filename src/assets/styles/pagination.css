@@ -8,8 +8,8 @@ body {
   font-weight: bold;
   padding: 20px;
   border-radius: 10px;
-  margin-left: 2vw;
-  max-width: 70vw;
+  margin-left: 1vw;
+  min-width: 75vw;
 }
 
 #pagination-filters {
