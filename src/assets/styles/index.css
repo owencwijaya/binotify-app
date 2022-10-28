@@ -253,5 +253,5 @@
 .row-container {
   display: flex;
   justify-content: flex-end;
-  max-width: 95vw;
+  margin-left: -2vw;
 }
