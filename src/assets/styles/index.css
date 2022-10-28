@@ -140,6 +140,7 @@
 }
 
 .row {
+
   z-index: 4;
   position: relative;
   display: flex;
@@ -172,6 +173,7 @@
 }
 
 .row-title {
+  padding-left: 20px;
   font-size: 14px;
   font-weight: bold;
 }

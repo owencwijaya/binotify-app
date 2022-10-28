@@ -42,7 +42,7 @@ const createPagination = (title, needsFilter, isForAlbumDetail = false, isAdmin 
                         <div id = "row-p">Genre</div>
                         <div id = "row-p">Year Released</div>
                         <div id = "row-p">Duration</div>
-                    ${isForAlbumDetail && isAdmin ? `<div id = "row-p"></div>` : ``}
+                    ${isForAlbumDetail && isAdmin ? `<div id = "row-p" style="min-width: 150px"></div>` : ``}
                     </div>
               </div>
                 `

@@ -22,9 +22,16 @@ const createSearchBar = () => {
 
 const search = () => {
     const value = document.getElementsByClassName("searchbar-input")[0].value;
-    const params = new URLSearchParams(window.location.search);
-    params.set('query', value)
-    location.href = "song_list.html" + "?" +  params.toString()
+    if(!(/(^[a-zA-Z0-9]+$)/).test(value)){
+        setModal("Invalid query", "Query only accept alphanumeric", "OK", "");
+        document.getElementById("modal-btn-primary").addEventListener("click",()=>{
+            window.location.reload();
+        })
+    }else{
+        const params = new URLSearchParams(window.location.search);
+        params.set('query', value)
+        location.href = "song_list.html" + "?" +  params.toString()
+    }
 }
 
 window.onload = createSearchBar;
