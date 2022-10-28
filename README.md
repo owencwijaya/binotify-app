@@ -5,7 +5,7 @@
 ## Deskripsi
 BiNotify adalah sebuah aplikasi pemutar lagu berbasis web yang dapat digunakan untuk memutar lagu, menambahkan lagu / album, serta melakukan perubahan data lagu / album yang terdaftar. Pengguna dapat memutar lagu yang terdaftar di BiNotify dengan mudah menggunakan UI yang simpel dan aplikasi yang berbasis web. Menggunakan hak admin, pengguna dapat melihat daftar pengguna lainnya dan menambahkan / menyunting lagu dan album.
 
-![readme/image.png](readme/image.png)
+![readme/home.png](readme/home.png)
 
 BiNotify dibangun menggunakan bahasa pemrograman HTML, CSS, dan JavaScript di bagian _client side_, dan PHP di bagian _server side_. Komunikasi antara kedua pihak dilakukan dengan paradigma _request/response_ secara _asynchronous_ dengan perantara AJAX. Penanganan _state_ dilakukan menggunakan fitur `$_SESSION` dari bahasa PHP. 
 
@@ -45,7 +45,45 @@ Database: tubes_wbd
 
 Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digunakan untuk proses lain, _port_ dapat diganti pada konfigurasi `docker-compose.yml`
 
-## Screenshot
+## _Screenshot_
+### Halaman _Home_
+![readme/home.png](readme/home.png)
+
+### Halaman Daftar Lagu (_Search, Sort, dan Filter_)
+![readme/search.png](readme/song_list.png)
+
+### Halaman Daftar Album
+![readme/album_list.png](readme/album_list.png)
+
+### Halaman Detail Lagu
+(Kasus admin, dapat melakukan editing)
+
+![readme/song_detail.png](readme/song_detail.png)
+
+### Halaman Detail Album 
+(Kasus admin, dapat melakukan editing)
+
+![readme/album_detail.png](readme/album_detail.png)
+
+### Halaman Register
+![readme/register.png](readme/register.png)
+
+### Halaman Login
+![readme/login.png](readme/login.png)
+
+### Halaman Tambah Lagu (Admin)
+![readme/add_song.png](readme/add_song.png)
+
+### Halaman Tambah Album (Admin)
+![readme/add_album.png](readme/add_album.png)
+
+### Halaman Daftar User (Admin)
+![readme/user_list.png](readme/user_list.png)
+
+### Opsi Edit Lagu / Album (Admin)
+(dijadikan satu kasus karena layouting yang sama)
+
+![readme/edit_song.png](readme/edit_song.png)
 
 ## Pembagian Tugas
 Secara umum, pembagian tugas dilakukan dengan setiap anggota melakukan pengembangan di _server side_ maupun _client side_ berdasarkan _groundwork_ yang sudah dibuat. Pengecualian terkhusus pada pembuatan komponen _reusable_ dan CSS yang digunakan bersama. 
