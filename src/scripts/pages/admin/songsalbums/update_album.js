@@ -2,7 +2,15 @@ const submit_album = (album_id) => {
     let formData = new FormData();
     let genre = toTitleCase(document.getElementById("genre").value);
     let judul = toTitleCase(document.getElementById("judul").value);
-    let tanggal_terbit = toTitleCase(document.getElementById("tanggal_terbit").value);
+    if(!isOnlyAlphaNumeric(judul) || !isOnlyAlphaNumeric(genre)){
+      setModal("Invalid input", "Only alphanumeric input allowable", "OK", "");
+        document.getElementById("modal-btn-primary").addEventListener("click", () => {
+          document.getElementById("modal-container").classList.add("hidden");
+        });
+      return;
+    }
+  
+    let tanggal_terbit = (document.getElementById("tanggal_terbit").value);
     let image = document.getElementById("image").value;
     formData.append("session_id", getCookie("PHPSESSID") || "");
     formData.append("album_id", album_id);

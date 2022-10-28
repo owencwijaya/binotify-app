@@ -23,6 +23,14 @@ const add_album = () =>{
     f_image = document.getElementById("f_image").files[0];
     session_id = getCookie("PHPSESSID") || "";
 
+    if(!isOnlyAlphaNumeric(title) || !isOnlyAlphaNumeric(genre) || !isOnlyAlphaNumeric(singer)){
+        setModal("Invalid input", "Only alphanumeric input allowable", "OK", "");
+          document.getElementById("modal-btn-primary").addEventListener("click", () => {
+            document.getElementById("modal-container").classList.add("hidden");
+          });
+        return;
+      }
+    
     let formData = new FormData();
 
     formData.append("session_id", session_id);

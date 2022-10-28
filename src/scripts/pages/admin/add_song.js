@@ -27,6 +27,14 @@ const addSong = (event) =>{
     f_dur = document.getElementById("f_dur").value;
     session_id = getCookie("PHPSESSID") || ""; 
 
+    if(!isOnlyAlphaNumeric(singer) || !isOnlyAlphaNumeric(genre) || !isOnlyAlphaNumeric(title)){
+        setModal("Invalid input", "Only alphanumeric input allowable", "OK", "");
+          document.getElementById("modal-btn-primary").addEventListener("click", () => {
+            document.getElementById("modal-container").classList.add("hidden");
+          });
+        return;
+      }
+    
     try{
         let formData = new FormData(event.target);
         request("POST", "/api/admin/add_song.php", formData, addMusicCallback);

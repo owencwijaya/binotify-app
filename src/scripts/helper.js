@@ -70,3 +70,8 @@ const setModal = (title, messages, textPrimary, textSecondary) => {
 const close_modal = () => {
   document.getElementById("modal-container").classList.add("hidden");
 };
+
+
+const isOnlyAlphaNumeric = (value) =>{
+  return (/(^[a-zA-Z0-9]+$)/).test(value)
+}

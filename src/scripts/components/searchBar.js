@@ -22,7 +22,7 @@ const createSearchBar = () => {
 
 const search = () => {
     const value = document.getElementsByClassName("searchbar-input")[0].value;
-    if(!(/(^[a-zA-Z0-9]+$)/).test(value)){
+    if(!isOnlyAlphaNumeric(value)){
         setModal("Invalid query", "Query only accept alphanumeric", "OK", "");
         document.getElementById("modal-btn-primary").addEventListener("click",()=>{
             window.location.reload();

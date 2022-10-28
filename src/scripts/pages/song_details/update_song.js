@@ -20,10 +20,19 @@ const update_song_callback = (response) => {
 };
 
 const update_song = (song_id) => {
-  let judul = document.getElementById("judul").value;
-  // let penyanyi = document.getElementById("penyanyi").value;
-  let album_id = document.getElementById("album").value;
-  let genre = document.getElementById("genre").value;
+  let judul =   toTitleCase(document.getElementById("judul").value);
+  // let penyanyi = toTitleCase(document.getElementById("penyanyi").value);
+  let album_id = (document.getElementById("album").value);
+  let genre = toTitleCase(document.getElementById("genre").value);
+
+  if(!isOnlyAlphaNumeric(judul) || !isOnlyAlphaNumeric(genre) || !isOnlyAlphaNumeric(album_id)){
+    setModal("Invalid input", "Only alphanumeric input allowable", "OK", "");
+      document.getElementById("modal-btn-primary").addEventListener("click", () => {
+        document.getElementById("modal-container").classList.add("hidden");
+      });
+    return;
+  }
+
   let tanggal_terbit = document.getElementById("tanggal_terbit").value;
   let image = document.getElementById("f_image").files[0];
   let audio = document.getElementById("f_audio").files[0];
