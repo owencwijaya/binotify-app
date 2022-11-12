@@ -1,31 +1,33 @@
 version: '3.3'
 services:
-  app.wbd1:
-    container_name: app-tubes-1-wbd
+  app:
+    container_name: binotify-app
     build:
       context: ./src
       dockerfile: ../app.Dockerfile
-    image: app-tubes-1-wbd:latest
+    image: binotify-app:latest
     volumes:
       - ./src:/usr/src
       - ./custom.ini:/usr/local/etc/php/conf.d/custom.ini
       - ./custom.ini:/usr/local/etc/php/php.ini-custom
     ports:
-      - 8001:8001
+      - 8000:8000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-  database.wbd1:
-    container_name: database-tubes-1-wbd
+  db:
+    container_name: db-binotify-app
     build:
       context: ./src
       dockerfile: ../database.Dockerfile
-    image: database-tubes-1-wbd:latest
+    image: db-binotify-app:latest
     environment:
       MYSQL_USER: tubes
       MYSQL_PASSWORD: tubes
       MARIADB_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tubes_wbd
+      MYSQL_DATABASE: binotify-app
     ports:
-      - 3312:3312
+      - 3310:3310
 
   adminer:
     container_name: adminer

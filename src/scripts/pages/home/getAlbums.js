@@ -1,4 +1,5 @@
 const getAlbumsCallback = (response) => {
+  console.log(response)
   const res = JSON.parse(response);
   const albums = res.data;
 

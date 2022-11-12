@@ -1,8 +1,8 @@
 <?php
-    $host = "database-tubes-1-wbd";
+    $host = "db-binotify-app";
     $user = "tubes";
     $password = "tubes";
-    $dbname = "tubes_wbd";
+    $dbname = "binotify-app";
 
     $conn=new mysqli($host, $user, $password, $dbname);
     if(mysqli_connect_errno()){
