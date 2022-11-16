@@ -4,7 +4,7 @@ services:
     container_name: binotify-app
     build:
       context: ./src
-      dockerfile: ../app.Dockerfile
+      dockerfile: ../Dockerfile
     image: binotify-app:latest
     volumes:
       - ./src:/usr/src
@@ -15,26 +15,3 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  db:
-    container_name: db-binotify-app
-    build:
-      context: ./src
-      dockerfile: ../database.Dockerfile
-    image: db-binotify-app:latest
-    environment:
-      MYSQL_USER: tubes
-      MYSQL_PASSWORD: tubes
-      MARIADB_ROOT_PASSWORD: root
-      MYSQL_DATABASE: binotify-app
-    ports:
-      - 3310:3310
-
-  adminer:
-    container_name: adminer
-    image: adminer:4.8.1
-    environment:
-      ADMINER_DEFAULT_SERVER: mariadb
-    restart: always
-    ports:
-      - 8080:8080
-    

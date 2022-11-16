@@ -1,7 +1,7 @@
 <?php
-    $host = "db-binotify-app";
-    $user = "tubes";
-    $password = "tubes";
+    $host = "host.docker.internal:8042";
+    $user = "root";
+    $password = "root";
     $dbname = "binotify-app";
 
     $conn=new mysqli($host, $user, $password, $dbname);
