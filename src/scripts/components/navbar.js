@@ -55,7 +55,14 @@ const createNavbar = (data) => {
                 <img src="assets/icons/user.png" alt="Add" class="menu-item-icon" />
                 <span class="menu-text">User List</span>
             </a>`
-            : ``
+            : `
+            
+            <a href = "./premium_artist.html" class="menu-item flex flex-row items-center
+            ${location.href.includes("premium_artist.html") && `sidebar-selected`}"">
+              <img src="assets/icons/premium.png" alt="login" class="menu-item-icon" />
+              <span class="menu-text">Premium Artists</span>
+            </a>
+            `
         }
         ${
           isLoggedIn

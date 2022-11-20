@@ -1,5 +1,5 @@
 <?php
-    $host = "host.docker.internal:8042";
+    $host = "host.docker.internal:3312";
     $user = "root";
     $password = "root";
     $dbname = "binotify-app";

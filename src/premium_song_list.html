@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/styles/base.css">
+        <link rel="stylesheet" href="assets/styles/index.css">
+        <link rel="stylesheet" href="assets/styles/pagination.css">
+        <title>Premium Song List | BiNotify</title>
+        <link rel = "icon" type = "image/x-icon" href = "assets/icons/favicon.ico">
+    </head>
+
+    <body>
+        <div id="navigation-container"></div>
+
+        <div class="content">
+            <div class="content-header flex flex-row justify-end">
+                <div class="user flex flex-row items-center">
+                  <a id="username" class="username" href="./login.html">Log In</a>
+                  <img src="assets/icons/user.png" alt="user" class="user-img" />
+                </div>
+              </div>
+            <div id = "pagination-container" class="pagination-table user-list-pg"></div>
+        </div>
+
+        <script type="text/javascript" src="scripts/pages/premium/get_premium_song_list.js"></script>
+    </body>
+
+    <script type="text/javascript" src="scripts/request.js"></script>
+    <script type="text/javascript" src="scripts/cookies.js"></script>
+    <script type="text/javascript" src="scripts/logout.js"></script>
+    <script type="text/javascript" src="scripts/components/pagination.js"></script>
+
+    <script type="module" src="scripts/username.js"></script>
+    <script type="module" src="scripts/components/navbar.js"></script>
+    
+    <script>
+        window.onload = createPagination("Premium Song List", false, true);
+        window.onload = loadPremiumUsers();
+    </script>
+</html>
