@@ -37,6 +37,12 @@ const createNavbar = (data) => {
             <img src="assets/icons/library.png" alt="Albums" class="menu-item-icon" />
             <span class="menu-text">List Albums</span>
         </a>
+
+        <a href = "./premium_artist.html" class="menu-item flex flex-row items-center
+        ${location.href.includes("premium_artist.html") && `sidebar-selected`}"">
+          <img src="assets/icons/premium.png" alt="login" class="menu-item-icon" />
+          <span class="menu-text">Premium Artists</span>
+        </a>
         ${
           isLoggedIn && isAdmin
             ? `
@@ -57,11 +63,7 @@ const createNavbar = (data) => {
             </a>`
             : `
             
-            <a href = "./premium_artist.html" class="menu-item flex flex-row items-center
-            ${location.href.includes("premium_artist.html") && `sidebar-selected`}"">
-              <img src="assets/icons/premium.png" alt="login" class="menu-item-icon" />
-              <span class="menu-text">Premium Artists</span>
-            </a>
+
             `
         }
         ${
