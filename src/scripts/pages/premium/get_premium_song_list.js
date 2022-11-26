@@ -1,4 +1,5 @@
 async function getPremiumSongList(user_id){
+    alert(`http://localhost:3000/user/${user_id}/songs`)
     const response = await fetch(
         `http://localhost:3000/user/${user_id}/songs`,
         {
@@ -29,9 +30,8 @@ const loadPremiumUsers = () => {
 
                 content += `
                     <div class="row">
-                    <a href = "song_detail.html?song_id=${item["song_id"]}&type=premium">
                         <p class="row-title">${item["judul"]}</p>
-                    </a>
+                    </div>
                 `;
             });
             document.getElementById("pagination-content").innerHTML = content;

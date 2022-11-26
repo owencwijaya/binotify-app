@@ -58,7 +58,7 @@ const loadPremiumUsers = () => {
                 // nanti bikin endpoint php buat dapetin list yg dia subscreb siapa aja
                 // ntar cocokin creator_id sama artist_id di sini
                 // sekarang anggep udah subscreb semua dulu ya
-                const isSubscribed = false
+                const isSubscribed = true
     
                 content += `
                     <div class="row">
