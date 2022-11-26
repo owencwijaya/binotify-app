@@ -48,41 +48,37 @@
     $user_data = $data->fetch_array(MYSQLI_ASSOC);
     $subscriber_id = $user_data['user_id'];
 
-    $query = "SELECT * FROM subscription WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id;";    
-    $data = $conn->query($query);
+    // $query = "SELECT * FROM subscription WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id;";    
+    // $data = $conn->query($query);
 
-    if ($conn->error){
-        http_response_code(500);
-        exit(json_encode(
-            [
-                "status" => 500,
-                "message" => "Internal server error $username",
-                "data" => $conn->error
-            ]
-        ));
-    }
+    // if ($conn->error){
+    //     http_response_code(500);
+    //     exit(json_encode(
+    //         [
+    //             "status" => 500,
+    //             "message" => "Internal server error $username",
+    //             "data" => $conn->error
+    //         ]
+    //     ));
+    // }
 
-    if ($data->num_rows > 0){
-        http_response_code(400);
-        exit(json_encode(
-            [
-                "status" => 400,
-                "message" => "You have already subscribed / sent a subscription request to this creator!",
-                "data" => ""
-            ]
-        ));
-    }
+    // if ($data->num_rows > 0){
+    //     http_response_code(400);
+    //     exit(json_encode(
+    //         [
+    //             "status" => 400,
+    //             "message" => "You have already subscribed / sent a subscription request to this creator!",
+    //             "data" => ""
+    //         ]
+    //     ));
+    // }
 
-// $soap_client = new SoapClient("http://localhost:4000/binotify-soap/services/subscription.wsdl"); 
-    var_dump($creator_id);
-    var_dump($subscriber_id);
+
     $params = array(
         "creator_id" => $creator_id,
         "subscriber_id" => (int)$subscriber_id,
     );
-    var_dump($soap_client->__getFunctions());
-    var_dump($params);
-    
+
     try{
         $response = $soap_client->__soapCall("addSubs", $params);
     } catch (Exception $e){

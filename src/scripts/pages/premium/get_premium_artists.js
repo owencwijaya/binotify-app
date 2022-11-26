@@ -28,6 +28,8 @@ const sendSubRequestCallback = (data) => {
             location.href = "./login.html"
             return;
         }
+        alert(res["message"]);
+        return;
     }
 
     alert("Successfully sent subscription request!");
