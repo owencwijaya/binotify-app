@@ -1,5 +1,4 @@
 async function getPremiumSongList(user_id){
-    alert(`http://localhost:3000/user/${user_id}/songs`)
     const response = await fetch(
         `http://localhost:3000/user/${user_id}/songs`,
         {

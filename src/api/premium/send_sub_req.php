@@ -48,30 +48,30 @@
     $user_data = $data->fetch_array(MYSQLI_ASSOC);
     $subscriber_id = $user_data['user_id'];
 
-    // $query = "SELECT * FROM subscription WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id;";    
-    // $data = $conn->query($query);
+    $query = "SELECT * FROM subscription WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id; AND status != 'REJECTED'";    
+    $data = $conn->query($query);
 
-    // if ($conn->error){
-    //     http_response_code(500);
-    //     exit(json_encode(
-    //         [
-    //             "status" => 500,
-    //             "message" => "Internal server error $username",
-    //             "data" => $conn->error
-    //         ]
-    //     ));
-    // }
+    if ($conn->error){
+        http_response_code(500);
+        exit(json_encode(
+            [
+                "status" => 500,
+                "message" => "Internal server error $username",
+                "data" => $conn->error
+            ]
+        ));
+    }
 
-    // if ($data->num_rows > 0){
-    //     http_response_code(400);
-    //     exit(json_encode(
-    //         [
-    //             "status" => 400,
-    //             "message" => "You have already subscribed / sent a subscription request to this creator!",
-    //             "data" => ""
-    //         ]
-    //     ));
-    // }
+    if ($data->num_rows > 0){
+        http_response_code(400);
+        exit(json_encode(
+            [
+                "status" => 400,
+                "message" => "You have already subscribed / sent a subscription request to this creator!",
+                "data" => ""
+            ]
+        ));
+    }
 
 
     $params = array(
