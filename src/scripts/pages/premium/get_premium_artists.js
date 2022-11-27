@@ -1,3 +1,17 @@
+// const getPremiumUsers = () => {
+//     fetch(
+//         'http://localhost:3000/user',
+//         {
+//             method: 'GET',
+//             // mode: 'cors', 
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         }
+//     )
+//     .then((response) => console.log(response.json()))
+// }
+
 async function getPremiumUsers(){
     const response = await fetch(
         'http://localhost:3000/user',
@@ -9,7 +23,6 @@ async function getPremiumUsers(){
             }
         }
     )
-
     return response.json();
 }
 
@@ -47,39 +60,75 @@ const sendSubRequest = (id) => {
     }
 }
 
+// try {
+//     const formData = new FormData();
+//     formData.append("session_id", getCookie("PHPSESSID") || "");
+//     request("POST", "/api/premium/get_subscribed_artists.php", formData, (data) => {
+//         console.log(data);
+//         const res = JSON.parse(data);
+
+//         if (res["status"] != 200){
+//             alert(res["message"]);
+//             console.log(res);
+//             return;
+//         }
+//         artistsList = res.data;
+//         console.log(artistsList)
+//     })
+// } catch (err) {
+//     alert(err);
+//     return;
+// }
+
 const loadPremiumUsers = () => {
     getPremiumUsers().then(
         (resp) => {
-            console.log(resp.data)
             var content = ``;
-    
-            resp.data.forEach((item) => {
-                // STUB: cek dulu dia udah subscribe ke user ini ato belum
-                // nanti bikin endpoint php buat dapetin list yg dia subscreb siapa aja
-                // ntar cocokin creator_id sama artist_id di sini
-                // sekarang anggep udah subscreb semua dulu ya
-                const isSubscribed = false
-    
-                content += `
-                    <div class="row">
-                        <p class="row-title">${item["name"]}</p>
-                        <p class="row-p">${item["username"]}</p>
-                        <p class="row-p">${item["email"]}</p>
-                        <button
-                            onclick =
-                            ${
-                                isSubscribed  ?
-                                `redirectTo("${item["_id"]}");`
-                                :
-                                `sendSubRequest("${item["_id"]}")` // subscreb. jgn lupa cek login dulu kalo mo subscreb
-                            }
-                        >
-                            ${isSubscribed ? "Details" : "Subscribe"}
-                        </button>
-                    </div>
-                    `;
-            });
-            document.getElementById("pagination-content").innerHTML = content;
+            var artistsList = [];
+            try {
+                const formData = new FormData();
+                formData.append("session_id", getCookie("PHPSESSID") || "");
+                request("POST", "/api/premium/get_subscribed_artists.php", formData, (data) => {
+                    const res = JSON.parse(data);
+                    if (res["status"] != 200){
+                        alert(res["message"]);
+                        console.log(res);
+                        return;
+                    }
+                    artistsList = res.data;
+                    
+ 
+                    resp.data.forEach((item) => {
+                        if (artistsList.includes(item["_id"])){
+                            isSubscribed = true;
+                        }
+            
+                        content += `
+                            <div class="row">
+                                <p class="row-title">${item["name"]}</p>
+                                <button
+                                    onclick =
+                                    ${
+                                        isSubscribed  ?
+                                        `redirectTo("${item["_id"]}");`
+                                        :
+                                        `sendSubRequest("${item["_id"]}")` // subscreb. jgn lupa cek login dulu kalo mo subscreb
+                                    }
+                                >
+                                    ${isSubscribed ? "Details" : "Subscribe"}
+                                </button>
+                            </div>
+                            `;
+                    });
+                    document.getElementById("pagination-content").innerHTML = content;
+                })
+            } catch (err) {
+                alert(err);
+                return;
+            }
+
+            
+            
         },
         (err) => alert(err)
     )

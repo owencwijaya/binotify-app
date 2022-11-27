@@ -17,7 +17,7 @@ const redirectTo = (id) => {
     window.location = `song_list.html?song_id=${song_id}`
 }
 
-const loadPremiumUsers = () => {
+const loadPremiumSongs = () => {
     const params = new URLSearchParams(window.location.search);
     const user_id = params.get("id")
     getPremiumSongList(user_id).then(

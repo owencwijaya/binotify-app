@@ -74,6 +74,7 @@
     session_regenerate_id();
     $session_id = session_id();
     $_SESSION["username"] = $username;
+    $_SESSION["user_id"] = $user_data["user_id"];
     $_SESSION["isadmin"] = $user_data["isadmin"];
 
     http_response_code(200);
