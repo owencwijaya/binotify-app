@@ -1,6 +1,8 @@
-async function getPremiumSongList(user_id){
+async function getPremiumSongList(artist_id){
+    const logged_user = sessionStorage.getItem("user_id");
+    alert(logged_user);
     const response = await fetch(
-        `http://localhost:3000/user/${user_id}/songs`,
+        `http://localhost:3000/user/${artist_id}/songs?user_id=${logged_user}`,
         {
             method: 'GET',
             // mode: 'cors', 
@@ -24,6 +26,11 @@ const loadPremiumSongs = () => {
         (resp) => {
             console.log(resp.data)
             var content = ``;
+
+            if (resp.status != 200){
+                alert(resp.message);
+                location.href = '/premium_artist.html'
+            }
     
             resp.data.forEach((item) => {
 

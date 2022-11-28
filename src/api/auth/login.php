@@ -86,7 +86,8 @@
                 [
                     "username" => $username,
                     "session_id" => $session_id,
-                    "isadmin" => $user_data["isadmin"]
+                    "isadmin" => $user_data["isadmin"],
+                    "user_id" => $user_data["user_id"]
                 ]
             )
         ]

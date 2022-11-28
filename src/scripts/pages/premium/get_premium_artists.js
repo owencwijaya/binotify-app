@@ -1,17 +1,3 @@
-// const getPremiumUsers = () => {
-//     fetch(
-//         'http://localhost:3000/user',
-//         {
-//             method: 'GET',
-//             // mode: 'cors', 
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             }
-//         }
-//     )
-//     .then((response) => console.log(response.json()))
-// }
-
 async function getPremiumUsers(){
     const response = await fetch(
         'http://localhost:3000/user',
@@ -60,25 +46,6 @@ const sendSubRequest = (id) => {
     }
 }
 
-// try {
-//     const formData = new FormData();
-//     formData.append("session_id", getCookie("PHPSESSID") || "");
-//     request("POST", "/api/premium/get_subscribed_artists.php", formData, (data) => {
-//         console.log(data);
-//         const res = JSON.parse(data);
-
-//         if (res["status"] != 200){
-//             alert(res["message"]);
-//             console.log(res);
-//             return;
-//         }
-//         artistsList = res.data;
-//         console.log(artistsList)
-//     })
-// } catch (err) {
-//     alert(err);
-//     return;
-// }
 
 const loadPremiumUsers = () => {
     getPremiumUsers().then(
@@ -97,7 +64,7 @@ const loadPremiumUsers = () => {
                     }
                     artistsList = res.data;
                     
- 
+                    const isSubscribed = false;
                     resp.data.forEach((item) => {
                         if (artistsList.includes(item["_id"])){
                             isSubscribed = true;

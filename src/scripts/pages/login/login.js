@@ -8,6 +8,7 @@ const loginCallback = (data) => {
     
     if (res["status"] === 200) {
         window.location = "/index.html"
+        sessionStorage.setItem("user_id", sentData["user_id"]);
     } else {
         document.getElementById("login-error-message").innerHTML = res["message"]
     }
