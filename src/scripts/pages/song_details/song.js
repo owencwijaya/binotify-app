@@ -1,4 +1,4 @@
-const player = document.getElementById("player");
+let player;
 const footer_btn_play = document.getElementById("footer-btn-play");
 const seek_bar = document.getElementById("seek-bar");
 const volume_bar = document.getElementById("volume-bar");
@@ -6,6 +6,30 @@ const current_time = document.getElementById("current-time");
 const mute_btn = document.getElementById("mute");
 const loop_btn = document.getElementById("loop");
 let raf = null;
+
+const play_and_pause_premium = (index) => {
+  const btn_play = document.getElementsByClassName("play-btn-small")[index];
+  const footer_container = document.getElementById("footer-container");
+  player = document.getElementById("player");
+  player.paused = true;
+  console.log(player.innerHTML)
+  if (player.paused) {
+    footer_container.classList.remove("hidden");
+    player.play();
+    requestAnimationFrame(whilePlaying);
+    btn_play.innerHTML = `
+          <img src="assets/icons/pause.png" alt="pause" class="play-btn-small-icon" />
+        `;
+    footer_btn_play.src = "assets/icons/pause.png";
+  } else {
+    player.pause();
+    cancelAnimationFrame(raf);
+    btn_play.innerHTML = `
+          <img src="assets/icons/play.png" alt="play" class="play-btn-small-icon" />
+        `;
+    footer_btn_play.src = "assets/icons/play.png";
+  }
+}
 
 const play_and_pause = () => {
   const btn_play = document.getElementById("btn-play");
