@@ -48,7 +48,7 @@
     $user_data = $data->fetch_array(MYSQLI_ASSOC);
     $subscriber_id = $user_data['user_id'];
 
-    $query = "SELECT * FROM subscription WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id; AND status != 'REJECTED'";    
+    $query = "SELECT * FROM subscription WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id AND `status` != 'REJECTED'";    
     $data = $conn->query($query);
 
     if ($conn->error){
@@ -77,6 +77,7 @@
     $params = array(
         "creator_id" => $creator_id,
         "subscriber_id" => (int)$subscriber_id,
+        "api_key" => getenv("SOAP_API_KEY")
     );
 
     try{

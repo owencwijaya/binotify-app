@@ -10,6 +10,8 @@ services:
       - ./src:/usr/src
       - ./custom.ini:/usr/local/etc/php/conf.d/custom.ini
       - ./custom.ini:/usr/local/etc/php/php.ini-custom
+    environment:
+      - SOAP_API_KEY=987654321
     ports:
       - 8000:8000
     extra_hosts:
