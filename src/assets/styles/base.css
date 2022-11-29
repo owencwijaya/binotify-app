@@ -126,12 +126,12 @@ button {
   color: black;
   background-color: #cccccc;
   display: inline;
-  margin: 1vh 1vw;
-  padding: 2vh 2vw;
-  border-radius: 10px;
+  /* margin: 1vh 1vw; */
+  /* padding: 2vh 2vw; */
+  /* border-radius: 10px; */
   border: 0px solid black;
   font-family: "Montserrat";
-  transition-duration: 0.4s;
+  /* transition-duration: 0.4s; */
 }
 
 button:hover {
@@ -261,6 +261,10 @@ td {
 .username {
   font-size: 14px;
   font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }
 
 .footer {
