@@ -5,13 +5,18 @@ const createNavbar = (data) => {
 
   document.getElementById("navigation-container").innerHTML = `
     <nav class="sidebar bg-black flex flex-col">
-      <a class="logo" href="/">
-        <img
-          src="assets/images/binotify.png"
-          alt="Binotify"
-          class="logo-img"
-        />
-      </a>
+      <div class=" logo flex flex-row justify-between items-center">
+        <a href="/">
+          <img
+            src="assets/images/binotify.png"
+            alt="Binotify"
+            class="logo-img"
+          />
+        </a>
+        <button onclick="closeNavbarMobile()" id="close-icon" class="hidden">
+          <img src="assets/icons/close.png" alt="close"/>
+        </button>
+      </div>
       <div id="menu" class="menu flex flex-col">
         <a href="index.html" class="menu-item flex flex-row items-center 
         ${location.href.includes("index.html") && `sidebar-selected`}">

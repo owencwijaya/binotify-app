@@ -75,3 +75,15 @@ const close_modal = () => {
 const isOnlyAlphaNumeric = (value) =>{
   return (/(^[a-zA-Z0-9]+$)/).test(value.replaceAll(" ", ""))
 }
+
+const showNavbarMobile = () => {
+  console.log("show navbar")
+  let navbar_container = document.getElementById("navigation-container")
+  navbar_container.getElementsByTagName("nav")[0].classList.add("mobile-nav")
+}
+
+const closeNavbarMobile = () => {
+  console.log("close navbar")
+  let navbar_container = document.getElementById("navigation-container")
+  navbar_container.getElementsByTagName("nav")[0].classList.remove("mobile-nav")
+}

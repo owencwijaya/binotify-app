@@ -15,8 +15,13 @@
     <div id="navigation-container"></div>
 
     <div class="content">
-      <div class="content-header flex flex-row justify-end">
-        <div id="searchbar"></div>
+      <div class="content-header flex flex-row justify-between">
+        <div class="flex flex-row">
+          <button id="burger-icon" class="flex flex-row items-center hidden" onclick="showNavbarMobile()">
+            <img src="assets/icons/burger-bar.png" alt="burger-icon" />
+          </button>
+          <div id="searchbar"></div>
+        </div>
         <div class="user flex flex-row items-center">
           <a id="username" class="username" href="./login.html">Log In</a>
           <img src="assets/icons/user.png" alt="user" class="user-img" />
