@@ -1,5 +1,5 @@
 async function getPremiumSongList(artist_id){
-    const logged_user = sessionStorage.getItem("user_id");
+    const logged_user = localStorage.getItem("user_id");
     alert(logged_user);
     const response = await fetch(
         `http://localhost:3000/user/${artist_id}/songs?user_id=${logged_user}`,
