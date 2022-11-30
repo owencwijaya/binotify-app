@@ -66,8 +66,6 @@ const loadPremiumSongs = () => {
                 location.href = '/premium_artist.html'
             }
 
-
-    
             resp.data.forEach((item, index) => {
                 let {judul, artist, duration, audio_path} = item;
                 content += `
@@ -87,7 +85,6 @@ const loadPremiumSongs = () => {
         (err) => alert(err)
     )
 
-    document.getElementById("pagination-content").innerHTML = content;
     setFooter("Placeholder", "", 50)
 }
 

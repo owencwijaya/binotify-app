@@ -64,12 +64,10 @@ const loadPremiumUsers = () => {
                     }
                     artistsList = res.data;
                     
-                    var isSubscribed = false;
+
                     resp.data.forEach((item) => {
-                        if (artistsList.includes(item["_id"])){
-                            isSubscribed = true;
-                        }
-            
+
+                        const isSubscribed = artistsList.includes(item["_id"])
                         content += `
                             <div class="row">
                                 <p class="row-title">${item["name"]}</p>
