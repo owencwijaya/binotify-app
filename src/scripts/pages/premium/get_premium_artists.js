@@ -64,7 +64,7 @@ const loadPremiumUsers = () => {
                     }
                     artistsList = res.data;
                     
-                    const isSubscribed = false;
+                    var isSubscribed = false;
                     resp.data.forEach((item) => {
                         if (artistsList.includes(item["_id"])){
                             isSubscribed = true;
