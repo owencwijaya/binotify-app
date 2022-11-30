@@ -1,4 +1,4 @@
-let player;
+const player =document.getElementById("player");
 const footer_btn_play = document.getElementById("footer-btn-play");
 const seek_bar = document.getElementById("seek-bar");
 const volume_bar = document.getElementById("volume-bar");
@@ -10,9 +10,6 @@ let raf = null;
 const play_and_pause_premium = (index) => {
   const btn_play = document.getElementsByClassName("play-btn-small")[index];
   const footer_container = document.getElementById("footer-container");
-  player = document.getElementById("player");
-  player.paused = true;
-  console.log(player.innerHTML)
   if (player.paused) {
     footer_container.classList.remove("hidden");
     player.play();

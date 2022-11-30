@@ -20,15 +20,35 @@ const redirectTo = (id) => {
 }
 
 const setPlayer = ({index, judul, audio_path, raw_duration}) => {
-    console.log("Set song", index)
-    setFooter(judul, audio_path, raw_duration)
+    let pagination_contents = document.getElementById("pagination-content")
+    let rows = pagination_contents.getElementsByClassName("premium-row")
+    let player = document.getElementById("player")
+
+    for (let i = 0; i < rows.length; i++){
+        let row = rows[i]
+        let play_btn = row.getElementsByClassName("play-btn-small")[0]
+        if (index === i) {
+            row.classList.add("active-play")
+            if (player.paused) {
+                play_btn.innerHTML = `<img src="assets/icons/pause.png" alt="pause" class="play-btn-small-icon" />`
+            } else {
+                play_btn.innerHTML = `<img src="assets/icons/play.png" alt="play" class="play-btn-small-icon" />`
+            }
+        } else {
+            row.classList.remove("active-play")
+            play_btn.innerHTML = `<img src="assets/icons/play.png" alt="play" class="play-btn-small-icon" />`
+        }
+    }
+
+    if (document.getElementById("song-judul").innerHTML !== judul) {
+        setFooter(judul, audio_path, raw_duration)
+    }
     play_and_pause_premium(index)
 }
 
 const setFooter = (judul, audio_path, raw_duration) => {
     document.getElementById("song-judul").innerHTML = judul;
-    let player = `<source src="${audio_path}" />`;
-    document.getElementById("player").innerHTML = player;
+    document.getElementById("player").src = audio_path;
     let duration = getDuration(raw_duration);
     document.getElementById("duration").innerHTML = duration;
 }

@@ -172,6 +172,18 @@ body {
   visibility: visible;
 }
 
+.active-play {
+  background-color: rgba(48, 48, 48, 0.4);
+}
+
+.active-play .play-btn-small{
+  visibility: visible;
+}
+
+.active-play .row-index-p{
+  visibility: hidden;
+}
+
 .play-btn-small {
   width: 30px;
   height: 30px;
