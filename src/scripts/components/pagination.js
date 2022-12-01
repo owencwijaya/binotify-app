@@ -1,7 +1,7 @@
 const createPagination = (title, needsFilter, isForAlbumDetail = false, isAdmin = false) => {
   document.getElementById("pagination-container").innerHTML = `
         <div id = "pagination-header">
-            <h2>| ${title} List</h2>
+            <h2 id = "pagination-title">| ${title} List</h2>
             ${
               needsFilter
                 ? `

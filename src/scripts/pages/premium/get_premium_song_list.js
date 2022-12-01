@@ -15,10 +15,6 @@ async function getPremiumSongList(artist_id){
     return response.json();
 }
 
-const redirectTo = (id) => {
-    window.location = `song_list.html?song_id=${song_id}`
-}
-
 const setPlayer = ({index, judul, audio_path}) => {
     let pagination_contents = document.getElementById("pagination-content")
     let rows = pagination_contents.getElementsByClassName("premium-row")
@@ -69,7 +65,10 @@ const loadPremiumSongs = () => {
                 location.href = '/premium_artist.html'
             }
 
-            resp.data.forEach((item, index) => {
+            document.title = resp.data.name + " | BiNotify"
+            document.getElementById("pagination-title").innerHTML = resp.data.name
+
+            resp.data.songs.forEach((item, index) => {
                 let {judul, audio_path} = item;
                 content += `
                 <div class="premium-row justify-start">
@@ -87,73 +86,7 @@ const loadPremiumSongs = () => {
         },
         (err) => alert(err)
     )
-    // let songs = [
-    //     {
-    //         "judul": "Lagu 1",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Lagu 2",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Baru",
-    //         "audio_path": "../../../assets/songs/Baru.mp3"
-    //     },
-    //     {
-    //         "judul": "Lagu 1",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Lagu 2",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Baru",
-    //         "audio_path": "../../../assets/songs/Baru.mp3"
-    //     },
-    //     {
-    //         "judul": "Lagu 1",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Lagu 2",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Baru",
-    //         "audio_path": "../../../assets/songs/Baru.mp3"
-    //     },
-    //     {
-    //         "judul": "Lagu 1",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Lagu 2",
-    //         "audio_path": "https://firebasestorage.googleapis.com/v0/b/binotify-premium.appspot.com/o/files%2FKunto%20Aji%20-%20Rehat.mp3?alt=media&token=c73b8160-82e4-40cd-b40c-7fea073ed133"
-    //     },
-    //     {
-    //         "judul": "Baru",
-    //         "audio_path": "../../../assets/songs/Baru.mp3"
-    //     },
-    // ]
 
-    // let content = ``;
-    // songs.forEach((item, index) => {
-    //     let {judul, audio_path} = item;
-    //     content += `
-    //         <div class="premium-row justify-start">
-    //             <div class="row-index">
-    //                 <p class="row-index-p">${index+1}</p>
-    //                 <button class="play-btn-small" onclick="setPlayer({'index': ${index}, 'judul': '${judul}', 'audio_path': '${audio_path}', 'raw_duration': '${duration}'})">
-    //                     <img src="assets/icons/play.png" alt="play" class="play-btn-small-icon" />
-    //                 </button>
-    //             </div>
-    //             <p class="row-title">${item["judul"]}</p>
-    //         </div>
-    //     `;
-    // })
-    // document.getElementById("pagination-content").innerHTML = content;
     setFooter("Placeholder", "")
 }
 
