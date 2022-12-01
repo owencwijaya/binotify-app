@@ -63,12 +63,21 @@ const loadPremiumUsers = () => {
                         console.log(res);
                         return;
                     }
-                    artistsList = res.data;
+
+                    const lists = JSON.parse(res["data"])
+ 
+                    const acceptedList = lists.accepted_list;
+                    const pendingList = lists.pending_list;
+                    const rejectedList = lists.rejected_list;
                     
+                    console.log(acceptedList, pendingList, rejectedList)
 
                     resp.data.forEach((item, index) => {
 
-                        const isSubscribed = artistsList.includes(item["_id"])
+                        const isAccepted = acceptedList.includes(item["_id"]);
+                        const isPending = pendingList.includes(item["_id"]);
+                        const isRejected = rejectedList.includes(item["_id"]);
+
                         content += `
                             <div class="premium-row flex flex-row justify-between">
                                 <div class="flex flex-row items-center">
@@ -78,16 +87,18 @@ const loadPremiumUsers = () => {
                                     <p class="row-title">${item["name"]}</p>
                                 </div>
                                 <div>
-                                    <button class="btn-subs"
+                                    <button class=${isRejected ? "btn-subs-rejected" : "btn-subs"}
                                         onclick =
                                         ${
-                                            isSubscribed  ?
+                                            isAccepted  ?
                                             `redirectTo("${item["_id"]}");`
-                                            :
-                                            `sendSubRequest("${item["_id"]}")` // subscreb. jgn lupa cek login dulu kalo mo subscreb
+                                            : isPending ?
+                                                `sendSubRequest("${item["_id"]}")`
+                                                :
+                                                `` // subscreb. jgn lupa cek login dulu kalo mo subscreb
                                         }
                                     >
-                                        ${isSubscribed ? "Details" : "Subscribe"}
+                                        ${isAccepted ? "Details" : isPending ? "Subscribe" : "Rejected"}
                                     </button>
                                 </div>
                             </div>

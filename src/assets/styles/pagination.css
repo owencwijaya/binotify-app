@@ -214,3 +214,17 @@ body {
   color: white;
   cursor: pointer;
 }
+
+.btn-subs-rejected {
+  width: 100px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: #b91d1d ;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-subs-rejected:active{
+  background-color: #b91d1d;
+  box-shadow: 1px -1px 10px 0px #b91d1d;
+}

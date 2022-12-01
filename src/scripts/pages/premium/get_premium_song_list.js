@@ -1,6 +1,5 @@
 async function getPremiumSongList(artist_id){
     const logged_user = getCookie("user_id")
-    alert(logged_user);
     const response = await fetch(
         `http://localhost:3000/user/${artist_id}/songs?user_id=${logged_user}`,
         {

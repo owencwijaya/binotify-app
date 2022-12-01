@@ -40,7 +40,9 @@
 
     $subs = ((array)((array)$response)["subscription-lists"])["subscription"];
 
-    $artists_list = [];
+    $accepted_list = [];
+    $pending_list = [];
+    $rejected_list = [];
 
     for ($i = 0; $i < count($subs); $i++){
         $subs[$i] = (array)$subs[$i];
@@ -50,7 +52,11 @@
         $subscriber_id = $subs[$i]["subscriber_id"];
 
         if ($status == 'ACCEPTED'){
-            array_push($artists_list, $creator_id);
+            array_push($accepted_list, $creator_id);
+        } else if ($status == 'REJECTED'){
+            array_push($rejected_list, $creator_id);
+        } else if ($status == 'PENDING'){
+            array_push($pending_list, $creator_id);
         }
 
         $query = "UPDATE subscription SET `status` = '$status' WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id";    
@@ -73,7 +79,11 @@
         [
             "status" => 200,
             "message" => "Success",
-            "data" => $artists_list
+            "data" => json_encode([
+                "accepted_list" => $accepted_list,
+                "pending_list" => $pending_list,
+                "rejected_list" => $rejected_list
+            ])
         ]
     ));
 
