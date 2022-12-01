@@ -43,5 +43,6 @@
     <script>
         window.onload = createPagination("Premium Artists", false, true);
         window.onload = loadPremiumUsers();
+        window.onload = setInterval(loadPremiumUsers, 10000);
     </script>
 </html>

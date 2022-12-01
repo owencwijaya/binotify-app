@@ -56,6 +56,7 @@ const loadPremiumUsers = () => {
                 const formData = new FormData();
                 formData.append("session_id", getCookie("PHPSESSID") || "");
                 request("POST", "/api/premium/get_subscribed_artists.php", formData, (data) => {
+                    console.log(data)
                     const res = JSON.parse(data);
                     if (res["status"] != 200){
                         alert(res["message"]);
@@ -93,6 +94,7 @@ const loadPremiumUsers = () => {
                             `;
                     });
                     document.getElementById("pagination-content").innerHTML = content;
+                    console.log("putang ina si optimum pride")
                 })
             } catch (err) {
                 alert(err);

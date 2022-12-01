@@ -2,6 +2,9 @@
     include("../connect.php");
     include("../connect_soap.php");
 
+    $soap_client = new SoapClient("http://host.docker.internal:4000/binotify-soap/services/subscription/addSubs?wsdl", $params); 
+
+    
     $creator_id = $_POST["creator_id"];
     $session_id = $_POST["session_id"];
 
@@ -74,16 +77,16 @@
     }
 
 
-    $params = array(
+    $query_params = array(
         "creator_id" => $creator_id,
         "subscriber_id" => (int)$subscriber_id,
         "api_key" => getenv("SOAP_API_KEY")
     );
 
     try{
-        $response = $soap_client->__soapCall("addSubs", $params);
+        $response = $soap_client->__soapCall("addSubs", $query_params);
     } catch (Exception $e){
-        http_response_code(200);
+        http_response_code(500);
         exit(json_encode(
             [
                 "status" => 500,

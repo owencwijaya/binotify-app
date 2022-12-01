@@ -1,6 +1,9 @@
 <?php
     session_start();
     include("../connect.php");
+    include("../connect_soap.php");
+
+    $soap_client = new SoapClient("http://host.docker.internal:4000/binotify-soap/services/subscription/getUserSubs?wsdl", $params); 
 
     $session_id = $_POST["session_id"];
 
@@ -17,39 +20,52 @@
         ));
     }
 
-    $user_id = intval($_SESSION["user_id"]);
+    $query_params = array(
+        "api_key" => getenv("SOAP_API_KEY"),
+        "user_id" => intval($_SESSION["user_id"])
+    );
 
-    $query = "SELECT creator_id FROM subscription WHERE subscriber_id = $user_id AND status = 'ACCEPTED'";
-    $data = $conn->query($query);
-
-    if ($conn->error){
+    try{
+        $response = $soap_client->__soapCall("getUserSubs", $query_params);
+    } catch (Exception $e){
         http_response_code(500);
         exit(json_encode(
             [
                 "status" => 500,
-                "message" => "Internal server error",
-                "data" => $conn->error
+                "message" => "Error in getting subscription",
+                "data" => $e->getMessage()
             ]
         ));
     }
 
-    $artists = [];
+    $subs = ((array)((array)$response)["subscription-lists"])["subscription"];
 
-    if ($data->num_rows == 0) {
-        http_response_code(200);
-        exit(json_encode(
-            [
-                "status" => 200,
-                "message" => "Success",
-                "data" => []
-            ]
-        ));
-    }
+    $artists_list = [];
 
+    for ($i = 0; $i < count($subs); $i++){
+        $subs[$i] = (array)$subs[$i];
 
+        $status = $subs[$i]["status"];
+        $creator_id = $subs[$i]["creator_id"];
+        $subscriber_id = $subs[$i]["subscriber_id"];
 
-    while ($row = $data->fetch_assoc()) {
-        $artists[] = $row["creator_id"];
+        if ($status == 'ACCEPTED'){
+            array_push($artists_list, $creator_id);
+        }
+
+        $query = "UPDATE subscription SET `status` = '$status' WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id";    
+        $data = $conn->query($query);
+    
+        if ($conn->error){
+            http_response_code(500);
+            exit(json_encode(
+                [
+                    "status" => 500,
+                    "message" => "Internal server error $username",
+                    "data" => $conn->error
+                ]
+            ));
+        }
     }
     
     http_response_code(200);
@@ -57,7 +73,7 @@
         [
             "status" => 200,
             "message" => "Success",
-            "data" => $artists
+            "data" => $artists_list
         ]
     ));
 
