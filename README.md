@@ -16,15 +16,23 @@ Perangkat lunak yang dibutuhkan untuk bisa mengoperasikan BiNotify adalah:
 - Docker Compose versi 1.26.2, <a href = "https://docs.docker.com/compose/install/">*panduan instalasi* </a>
 - _Operating system_ berbasis _WIndows 10_ atau _Linux Ubuntu 20.04_
 
+Pengguna juga harus melakukan _setup_ terkait repo berikut:
+1. <a href = "https://gitlab.informatika.org/if3110-2022-k01-02-11/binotify-config">BiNotify Config</a>, untuk mengakses database utama (**wajib** untuk penggunaan umum)
+2. <a href = "https://gitlab.informatika.org/if3110-2022-k01-02-11/binotify-soap">BiNotify SOAP</a>, _SOAP server_ untuk melakukan pemeriksaan _subscription_
+3. <a href = "https://gitlab.informatika.org/if3110-2022-k01-02-11/binotify-rest>">BiNotify REST</a>, _REST server_ untuk mendapatkan daftar pengguna 
 ## Instalasi dan Pemakaian
-Instalasi dapat digunakan menggunakan perintah `docker-compose` seperti berikut:
+1. Lakukan _fork_ terhadap _repository_ ini dan ketiga _repository_ di atas
+2. Lakukan urutan menjalankan konfigurasi _Docker_ mengikuti urutan: **BiNotify Config -> BiNotify SOAP -> BiNotify REST**
+> - Pada _root folder_ tiap _repository_ di _local computer_ anda, lakukan perintah
 ```
 docker-compose down && docker-compose build && docker-compose up
 ```
-atau menggunakan `Makefile`,
+> - Detail lebih lanjut dapat dilihat pada README.md masing-masing _repository_
+3. Untuk _BiNotify App_, instalasi dapat digunakan menggunakan perintah `docker-compose` seperti berikut:
 ```
-make down build run
+docker-compose down && docker-compose build && docker-compose up
 ```
+
 Apabila proses instalasi berhasil,
 - Aplikasi dapat diakses pada `http://localhost:8001`, dengan login dilakukan pada `http://localhost:8001/login.html` dengan kredensial berikut:
 ```
@@ -36,13 +44,15 @@ Password: dummy
 Username: admin
 Password: admin
 ```
+
 - Adminer (antarmuka basis data) dapat diakses pada `http://localhost:8080` dengan kredensial berikut:
 ```
-Server: database-tubes-1-wbd
-Username: tubes
-Password: tubes
-Database: tubes_wbd
+Server: db-binotify
+Username: root
+Password: root
+Database: binotify-app
 ```
+**[IMPORTANT]** Pastikan _repository_ BiNotify Config sudah dijalankan!
 
 Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digunakan untuk proses lain, _port_ dapat diganti pada konfigurasi `docker-compose.yml`
 
@@ -88,6 +98,16 @@ Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digu
 
 ![readme/edit_song.png](readme/edit_song.png)
 
+## Tambahan untuk _Milestone 2_
+### Halaman Daftar Artis Premium
+
+![readme/premi_artists.png](readme/premi_artists.png)
+### Halaman Daftar Lagu Premium
+
+![readme/premi_songlist.png](readme/premi_songlist.png)
+
+
+
 
 ## Pembagian Tugas
 Secara umum, pembagian tugas dilakukan dengan setiap anggota melakukan pengembangan di _server side_ maupun _client side_ berdasarkan _groundwork_ yang sudah dibuat. Pengecualian terkhusus pada pembuatan komponen _reusable_ dan CSS yang digunakan bersama. 
@@ -106,6 +126,8 @@ Legenda NIM adalah sebagai berikut:
 - Halaman Tambah Lagu: 13520043
 - Halaman Tambah Album: 13520043
 - Halaman Daftar User: 13520124
+- Halaman Daftar Artis Premium: 13520117, 13520124
+- Halaman Daftar Lagu Premium per Artis: 13520117, 13520124
 
 ### Client Side
 - Halaman Login + Register: 13520124
@@ -117,4 +139,7 @@ Legenda NIM adalah sebagai berikut:
 - Halaman Tambah Lagu: 13520043
 - Halaman Tambah Album: 13520043
 - Halaman Daftar User: 13520117, 13520124
+- Halaman Daftar Artis Premium: 13520117, 13520124
+- Halaman Daftar Lagu Premium per Artis: 13520117, 13520124
+
 
