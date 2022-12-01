@@ -8,7 +8,8 @@ const loginCallback = (data) => {
     
     if (res["status"] === 200) {
         window.location = "/index.html"
-        localStorage.setItem("user_id", sentData["user_id"]);
+        document.cookie = `user_id=${sentData["user_id"]}`
+        alert(document.cookie)
     } else {
         document.getElementById("login-error-message").innerHTML = res["message"]
     }
