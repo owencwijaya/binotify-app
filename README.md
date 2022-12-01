@@ -1,6 +1,6 @@
 ![src/assets/images/binotify.png](src/assets/images/binotify.png)
 # BiNotify: Aplikasi Web Pemutar Lagu menggunakan _Monolithic PHP_ dan _Vanilla Web Application_
-> Implementasi untuk Tugas Besar 1 IF3110 Pengembangan Berbasis Web, Prodi Informatika ITB Tahun Ajaran 2022/2023
+> Implementasi untuk Tugas Besar 1 dan 2 IF3110 Pengembangan Berbasis Web, Prodi Informatika ITB Tahun Ajaran 2022/2023
 
 
 ## Deskripsi
@@ -98,7 +98,6 @@ Apabila proses instalasi tidak berhasil karena _port_ yang digunakan sedang digu
 
 ![readme/edit_song.png](readme/edit_song.png)
 
-## Tambahan untuk _Milestone 2_
 ### Halaman Daftar Artis Premium
 
 ![readme/premi_artists.png](readme/premi_artists.png)
