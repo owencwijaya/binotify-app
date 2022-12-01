@@ -92,13 +92,12 @@ const loadPremiumUsers = () => {
                                         ${
                                             isAccepted  ?
                                             `redirectTo("${item["_id"]}");`
-                                            : isPending ?
-                                                `sendSubRequest("${item["_id"]}")`
-                                                :
-                                                `` // subscreb. jgn lupa cek login dulu kalo mo subscreb
+                                            : 
+                                            `sendSubRequest("${item["_id"]}")`
+
                                         }
                                     >
-                                        ${isAccepted ? "Details" : isPending ? "Subscribe" : "Rejected"}
+                                        ${isAccepted ? "Details" : isPending ? "Pending" : isRejected ? "Rejected" : "Subscribe"}
                                     </button>
                                 </div>
                             </div>
