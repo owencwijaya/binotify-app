@@ -44,12 +44,11 @@
     $pending_list = [];
     $rejected_list = [];
 
-    for ($i = 0; $i < count($subs); $i++){
-        $subs[$i] = (array)$subs[$i];
+    if (gettype($subs) == "object"){
 
-        $status = $subs[$i]["status"];
-        $creator_id = $subs[$i]["creator_id"];
-        $subscriber_id = $subs[$i]["subscriber_id"];
+        $status = $subs->status;
+        $creator_id = $subs->creator_id;
+        $subscriber_id = $subs->subscriber_id;
 
         if ($status == 'ACCEPTED'){
             array_push($accepted_list, $creator_id);
@@ -58,22 +57,39 @@
         } else if ($status == 'PENDING'){
             array_push($pending_list, $creator_id);
         }
-
-        $query = "UPDATE subscription SET `status` = '$status' WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id";    
-        $data = $conn->query($query);
+    } else if (gettype($subs) == "array"){
+        for ($i = 0; $i < count($subs); $i++){
+            $subs[$i] = (array)$subs[$i];
     
-        if ($conn->error){
-            http_response_code(500);
-            exit(json_encode(
-                [
-                    "status" => 500,
-                    "message" => "Internal server error $username",
-                    "data" => $conn->error
-                ]
-            ));
-        }
+    
+            $status = $subs[$i]["status"];
+            $creator_id = $subs[$i]["creator_id"];
+            $subscriber_id = $subs[$i]["subscriber_id"];
+    
+            if ($status == 'ACCEPTED'){
+                array_push($accepted_list, $creator_id);
+            } else if ($status == 'REJECTED'){
+                array_push($rejected_list, $creator_id);
+            } else if ($status == 'PENDING'){
+                array_push($pending_list, $creator_id);
+            }
+    
+            $query = "UPDATE subscription SET `status` = '$status' WHERE creator_id = '$creator_id' AND subscriber_id = $subscriber_id";    
+            $data = $conn->query($query);
+        
+            if ($conn->error){
+                http_response_code(500);
+                exit(json_encode(
+                    [
+                        "status" => 500,
+                        "message" => "Internal server error $username",
+                        "data" => $conn->error
+                    ]
+                ));
+            }
+        }    
     }
-    
+
     http_response_code(200);
     exit(json_encode(
         [

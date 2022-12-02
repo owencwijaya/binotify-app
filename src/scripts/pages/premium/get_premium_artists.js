@@ -104,7 +104,6 @@ const loadPremiumUsers = () => {
                             `;
                     });
                     document.getElementById("pagination-content").innerHTML = content;
-                    console.log("putang ina si optimum pride")
                 })
             } catch (err) {
                 alert(err);
