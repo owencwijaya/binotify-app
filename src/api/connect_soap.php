@@ -20,6 +20,4 @@
         'connection_timeout' => 180,
         'stream_context' => stream_context_create($opts)
     );
-
-    // $soap_client = new SoapClient("http://host.docker.internal:4000/binotify-soap/services/subscription/addSubs?wsdl", $params); 
 ?>
