@@ -1,4 +1,5 @@
 const registerCallback = (data) => {
+    console.log(data)
     const res = JSON.parse(data)
 
     alert(res["message"]);

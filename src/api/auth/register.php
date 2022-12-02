@@ -39,8 +39,9 @@
     // test if inputting data succeed or not
     $hashed_password = hash('ripemd160', $password);
 
-    $query = "INSERT INTO user (`name`, username, email, `password`) VALUES 
-            ('$name', '$username', '$email', '$hashed_password');";
+    $query = "INSERT INTO user (`name`, username, email, `password`, `isadmin`) VALUES 
+            ('$name', '$username', '$email', '$hashed_password', 0);";
+
 
     if (!($conn->query($query))) {
         http_response_code(500);
