@@ -69,7 +69,6 @@
             VALUES ('$judul', '$penyanyi', '$imgPath', '$genre', '$tanggal_terbit', 0);";
     
     
-
     if(!$conn->query($query)){
         http_response_code(501);
         exit(json_encode(

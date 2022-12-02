@@ -1,4 +1,5 @@
 const addAlbumCallback = (data) =>{    
+
     try{
         let res = JSON.parse(data); //gws
         if(res["status"] === 200){
